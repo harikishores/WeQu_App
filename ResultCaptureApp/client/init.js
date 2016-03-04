@@ -15,6 +15,8 @@ Meteor.startup(function(){
 // 	}
 // }
 
-// Tracker.autorun(function(){
+Tracker.autorun(function(){
 
-// });
+});
+
+//This is a test change ongoing
