@@ -1,0 +1,778 @@
+/*--common--*/
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    font-family: "ralewayregular", sans-serif;
+    font-size: 15px;
+    line-height: 16px;
+}
+
+.mobileWrap {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.fontSize12 {
+    font-size: 12px;
+}
+
+.fontSize13 {
+    font-size: 13px;
+}
+
+.fontSize14 {
+    font-size: 14px;
+}
+
+.fontSize16 {
+    font-size: 16px;
+}
+
+.fontSize18 {
+    font-size: 18px;
+}
+
+.fontSize20 {
+    font-size: 20px;
+}
+
+.fontSize25 {
+    font-size: 25px;
+}
+
+.fontSize30 {
+    font-size: 30px;
+}
+
+.width100 {
+    width: 100%;
+}
+
+.nomargin {
+    margin: 0px;
+    margin: 0vh;
+}
+
+x:-o-prefocus,
+.nomargin {
+    margin: 0px;
+}
+
+.nopadding {
+    padding: 0px;
+}
+
+.paddingmain {
+    padding: 30px 0;
+}
+
+.row {
+    padding: 0 2%;
+}
+
+
+/*--background color--*/
+
+.greyBg {
+    background: #5E5E5E;
+}
+
+.whiteBg {
+    background: #fff;
+}
+
+.lightredbg {
+    background: #d0376f;
+}
+
+.brickredbg {
+    background: #e34338;
+}
+
+
+/*--Text color--*/
+
+.textWhite {
+    color: #fff;
+}
+
+.textgrey {
+    color: #000;
+}
+
+.textlightgrey {
+    color: #8AB0E3;
+}
+
+
+/*---Button--*/
+
+.btnWhite {
+    color: #000000;
+    background: #fff;
+    font-size: 18px;
+}
+
+.btnWhite:hover {
+    background: #e4e4e4;
+}
+
+.btnRedBorder {
+    background: #e96956;
+    border: 1px solid #fff;
+}
+
+.btnRedBorder:hover {
+    background: #f57d6b;
+}
+
+.btn,
+.btn-large,
+.btn-flat {
+    border-radius: 0px;
+    margin-top: 10px;
+    box-shadow: none;
+    font-weight: 600;
+}
+
+.btnradius10 {
+    border-radius: 10px;
+}
+
+.facebookbtn {
+    color: #3A5284;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.googleBtn {
+    color: #DF4F3D;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.facebookbtn .fa-facebook-square {
+    font-size: 28px;
+    vertical-align: middle;
+    padding-right: 10px;
+}
+
+.googleBtn .fa-google-plus {
+    font-size: 16px;
+    vertical-align: middle;
+    margin-right: 10px;
+    border-radius: 35px;
+    background: #DF4F3D;
+    width: 30px;
+    padding: 7px 0;
+    color: #fff;
+}
+
+
+/*-- Start Page--*/
+
+.logo {
+    width: 166px;
+    width: 166px;
+    height: auto;
+    margin: 12% auto 0;
+    display: block;
+}
+
+.tagline {
+    font-size: 19px;
+    margin-top: 2%;
+    line-height: 30px;
+}
+
+.fadeIn,
+.bounceInDown {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-delay: 0s;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+}
+
+.taglineWrap {
+    -webkit-animation-duration: 4s;
+    -webkit-animation-delay: 1s;
+    animation-duration: 4s;
+    animation-delay: 1s;
+}
+
+.signinlink {
+    display: block;
+    font-size: 14px;
+}
+
+.startbottom {
+    bottom: 2%;
+}
+
+.startbtn {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-delay: 1s;
+    animation-duration: 1s;
+    animation-delay: 2s;
+}
+
+
+/*--Date Picker--*/
+
+.datefield {
+    position: relative;
+}
+
+.datefield label {
+    position: absolute;
+    top: 16px;
+    left: 11px;
+    text-indent: 5px;
+}
+
+.datefield input[type="date"] {
+    text-indent: 50px;
+}
+
+.picker__weekday-display {
+    background: #d55a48;
+}
+
+.picker__date-display,
+.picker__day--selected,
+.picker__day--selected:hover,
+.picker--focused .picker__day--selected {
+    background: #e96956;
+}
+
+.picker__close,
+.picker__today,
+.picker__day.picker__day--today {
+    color: #e96956;
+}
+
+button.picker__today:focus,
+button.picker__clear:focus,
+button.picker__close:focus {
+    background-color: #f8a498;
+}
+
+
+/*start screen*/
+
+.startscreenwrap {
+    background-image: url(../images/startbg.png);
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+
+/*--Login & Register--*/
+
+.signInWrap,
+.profileOverview {
+    background-image: url(../images/greyiconicbg.png);
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.pagetitle {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 50px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.pagedesc {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.pagedesc2 {
+    color: #fff;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+
+.pagedescsmall {
+    font-size: 15px;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+x
+.postpermission {
+    margin-top: 10px;
+}
+
+.signuplink {
+    display: block;
+    font-size: 14px;
+}
+
+.signinlinkRegister {
+    display: block;
+    margin-top: 5px;
+}
+
+.formFieldWrap .row {
+    margin-bottom: 0px;
+}
+
+
+/*input field*/
+
+.input:not([type]),
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=url],
+input[type=time],
+input[type=date],
+input[type=datetime-local],
+input[type=tel],
+input[type=number],
+input[type=search],
+textarea.materialize-textarea {
+    border-bottom: 1px solid #fff;
+    color: #fff;
+}
+
+.input-field label {
+    color: #fff;
+    font-size: 14px;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}
+
+input:not([type]):focus:not([readonly]),
+input[type=text]:focus:not([readonly]),
+input[type=password]:focus:not([readonly]),
+input[type=email]:focus:not([readonly]),
+input[type=url]:focus:not([readonly]),
+input[type=time]:focus:not([readonly]),
+input[type=date]:focus:not([readonly]),
+input[type=datetime-local]:focus:not([readonly]),
+input[type=tel]:focus:not([readonly]),
+input[type=number]:focus:not([readonly]),
+input[type=search]:focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]),
+input:not([type]).valid,
+input:not([type]):focus.valid,
+input[type=text].valid,
+input[type=text]:focus.valid,
+input[type=password].valid,
+input[type=password]:focus.valid,
+input[type=email].valid,
+input[type=email]:focus.valid,
+input[type=url].valid,
+input[type=url]:focus.valid,
+input[type=time].valid,
+input[type=time]:focus.valid,
+input[type=date].valid,
+input[type=date]:focus.valid,
+input[type=datetime-local].valid,
+input[type=datetime-local]:focus.valid,
+input[type=tel].valid,
+input[type=tel]:focus.valid,
+input[type=number].valid,
+input[type=number]:focus.valid,
+input[type=search].valid,
+input[type=search]:focus.valid,
+textarea.materialize-textarea.valid,
+textarea.materialize-textarea:focus.valid {
+    border-bottom: 1px solid #fff;
+    box-shadow: None;
+}
+
+.input:not([type]):focus:not([readonly])+label,
+input[type=text]:focus:not([readonly])+label,
+input[type=password]:focus:not([readonly])+label,
+input[type=email]:focus:not([readonly])+label,
+input[type=url]:focus:not([readonly])+label,
+input[type=time]:focus:not([readonly])+label,
+input[type=date]:focus:not([readonly])+label,
+input[type=datetime-local]:focus:not([readonly])+label,
+input[type=tel]:focus:not([readonly])+label,
+input[type=number]:focus:not([readonly])+label,
+input[type=search]:focus:not([readonly])+label,
+textarea.materialize-textarea:focus:not([readonly])+label {
+    color: #fff;
+    opacity: 1.0;
+    filter: alpha(opacity=100);
+}
+
+input:not([type]).invalid+label:after,
+input:not([type]):focus.invalid+label:after,
+input[type=text].invalid+label:after,
+input[type=text]:focus.invalid+label:after,
+input[type=password].invalid+label:after,
+input[type=password]:focus.invalid+label:after,
+input[type=email].invalid+label:after,
+input[type=email]:focus.invalid+label:after,
+input[type=url].invalid+label:after,
+input[type=url]:focus.invalid+label:after,
+input[type=time].invalid+label:after,
+input[type=time]:focus.invalid+label:after,
+input[type=date].invalid+label:after,
+input[type=date]:focus.invalid+label:after,
+input[type=datetime-local].invalid+label:after,
+input[type=datetime-local]:focus.invalid+label:after,
+input[type=tel].invalid+label:after,
+input[type=tel]:focus.invalid+label:after,
+input[type=number].invalid+label:after,
+input[type=number]:focus.invalid+label:after,
+input[type=search].invalid+label:after,
+input[type=search]:focus.invalid+label:after,
+textarea.materialize-textarea.invalid+label:after,
+textarea.materialize-textarea:focus.invalid+label:after {
+    width: 240px;
+}
+
+input:not([type]).invalid,
+input:not([type]):focus.invalid,
+input[type=text].invalid,
+input[type=text]:focus.invalid,
+input[type=password].invalid,
+input[type=password]:focus.invalid,
+input[type=email].invalid,
+input[type=email]:focus.invalid,
+input[type=url].invalid,
+input[type=url]:focus.invalid,
+input[type=time].invalid,
+input[type=time]:focus.invalid,
+input[type=date].invalid,
+input[type=date]:focus.invalid,
+input[type=datetime-local].invalid,
+input[type=datetime-local]:focus.invalid,
+input[type=tel].invalid,
+input[type=tel]:focus.invalid,
+input[type=number].invalid,
+input[type=number]:focus.invalid,
+input[type=search].invalid,
+input[type=search]:focus.invalid,
+textarea.materialize-textarea.invalid,
+textarea.materialize-textarea:focus.invalid {
+    border-bottom: 1px solid #dd361d;
+    box-shadow: none;
+}
+
+input:not([type]).invalid+label:after,
+input:not([type]):focus.invalid+label:after,
+input[type=text].invalid+label:after,
+input[type=text]:focus.invalid+label:after,
+input[type=password].invalid+label:after,
+input[type=password]:focus.invalid+label:after,
+input[type=email].invalid+label:after,
+input[type=email]:focus.invalid+label:after,
+input[type=url].invalid+label:after,
+input[type=url]:focus.invalid+label:after,
+input[type=time].invalid+label:after,
+input[type=time]:focus.invalid+label:after,
+input[type=date].invalid+label:after,
+input[type=date]:focus.invalid+label:after,
+input[type=datetime-local].invalid+label:after,
+input[type=datetime-local]:focus.invalid+label:after,
+input[type=tel].invalid+label:after,
+input[type=tel]:focus.invalid+label:after,
+input[type=number].invalid+label:after,
+input[type=number]:focus.invalid+label:after,
+input[type=search].invalid+label:after,
+input[type=search]:focus.invalid+label:after,
+textarea.materialize-textarea.invalid+label:after,
+textarea.materialize-textarea:focus.invalid+label:after {
+    color: #ff4326;
+}
+
+
+/*input field*/
+
+
+/*file upload css*/
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+    background-color: #5e5e5e;
+    height: 120px;
+    width: 120px;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    border-radius: 60px;
+    border: 1px solid #fff;
+}
+
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    height: 100%;
+    text-align: center;
+}
+
+.custom-span {
+    background: url(../images/profileicon.png) no-repeat;
+    height: 59px;
+    width: 50px;
+    display: block;
+    margin-left: 35px;
+    margin-top: 25px;
+}
+
+#uploadFile {
+    border: none;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    font-family: "ralewayregular", sans-serif;
+    opacity: 0.5;
+    margin-bottom: 0px;
+    filter: alpha(opacity=50);
+    display: block;
+    display: 100%;
+}
+
+#uploadFile::webkit-input-placeholder {
+  text-align: center;
+}
+
+x:-o-prefocus,
+.custom-span {
+    margin-top: 5px;
+}
+
+
+/*file upload css*/
+
+
+/*--Select css--*/
+
+.select-wrapper span.caret {
+    color: #fff;
+}
+
+.select-wrapper input.select-dropdown {
+    border-bottom: 1px solid #FFFFFF;
+}
+
+.dropdown-content li>a,
+.dropdown-content li>span {
+    color: #000;
+}
+
+select {
+    display: block;
+}
+
+
+/*background-color: rgba(255,255,255,0);
+    padding: 5px 0px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid #FFFFFF;
+    border-radius: 0px;
+    height: 2rem;
+    outline:0px;
+    color: #fff;
+    opacity: 0.8;
+    filter: alpha(opacity=80);*/
+
+
+/*
+select:focus{
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid #FFFFFF;
+    outline:0px;
+}
+select:focus, select:active, select:visited{
+    opacity: 1.0;
+    filter: alpha(opacity=100);
+}
+option{
+    display: 100%;
+    background: #fff;
+    padding: 0px;
+    color: #333;
+}
+*/
+
+.selectwrap select {
+    padding: 0px;
+    margin: 0;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    background: rgba(255, 255, 255, 0);
+    color: rgba(255, 255, 255, 0.7);
+    border-right: none;
+    border-left: none;
+    border-top: none;
+    border-bottom: 1px solid #FFFFFF;
+    border-radius: 0px;
+    outline: none;
+    display: inline-block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    height: 44px;
+}
+
+x:-o-prefocus,
+.selectwrap select {
+    height: 30px;
+    padding-bottom: 14px;
+}
+
+
+/* Targetting Webkit browsers only. FF will show the dropdown arrow with so much padding. */
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .selectwrap select {
+        padding-right: 18px
+    }
+}
+
+.input-field .selectwrap label {
+    position: relative;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    filter: alpha(opacity=100);
+    padding: 14px 0;
+    margin: 0px;
+}
+
+.selectwrap option {
+    display: 100%;
+    background: #fff;
+    padding: 0px;
+    color: #333;
+    padding: 10px 0;
+}
+
+.selectwrap label:after {
+    content: '<>';
+    font: 14px "Consolas", monospace;
+    color: #fff;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    right: 2px;
+    top: 12px;
+    padding: 0 0 0px;
+    position: absolute;
+    pointer-events: none;
+}
+
+.selectwrap label:before {
+    content: '';
+    right: 0px;
+    top: 0px;
+    width: 20px;
+    height: 44px;
+    position: absolute;
+    background: #5e5e5e;
+}
+
+
+/*-- opera only fix--*/
+
+
+/*--registration--*/
+
+.formFieldWrap input:not([type]),
+.formFieldWrap input[type=text],
+.formFieldWrap input[type=password],
+.formFieldWrap input[type=email],
+.formFieldWrap input[type=url],
+.formFieldWrap input[type=time],
+.formFieldWrap input[type=date],
+.formFieldWrap input[type=datetime-local],
+.formFieldWrap input[type=tel],
+.formFieldWrap input[type=number],
+.formFieldWrap input[type=search],
+.formFieldWrap textarea.materialize-textarea,
+.formFieldWrap #uploadFile {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+formFieldWrap input:not([type]),
+.formFieldWrap input[type=text],
+.formFieldWrap input[type=password],
+.formFieldWrap input[type=email],
+.formFieldWrap input[type=url],
+.formFieldWrap input[type=tel],
+.formFieldWrap input[type=number],
+.formFieldWrap input[type=search],
+.formFieldWrap textarea.materialize-textarea,
+.formFieldWrap #uploadFile {
+    text-indent: 5px;
+}
+
+.btngapwrap .btn,
+.btngapwrap .btn-large,
+.btngapwrap .btn-flat {
+    margin-top: 20px;
+}
+
+
+/*--overview--*/
+
+.logoText {
+    width: 100%;
+    display: block;
+}
+
+.logoText img {
+    width: 125px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}

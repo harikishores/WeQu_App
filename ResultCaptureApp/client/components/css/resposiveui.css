@@ -1,0 +1,61 @@
+.btn-large@media only screen and (min-width: 1200px) {}
+
+@media only screen and (max-width: 1200px) {}
+
+@media (max-width: 990px) {}
+
+@media (min-width: 991px) {}
+
+@media (max-width:800px) {}
+
+@media (max-width:720px) {}
+
+@media (max-width: 668px) {}
+
+@media (max-width: 520px) {}
+
+@media (max-width: 420px) {
+    .btn-large {
+        height: 50px;
+        line-height: 50px;
+    }
+    .btnradius10 {
+        border-radius: 5px;
+    }
+    .logo {
+        width: 140px;
+        width: 140px;
+        height: auto;
+        margin: 24% auto 0;
+        display: block;
+    }
+    .taglineinner {
+        font-size: 16px;
+        line-height: 25px;
+    }
+    .btnWhite {
+        font-size: 17px;
+    }
+    
+    .facebookbtn{
+        font-size: 15px;
+    }
+
+    .googleBtn{
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 320px) {
+    .btnWhite {
+        font-size: 16px;
+    }
+    
+    .facebookbtn{
+        font-size: 14px;
+    }
+
+    .googleBtn{
+        font-size: 14px;
+    }
+}
