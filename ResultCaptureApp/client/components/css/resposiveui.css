@@ -10,9 +10,29 @@
 
 @media (max-width:720px) {}
 
-@media (max-width: 668px) {}
+@media (max-width: 668px) {
+    .cardTypeGameText {
+        height: 43px;
+        line-height: 43px;
+    }
+    .cardTypeGameText {
+        font-size: 18px;
+    }
+    .cardCategoryName{
+        font-size: 15px;
+    }
+}
 
-@media (max-width: 520px) {}
+@media (max-width: 520px) {
+    
+    .listtitle {
+        font-size: 18px;
+    }
+    .cardTypeGameText {
+        height: 43px;
+        line-height: 21px;
+    }
+}
 
 @media (max-width: 420px) {
     .btn-large {
@@ -36,13 +56,69 @@
     .btnWhite {
         font-size: 17px;
     }
-    
-    .facebookbtn{
-        font-size: 15px;
+    .facebookbtn {
+        font-size: 13px;
+        padding: 0 2px;
     }
-
-    .googleBtn{
-        font-size: 15px;
+    .googleBtn {
+        font-size: 13px;
+    }
+    .facebookbtn .fa-facebook-square{
+        padding-right: 0px;
+    }
+    .listtitle {
+        font-size: 18px;
+    }
+    .backbtn {
+        width: 27px;
+        height: auto;
+    }
+    .listtitletext {
+        height: 29px;
+        line-height: 29px;
+    }
+    .titlebarBack {
+        padding-top: 80px;
+    }
+    .slidemenu [type="radio"]:not(:checked)+label,
+    .slidemenu [type="radio"]:checked+label {
+        font-size: 16px;
+    }
+    .scoreDetails p {
+        font-size: 16px;
+    }
+    .skillsTab>.row>p {
+        font-size: 16px;
+    }
+    .ProgressTab,
+    .blackbg {
+        min-height: 100%;
+    }
+    .frndImg {
+        width: 60px;
+        height: 60px;
+        border-radius: 30px;
+    }
+    .frndName {
+        margin-top: 15px;
+    }
+    .selectbutton {
+        margin-top: 15px;
+    }
+    .notificationIcon,
+    .notificationIcon img {
+        margin-top: 10px;
+    }
+    .signuplink {
+        font-size: 12px;
+    }
+    .noOfGames,
+    .frndName {
+        font-size: 12px;
+    }
+    .cardTypeGameText {
+        height: 43px;
+        line-height: 21px;
     }
 }
 
@@ -50,12 +126,10 @@
     .btnWhite {
         font-size: 16px;
     }
-    
-    .facebookbtn{
+    .facebookbtn {
         font-size: 14px;
     }
-
-    .googleBtn{
+    .googleBtn {
         font-size: 14px;
     }
 }

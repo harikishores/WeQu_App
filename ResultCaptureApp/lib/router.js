@@ -23,7 +23,9 @@ Router.route('/dashboard', {
 	template: 'dashboard'
 });
 
-
+Router.route('/resultCapture', {
+	template: 'resultCapture'
+});
 // Router.onBeforeAction(function(){
 // 	if (Meteor.loggingIn()){
 // 		this.render('loading');

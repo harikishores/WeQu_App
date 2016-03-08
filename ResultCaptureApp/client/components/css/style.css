@@ -27,6 +27,10 @@ html {
     text-align: center;
 }
 
+.text-left {
+    text-align: left;
+}
+
 .bold {
     font-weight: 700;
 }
@@ -78,7 +82,7 @@ x:-o-prefocus,
 }
 
 .nopadding {
-    padding: 0px;
+    padding: 0px !important;
 }
 
 .paddingmain {
@@ -87,6 +91,11 @@ x:-o-prefocus,
 
 .row {
     padding: 0 2%;
+}
+
+.img100 {
+    width: 100%;
+    height: auto;
 }
 
 
@@ -152,6 +161,7 @@ x:-o-prefocus,
     margin-top: 10px;
     box-shadow: none;
     font-weight: 600;
+    padding: 0 5px;
 }
 
 .btnradius10 {
@@ -295,12 +305,13 @@ button.picker__close:focus {
 .signInWrap,
 .profileOverview {
     background-image: url(../images/greyiconicbg.png);
-    background-size: cover;
+    /*background-size: cover;
     -moz-background-size: cover;
     -webkit-background-size: cover;
-    -o-background-size: cover;
+    -o-background-size: cover;*/
     width: 100%;
     height: 100%;
+    position: relative;
 }
 
 .pagetitle {
@@ -325,7 +336,6 @@ button.picker__close:focus {
     text-align: center;
 }
 
-
 .pagedescsmall {
     font-size: 15px;
     color: #fff;
@@ -333,8 +343,7 @@ button.picker__close:focus {
     text-align: center;
 }
 
-x
-.postpermission {
+x .postpermission {
     margin-top: 10px;
 }
 
@@ -574,7 +583,7 @@ textarea.materialize-textarea:focus.invalid+label:after {
 }
 
 #uploadFile::webkit-input-placeholder {
-  text-align: center;
+    text-align: center;
 }
 
 x:-o-prefocus,
@@ -768,11 +777,1545 @@ formFieldWrap input:not([type]),
 .logoText {
     width: 100%;
     display: block;
+    margin-bottom: 10px;
 }
 
 .logoText img {
-    width: 125px;
+    width: 80px;
     height: auto;
     margin: 0 auto;
     display: block;
+}
+
+
+/*--overview Cont--*/
+
+.scoreHeader {
+    background: #5e5e5e;
+    padding: 20px;
+    border: 1px #555 solid;
+    position: relative;
+    padding-left: 100px;
+    min-height: 100px;
+}
+
+.scoreWheel {
+    position: absolute;
+    top: 18px;
+    left: 17px;
+    display: inline-block;
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    background: rgba(61,61,61,1);
+    background: -moz-linear-gradient(45deg, rgba(61,61,61,1) 0%, rgba(61,61,61,1) 33%, rgba(208,55,111,1) 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(61,61,61,1)), color-stop(33%, rgba(61,61,61,1)), color-stop(100%, rgba(208,55,111,1)));
+    background: -webkit-linear-gradient(45deg, rgba(61,61,61,1) 0%, rgba(61,61,61,1) 33%, rgba(208,55,111,1) 100%);
+    background: -o-linear-gradient(45deg, rgba(61,61,61,1) 0%, rgba(61,61,61,1) 33%, rgba(208,55,111,1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(61,61,61,1) 0%, rgba(61,61,61,1) 33%, rgba(208,55,111,1) 100%);
+    background: linear-gradient(45deg, rgba(61,61,61,1) 0%, rgba(61,61,61,1) 33%, rgba(208,55,111,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d3d3d', endColorstr='#d0376f', GradientType=1 );
+}
+
+.scoreWheel1 {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    display: inline-block;
+    height: 61px;
+    width: 61px;
+    border-radius: 50%;
+    background: #5e5e5e;
+    
+}
+
+.scoreDetails {
+    padding-left: 20px;
+}
+
+.scoreDetails p {
+    color: #FFF;
+    font-size: 18px;
+    margin-bottom: 10px;
+    line-height: 21px;
+}
+
+.scoreDetails span {
+    color: #FFF;
+    font-size: 12px;
+    margin: 10px 0 0;
+    display: block;
+}
+
+.scoreWheel span {
+    color: #FFF;
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    height: 59px;
+    line-height: 58px;
+}
+
+.scoreWheel1 span {
+    color: #FFF;
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    height: 59px;
+    line-height: 58px;
+}
+
+.scoreGraphHolder,
+.overviewPositiveEssance,
+.skillsTab,
+.ProgressTab,
+.blackbg {
+    background: #4b4b4b;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.ProgressTab,
+.blackbg {
+    min-height: 100%;
+}
+
+.friendlistWrap {
+    padding: 25px 0 95px 0
+}
+
+.scoreGraphHolder img {
+    width: 65%;
+    display: inline-block;
+    max-width: 300px;
+}
+
+.bottomButtonBackground {
+    background-image: url(../images/greyiconicbg.png);
+    /*background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;*/
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.profileOverview {
+    position: fixed;
+    padding-top: 113px;
+    overflow: auto;
+    width: 100%;
+    padding-bottom: 100px;
+}
+
+.screenFixedTop {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding-top: 20px;
+    background-image: url(../images/greyiconicbg.png);
+    /*background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;*/
+}
+
+.scoreCardsHolder .row .col {
+    padding: 0 5px;
+}
+
+.scoreCardsHolder>p, p.gameoverviewHead {
+    color: #FFF;
+    text-align: center;
+}
+
+.gameoverviewHead{
+    line-height: 20px;
+    text-transform: uppercase;
+}
+.roundedCard {
+    width: 100%;
+    height: 155px;
+    background-color: #AAA;
+    border-radius: 10px;
+    box-shadow: 0 2px 2px #222;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.cardsHolder {
+    margin-top: 20px;
+}
+
+.commentHolderOuter {
+    margin-top: 20px;
+    padding: 0 10px;
+}
+
+.overviewTab,
+.skillsTab,
+.ProgressTab {
+    padding-top: 20px 0;
+}
+
+.commentHolder {
+    background: #5d5d5d;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.personalValueCard {
+    background-image: -webkit-linear-gradient(top, #f894b9 0%, #d0376f 50%);
+    background-image: -moz-linear-gradient(top, #f894b9 0%, #d0376f 50%);
+    background-image: -o-linear-gradient(top, #f894b9 0%, #d0376f 50%);
+    background-image: -ms-linear-gradient(top, #f894b9 0%, #d0376f 50%);
+    background-image: linear-gradient(top, #f894b9 0%, #d0376f 50%);
+}
+
+.problemSolvingCard {
+    background-image: -webkit-linear-gradient(top, #c4e0ca 0%, #3fa033 50%);
+    background-image: -moz-linear-gradient(top, #c4e0ca 0%, #3fa033 50%);
+    background-image: -o-linear-gradient(top, #c4e0ca 0%, #3fa033 50%);
+    background-image: -ms-linear-gradient(top, #c4e0ca 0%, #3fa033 50%);
+    background-image: linear-gradient(top, #c4e0ca 0%, #3fa033 50%);
+}
+
+.selfManagementcard {
+    background-image: -webkit-linear-gradient(top, #e5d7ed 0%, #9964b8 50%);
+    background-image: -moz-linear-gradient(top, #e5d7ed 0%, #9964b8 50%);
+    background-image: -o-linear-gradient(top, #e5d7ed 0%, #9964b8 50%);
+    background-image: -ms-linear-gradient(top, #e5d7ed 0%, #9964b8 50%);
+    background-image: linear-gradient(top, #e5d7ed 0%, #9964b8 50%);
+}
+
+.communicationCard {
+    background-image: -webkit-linear-gradient(top, #7ddbff 0%, #2baadb 50%);
+    background-image: -moz-linear-gradient(top, #7ddbff 0%, #2baadb 50%);
+    background-image: -o-linear-gradient(top, #7ddbff 0%, #2baadb 50%);
+    background-image: -ms-linear-gradient(top, #7ddbff 0%, #2baadb 50%);
+    background-image: linear-gradient(top, #7ddbff 0%, #2baadb 50%);
+}
+
+.teamworkCard {
+    background-image: -webkit-linear-gradient(top, #ffa984 0%, #f46021 50%);
+    background-image: -moz-linear-gradient(top, #ffa984 0%, #f46021 50%);
+    background-image: -o-linear-gradient(top, #ffa984 0%, #f46021 50%);
+    background-image: -ms-linear-gradient(top, #ffa984 0%, #f46021 50%);
+    background-image: linear-gradient(top, #ffa984 0%, #f46021 50%);
+}
+
+.leadershipCard {
+    background-image: -webkit-linear-gradient(top, #5366ae 0%, #1c307e 50%);
+    background-image: -moz-linear-gradient(top, #5366ae 0%, #1c307e 50%);
+    background-image: -o-linear-gradient(top, #5366ae 0%, #1c307e 50%);
+    background-image: -ms-linear-gradient(top, #5366ae 0%, #1c307e 50%);
+    background-image: linear-gradient(top, #5366ae 0%, #1c307e 50%);
+}
+
+.cardsmall {
+    height: 100px;
+    width: 70%;
+    margin-top: 20px;
+}
+
+.cardsmallleft {
+    float: right;
+}
+
+
+/*Specify the icons for different card as the background image of the ":after" element of every card*/
+
+
+.roundedCard:after {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    /*background-image: url("../images/initiative_small.png");*/
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    content: "";
+    border-radius: 10px;
+}
+/*--Personal value--*/
+.integrity:after {
+    background-image: url("../images/integrity_small.png");
+}
+.trustworthy:after {
+    background-image: url("../images/trustworthy_small.png");
+}
+.peoplefocused:after {
+    background-image: url("../images/peoplefocused_small.png");
+}
+.businessfocused:after {
+    background-image: url("../images/businessfocused_small.png");
+}
+
+/*--Problem solving--*/
+
+
+
+/*.communicationCard:after {
+    background-image: url("");
+}
+
+.teamworkCard:after {
+    background-image: url("");
+}
+
+.leadershipCard:after {
+    background-image: url("");
+}
+
+.personalValueCard:after {
+    background-image: url("../images/businessfocused_small.png");
+}*/
+/*-- All cards--*/
+
+
+
+.textSmall {
+    font-size: 11px;
+}
+
+.commentText {
+    color: #FFF;
+    font-size: 15px;
+    line-height: 16px;
+    margin-bottom: 10px;
+}
+
+.commentDetails {
+    color: #FFF;
+    font-size: 11px;
+}
+
+.skillsTab {}
+
+.skillsTab>.row>p {
+    color: #FFF;
+    text-align: left;
+    font-size: 18px;
+}
+
+.progressHolder {
+    margin: 15px 0 25px;
+}
+
+.progressBar {
+    position: relative;
+    height: 20px;
+    background: #5d5d5d;
+    width: 100%;
+    border-radius: 20px;
+    margin: 5px 0;
+}
+
+.progressInner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 50%;
+    background: #F00;
+    border-radius: 20px;
+}
+
+.progressName {
+    position: absolute;
+    left: 0;
+    padding-left: 10px;
+    height: 20px;
+    line-height: 20px;
+    color: #FFF;
+    font-size: 12px;
+}
+
+.progressScore {
+    position: absolute;
+    height: 20px;
+    line-height: 20px;
+    color: #FFF;
+    font-size: 12px;
+    right: 0;
+    padding-right: 10px;
+}
+
+.personalValue .progressInner {
+    background: #d0376f
+}
+
+.problemSolving .progressInner {
+    background: #3fa033
+}
+
+.selfManagement .progressInner {
+    background: #9964b8
+}
+
+.communication .progressInner {
+    background: #2baadb
+}
+
+.teamwork .progressInner {
+    background: #f46021
+}
+
+.leadership .progressInner {
+    background: #1c307e
+}
+
+
+/*--overview Cont--*/
+
+
+/*sliding Navigation*/
+
+.clear {
+    clear: both;
+}
+
+.slide-toggle {
+    display: none;
+}
+
+.slidemenu {
+    font-family: arial, sans-serif;
+    max-width: 100%;
+    margin: 0px auto;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: none;
+    height: auto;
+    padding: 0 10px;
+}
+
+.slidemenu label {
+    width: 33%;
+    text-align: center;
+    display: block;
+    float: left;
+    color: #fff;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}
+
+.slidemenu label:focus {
+    background: none;
+}
+
+.slidemenu label:hover {
+    cursor: pointer;
+    color: #fff;
+}
+
+.slidemenu label span {
+    display: block;
+    padding: 10px 0;
+    text-align: center;
+    font-family: "ralewayregular", sans-serif;
+    outline: none;
+    border: none;
+}
+
+
+/*Bar Style*/
+
+.slider {
+    width: 100%;
+    height: 5px;
+    display: block;
+    background: (255, 255, 255, 0);
+    margin-top: 0px;
+    border-radius: 5px;
+}
+
+.slider .bar {
+    width: 33.5%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+
+/*Animations*/
+
+.slidemenu label,
+.slider .bar {
+    transition: all 500ms ease-in-out;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+}
+
+
+/*Toggle*/
+
+.slidemenu .slide-toggle:checked + label {
+    opacity: 1.0;
+    filter: alpha(opacity=100);
+}
+
+.slidemenu [type="radio"]:checked+label:after {
+    opacity: 0.0;
+    filter: alpha(opacity=0);
+    border: none;
+    background-color: rgba(38, 166, 154, 0);
+}
+
+.slidemenu [type="radio"]:not(:checked)+label,
+.slidemenu [type="radio"]:checked+label {
+    padding-left: 0px;
+    font-size: 18px;
+    height: auto;
+    line-height: 25px;
+}
+
+.slidemenu [type="radio"]+label:before,
+.slidemenu [type="radio"]+label:after,
+.slidemenu [type="radio"]:checked+label:before,
+.slidemenu [type="radio"]:not(:checked)+label:before {
+    height: 0px;
+    width: 0px;
+    border: none;
+    margin: 0px;
+}
+
+.slidemenu [type="radio"]:not(:checked)+label,
+.slidemenu [type="radio"]:checked+label {}
+
+.slidemenu #slide-item-1:checked ~ .slider .bar {
+    margin-left: 0%;
+}
+
+.slidemenu #slide-item-2:checked ~ .slider .bar {
+    margin-left: 33.5%;
+}
+
+.slidemenu #slide-item-3:checked ~ .slider .bar {
+    margin-left: 67%;
+}
+
+.overviewScoreScreen {}
+
+
+/* Frind Invitation*/
+
+.backbtn {
+    width: 40px;
+    height: auto;
+}
+
+.listtitle span, .listtitle a.listtitleimg {
+    float: left;
+    display: block
+}
+
+.listtitletext {
+    height: 39px;
+    line-height: 39px;
+    margin-left: 10px;
+}
+
+.listtitle {
+    clear: both;
+    overflow: hidden;
+    margin-top: 6px;
+}
+
+.titlebarBack {
+    padding-top: 90px;
+}
+
+
+/* Frind Invitation*/
+
+.friendlistItem {
+    padding: 10px 0;
+    border-bottom: 1px solid #484747;
+}
+
+.friendlistItem:hover, .friendlistItem.active {
+    background: #D0376F;
+    background: rgba(208, 55, 111, 0.7);
+}
+
+.friendInvitationTitle {
+    background: rgba(208, 55, 111, 0.3);
+    color: #fff;
+    clear: both;
+    overflow: hidden;
+    padding: 4px 0;
+    margin-top: 20px;
+}
+
+.calloutSmall,
+.commentTitle {
+    float: left;
+    display: block;
+    line-height: 20px;
+}
+
+.calloutSmall {
+    margin-right: 10px;
+}
+
+.calloutSmall img {
+    width: 13px;
+    height: auto;
+    margin-top: 2px;
+}
+
+.notificationIcon,
+.notificationIcon img {
+    float: left;
+    margin-top: 13px;
+}
+
+.notificationIcon img {
+    width: 20px;
+    height: auto;
+}
+
+.frndImg {
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+}
+
+.nopaddingRight {
+    padding-right: 0px !important;
+}
+
+.selectbutton {
+    padding: 0 10px;
+    margin-top: 0px;
+    float: right;
+    font-size: 12px;
+    background: rgba(255, 255, 255, 0);
+    border: 1px solid #fff;
+    height: 33px;
+    line-height: 33px;
+    margin-top: 24px;
+}
+
+.selectbutton:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.frndName {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 24px;
+    text-align: left;
+}
+
+.noOfGames {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+.bottomButtonBackground .facebookbtn {
+    margin-top: 20px;
+}
+
+
+/*
+.personalValueCard:after {
+    background-image: url("");
+}
+
+.problemSolvingCard:after {
+    background-image: url("");
+}
+
+.selfManagementcard:after {
+    background-image: url("");
+}
+
+.communicationCard:after {
+    background-image: url("");
+}
+
+.teamworkCard:after {
+    background-image: url("");
+}
+
+.leadershipCard:after {
+    background-image: url("");
+}*/
+
+.roundedCard:after {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    /*background-image: url("../images/initiative_small.png");*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    content: "";
+    border-radius: 10px;
+}
+
+.cardTypeGame {
+    text-transform: uppercase;
+}
+
+.cardTypeGameText {
+    height: 43px;
+    line-height: 43px;
+    text-align: center;
+}
+
+.gameWrap {
+    padding: 60px 0 35px 0;
+}
+
+.listtitle span.cardTypeGame,
+.listtitle span.playerName {
+    float: none;
+    display: inline;
+}
+
+.textSmall {
+    font-size: 11px;
+}
+
+.commentText {
+    color: #FFF;
+    font-size: 15px;
+    line-height: 16px;
+    margin-bottom: 10px;
+}
+
+.commentDetails {
+    color: #FFF;
+    font-size: 11px;
+}
+
+.skillsTab {}
+
+.skillsTab>.row>p {
+    color: #FFF;
+    text-align: left;
+    font-size: 20px;
+}
+
+.progressHolder {
+    margin: 15px 0 25px;
+}
+
+.progressBar {
+    position: relative;
+    height: 20px;
+    background: #5d5d5d;
+    width: 100%;
+    border-radius: 20px;
+    margin: 5px 0;
+}
+
+.progressInner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 50%;
+    background: #F00;
+    border-radius: 20px;
+}
+
+.progressName {
+    position: absolute;
+    left: 0;
+    padding-left: 10px;
+    height: 20px;
+    line-height: 20px;
+    color: #FFF;
+    font-size: 12px;
+}
+
+.progressScore {
+    position: absolute;
+    height: 20px;
+    line-height: 20px;
+    color: #FFF;
+    font-size: 12px;
+    right: 0;
+    padding-right: 10px;
+}
+
+.personalValue .progressInner {
+    background: #d0376f
+}
+
+.problemSolving .progressInner {
+    background: #3fa033
+}
+
+.selfManagement .progressInner {
+    background: #9964b8
+}
+
+.communication .progressInner {
+    background: #2baadb
+}
+
+.teamwork .progressInner {
+    background: #f46021
+}
+
+.leadership .progressInner {
+    background: #1c307e
+}
+
+.bodyDarkBg {
+    background: #4b4b4b;
+    padding: 10px 0;
+}
+
+.screenFixedTop p {
+    color: #FFF;
+    line-height: 22px;
+}
+
+
+
+.cardSelector {
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    text-align: center;
+    z-index: 2;
+}
+
+.cardSelector [type="radio"]:checked+label:before {
+    top: -4px;
+    display: inline-block;
+    font-size: 12px;
+    left: 1px;
+    width: 8px;
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    -webkit-transform: rotateZ(37deg);
+    transform: rotateZ(37deg);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    z-index: 200;
+    position: absolute;
+    border-radius: 0px;
+}
+
+.cardSelector [type="radio"]+label {
+    padding-left: 25px;
+}
+
+.checkwrap {
+    margin-top: 20px;
+}
+
+.cardSelector [type="radio"]+label,
+.checkwrap [type="radio"]+label {
+    height: 22px;
+    line-height: 26px;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.cardSelector [type="radio"]:checked+label:after,
+.checkwrap [type="radio"]:checked+label:after {
+    border-radius: 10px;
+    border: 2px solid #fff;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.cardSelector [type="radio"]:not(:checked)+label:before,
+.checkwrap [type="radio"]:not(:checked)+label:before {
+    border-radius: 10px;
+    border: 2px solid #fff;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.cardSelector span,
+.checkwrap span {
+    color: #FFF;
+    text-transform: lowercase;
+}
+
+.selectedCard {
+    border: 1px #FFF solid;
+}
+
+.myActiveCard{
+    background-image: -webkit-linear-gradient(top, #615e62 0%, #564e5b 50%);
+    background-image: -moz-linear-gradient(top, #615e62 0%, #564e5b 50%);
+    background-image: -o-linear-gradient(top, #615e62 0%, #564e5b 50%);
+    background-image: -ms-linear-gradient(top, #615e62 0%, #564e5b 50%);
+    background-image: linear-gradient(top, #615e62 0%, #564e5b 50%);
+}
+
+.selectCardBottomButton {
+    position: absolute;
+    top: -50px;
+    height: 50px;
+    background: rgba(0, 0, 0, .5);
+    width: 100%;
+}
+
+.selectCardBottomButton:after {
+    content: "";
+    display: inline-block;
+    height: 42px;
+    width: 42px;
+    left: 50%;
+    margin-left: -21px;
+    border-radius: 50%;
+    background-color: #9964b8;
+    
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+    position: absolute;
+    top: 4px
+}
+
+
+.flowProgress {
+    position: absolute;
+    top: 0;
+    /*width: 16%;*/
+    height: 5px;
+    background: #d0376f;
+}
+
+.cardCategory {
+    background: none;
+}
+
+.btngapwrapgame .btn,
+.btngapwrapgame .btn-large,
+.btngapwrapgame .btn-flat {
+    margin-top: 20px;
+}
+
+.singleCenterCardHolder {
+    text-align: center;
+}
+
+.singleCenterCardHolder .roundedCard {
+    display: inline-block;
+    width: 28%;
+    height: 150px;
+}
+
+.textareaHolder {
+    padding: 20px 0;
+}
+
+.textareaHolder textarea {
+    border: none;
+    resize: none;
+    height: 200px;
+    text-align: center;
+    color: #FFF;
+}
+
+.gamestepwrap {
+    background-image: none;
+    background-color: #4b4b4b;
+}
+
+.gamestepwrap .btngapwrap .btn,
+.gamestepwrap .btngapwrap .btn-large,
+.gamestepwrap .btngapwrap .btn-flat {
+    margin-top: 10px;
+}
+
+.gamestepwrap .listtitle span {
+    float: none;
+    margin: 0 5px;
+}
+.gamestepwrap .listtitle span span{
+    margin: 0;
+}
+
+/*game Player loader screen*/
+.gamePlayerWrap{
+    width:100%; 
+    height:100%
+}
+
+.gamePlayerInner {
+    height: 50%;
+    background: #FF0;
+}
+
+.gamePlayerHolder {
+    height: 100%;
+}
+
+
+.gamePlayerInner >div {
+    
+    height: 100%;
+    width: 100%;
+}
+.player1 .gamePlTopImg{
+    position: relative;
+}
+
+.player1 .playerimg{
+    background-image: url("../images/susanne.png");
+    position: absolute;
+    opacity: 0.3;
+    filter: alpha(opacity=30);
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+.player2 .gamePlTopImg{
+    position: relative;
+}
+
+.player2 .playerimg{
+    background-image: url("../images/ohyoon.png");
+    position: absolute;
+    opacity: 0.3;
+    filter: alpha(opacity=30);
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+.gamePlayerInner span {
+    color: #FFF;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    position: absolute;
+    z-index: 12
+}
+
+.gamePlTopImg span {
+    bottom: 50%;
+}
+
+
+.logoHolder {
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    width: 100%;
+    z-index: 15;
+    background: url("../images/WeQu-Copy.png") no-repeat center / contain;
+}
+
+.gamePlayerInner:after {
+    display: inline-block;
+    content: "";
+    height: 100%;
+    width: 100%;
+    opacity: .72;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+}
+
+.player1{
+    background: -webkit-linear-gradient(right top, #53E254, #349548);
+    background: -ms-linear-gradient(right top, #53E254, #349548);
+    background: -o-linear-gradient(right top, #53E254, #349548);
+    background: -moz-linear-gradient(right top, #53E254, #349548);
+    height: 50%;
+}
+
+.player2 {
+    background: -webkit-linear-gradient(-45deg, #FF2900 0%, #EF7A54 50%, #F90000 100%);
+    background: -moz-linear-gradient(-45deg, #FF2900 0%, #EF7A54 50%, #F90000 100%);
+    background: -o-linear-gradient(-45deg, #FF2900 0%, #EF7A54 50%, #F90000 100%);
+    background: -ms-linear-gradient(-45deg, #FF2900 0%, #EF7A54 50%, #F90000 100%);
+}
+
+.gamedate{
+    display: block;
+}
+/*game profile overview*/
+.gameOverview .cardTypeGameText{
+    height: 60px;
+    line-height: 27px;
+}
+
+.gameOverview{
+    padding: 80px 0 0;
+}
+
+.carddescription{
+    margin-bottom: 30px;
+}
+
+.blankcard{
+    width: 100%;
+    height: 2px;
+    display: block;
+    float: left; 
+}
+.gameOverview .scoreCardsHolder{
+    padding: 40px 0;
+}
+
+.backgroundimage{
+    background-image: url(../images/greyiconicbg.png);
+    /*background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;*/
+}
+
+.frndImg1{
+    float: right;
+}
+.frndImg2{
+    float: left;
+}
+
+
+.frndImgLarge {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    border: 2px solid #fff;
+}
+
+.profileImage{
+    margin: 20px 0;
+}
+
+.profileMatchScore{
+    font-size: 40px;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+}
+
+.profileMatchDesc{
+    font-size: 11px;
+    color: #fff;
+    text-align: center;
+    margin-top: 30px;
+}
+
+/*game profile overview*/
+
+
+/*--All cards profile overview--*/
+
+/*--Card Game--*/
+
+/*--Personal value--*/
+.integrity:after {
+    background-image: url("../images/integrity_small.png");
+}
+.trustworthy:after {
+    background-image: url("../images/trustworthy_small.png");
+}
+.peoplefocused:after {
+    background-image: url("../images/peoplefocused_small.png");
+}
+.businessfocused:after {
+    background-image: url("../images/businessfocused_small.png");
+}
+
+/*--Problem solving--*/
+.creative:after {
+    background-image: url("../images/creativity_small.png");
+}
+.conceptualthinking:after {
+    background-image: url("../images/conceptualthinking_small.png");
+}
+.negotiation:after {
+    background-image: url("../images/negotiation_small.png");
+}
+.manageconflicts:after {
+    background-image: url("../images/manageconflict_small.png");
+}
+
+/*--Self management--*/
+.selflearner:after {
+    background-image: url("../images/selflearner_small.png");
+}
+.initiative:after {
+    background-image: url("../images/initiative_small.png");
+}
+/*no icon available*/
+.stresstolerance:after {
+    background-image: url("../images/resilient_small.png");
+}
+.persistence:after {
+    background-image: url("../images/persistence_small.png");
+}
+
+
+/*--Team Work--*/
+.assertive:after {
+    background-image: url("../images/assertive_small.png");
+}
+.facilitate:after {
+    background-image: url("../images/facilitation_small.png");
+}
+.acceptscriticisms:after {
+    background-image: url("../images/acceptcriticism_small.png");
+}
+.respectful:after {
+    background-image: url("../images/respectful_small.png");
+}
+
+
+/*--Leadership--*/
+.strategic:after {
+    background-image: url("../images/strategic_small.png");
+}
+.delegation:after {
+    background-image: url("../images/delegation_small.png");
+}
+.coaching:after {
+    background-image: url("../images/coaching_small.png");
+}
+.empathy:after {
+    background-image: url("../images/emphatic_small.png");
+}
+
+
+/*--Communication--*/
+.listening:after {
+    background-image: url("../images/listening_small.png");
+}
+.sociability:after {
+    background-image: url("../images/socialable_small.png");
+}
+.storytelling:after {
+    background-image: url("../images/storytelling_small.png");
+}
+.writtencommunication:after {
+    background-image: url("../images/writtencommunication_small.png");
+}
+
+/*--Icons for card game--*/
+
+/*
+.iconOne:after {
+    background-image: url("../images/initiative_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+
+.iconTwo:after {
+    background-image: url("../images/resilient_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+
+.iconThree:after {
+    background-image: url("../images/resilient_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+
+.iconFour:after {
+    background-image: url("../images/persistence_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+*/
+
+/*--All Icons card game--*/
+
+/*--Personal value--*/
+.gameWrap .integrity:after {
+    background-image: url("../images/integrity_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+..gameWrap trustworthy:after {
+    background-image: url("../images/trustworthy_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+.gameWrap .peoplefocused:after {
+    background-image: url("../images/peoplefocused_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+.gameWrap .businessfocused:after {
+    background-image: url("../images/businessfocused_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+
+/*--Problem solving--*/
+.gameWrap .creative:after {
+    background-image: url("../images/creativity_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+.gameWrap .conceptualthinking:after {
+    background-image: url("../images/conceptualthinking_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+.gameWrap .negotiation:after {
+    background-image: url("../images/negotiation_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+.gameWrap .manageconflicts:after {
+    background-image: url("../images/manageconflict_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+
+/*--Self management--*/
+.gameWrap .selflearner:after {
+    background-image: url("../images/selflearner_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+.gameWrap .initiative:after {
+    background-image: url("../images/initiative_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+/*no icon available*/
+.gameWrap .stresstolerance:after {
+    background-image: url("../images/resilient_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+.gameWrap .persistence:after {
+    background-image: url("../images/persistence_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+
+
+/*--Team Work--*/
+.gameWrap .assertive:after {
+    background-image: url("../images/assertive_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+.gameWrap .facilitate:after {
+    background-image: url("../images/facilitation_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+.gameWrap .acceptscriticisms:after {
+    background-image: url("../images/acceptcriticism_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+.gameWrap .respectful:after {
+    background-image: url("../images/respectful_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+
+
+/*--Leadership--*/
+.gameWrap .strategic:after {
+    background-image: url("../images/strategic_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+.gameWrap .delegation:after {
+    background-image: url("../images/delegation_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+.gameWrap .coaching:after {
+    background-image: url("../images/coaching_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+.gameWrap .empathy:after {
+    background-image: url("../images/emphatic_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+
+
+
+
+/*--Communication--*/
+.gameWrap .listening:after {
+    background-image: url("../images/listening_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+.gameWrap .sociability:after {
+    background-image: url("../images/socialable_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+.gameWrap .storytelling:after {
+    background-image: url("../images/storytelling_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+.gameWrap .writtencommunication:after {
+    background-image: url("../images/writtencommunication_small.png");
+    background-size: inherit;
+    background-position-y: 35px;
+}
+
+.gameWrap .myActiveCard:after{
+    background-position-y: 45px;
+}
+/*--card selected--*/
+
+/*color*/                              , 
+.selectCardBottomButton.personalValueCard:after{
+    background-color:#d0376f;
+}
+.selectCardBottomButton.problemSolvingCard:after{
+    background-color:#3fa033;
+}
+.selectCardBottomButton.selfManagementcard:after{
+    background-color:#9964b8;
+}
+.selectCardBottomButton.communicationCard:after{
+    background-color:#2baadb;
+}
+.selectCardBottomButton.teamworkCard:after{
+    background-color:#f46021;
+}
+.selectCardBottomButton.leadershipCard:after{
+    background-color:#1c307e;
+}
+
+/*icon*/
+.selectCardBottomButton.integrity:after{
+    background-image: url("../images/integrity_small.png");
+}
+
+/*--Personal value--*/
+.selectCardBottomButton.integrity:after {
+    background-image: url("../images/integrity_small.png");
+}
+.selectCardBottomButton.trustworthy:after {
+    background-image: url("../images/trustworthy_small.png");
+}
+.selectCardBottomButton.peoplefocused:after {
+    background-image: url("../images/peoplefocused_small.png");
+}
+.selectCardBottomButton.businessfocused:after {
+    background-image: url("../images/businessfocused_small.png");
+}
+
+/*--Problem solving--*/
+.selectCardBottomButton.creative:after {
+    background-image: url("../images/creativity_small.png");
+}
+.selectCardBottomButton.conceptualthinking:after {
+    background-image: url("../images/conceptualthinking_small.png");
+}
+.selectCardBottomButton.negotiation:after {
+    background-image: url("../images/negotiation_small.png");
+}
+.selectCardBottomButton.manageconflicts:after {
+    background-image: url("../images/manageconflict_small.png");
+}
+
+/*--Self management--*/
+.selectCardBottomButton.selflearner:after {
+    background-image: url("../images/selflearner_small.png");
+}
+.selectCardBottomButton.initiative:after {
+    background-image: url("../images/initiative_small.png");
+}
+/*no icon available*/
+.selectCardBottomButton.stresstolerance:after {
+    background-image: url("../images/resilient_small.png");
+}
+.selectCardBottomButton.persistence:after {
+    background-image: url("../images/persistence_small.png");
+}
+
+
+/*--Team Work--*/
+.selectCardBottomButton.assertive:after {
+    background-image: url("../images/assertive_small.png");
+}
+.selectCardBottomButton.facilitate:after {
+    background-image: url("../images/facilitation_small.png");
+}
+.selectCardBottomButton.acceptscriticisms:after {
+    background-image: url("../images/acceptcriticism_small.png");
+}
+.selectCardBottomButton.respectful:after {
+    background-image: url("../images/respectful_small.png");
+}
+
+
+/*--Leadership--*/
+.selectCardBottomButton.strategic:after {
+    background-image: url("../images/strategic_small.png");
+}
+.selectCardBottomButton.delegation:after {
+    background-image: url("../images/delegation_small.png");
+}
+.selectCardBottomButton.coaching:after {
+    background-image: url("../images/coaching_small.png");
+}
+.selectCardBottomButton.empathy:after {
+    background-image: url("../images/emphatic_small.png");
+}
+
+
+/*--Communication--*/
+.selectCardBottomButton.listening:after {
+    background-image: url("../images/listening_small.png");
+}
+.selectCardBottomButton.sociability:after {
+    background-image: url("../images/socialable_small.png");
+}
+.selectCardBottomButton.storytelling:after {
+    background-image: url("../images/storytelling_small.png");
+}
+.selectCardBottomButton.writtencommunication:after {
+    background-image: url("../images/writtencommunication_small.png");
+}
+
+
+.cardType{
+    display: block;
+    text-transform: uppercase;
+    padding-top:10px;
+}
+
+/*message wrap*/
+.messageWrapper{
+    margin-top: 35%;
 }

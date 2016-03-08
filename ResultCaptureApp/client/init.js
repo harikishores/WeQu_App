@@ -1,5 +1,7 @@
 Meteor.startup(function(){
 	//userLoggedInAndVerified();
+	// console.log(GameData);
+	Router.go('resultCapture');
 });
 
 // userLoggedInAndVerified = function ()
@@ -18,6 +20,7 @@ Meteor.startup(function(){
 Tracker.autorun(function(){
 
 });
+
 
 //This is a test change ongoing 
 //thanks a lot from Macintosh
