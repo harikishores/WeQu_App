@@ -80,13 +80,15 @@
         </template>
 
         <template name="cardHtml">
-        	<div class="col s6">
-        		<div class="roundedCard selfManagementcard {{ClassName}}">
+        	<div class="col s6" >
+        		<div class="roundedCard selfManagementcard {{ClassName}} {{#if IsCardSelected CardId}}myActiveCard{{/if}}">
         			<div class="cardSelector">
         				<p class="checkwrap">
-        					<input name="{{GroupName}}" type="radio" id="{{CardName}}" />
-        					<label for="{{CardName}}"><span>{{CardName}}</span></label>
+        					<input name="{{GroupName}}" class="cardRadio" type="radio" id="{{CardId}}"/>
+        					<label for="{{CardId}}"><span>{{CardName}}</span></label>
         				</p>
+
+                        <span class="cardNameOnly">{{CardName}}</span>
 
         			</div>
         		</div>

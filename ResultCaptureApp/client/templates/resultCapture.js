@@ -36,8 +36,20 @@ Template.resultCapture.events({
 				Session.set('currentGame', GameData[++gameIndex]);
 			}
 			else
-				alert('Thanks for playing the game');
+			{
+				categoryIndex = CardData.length;
+				console.log(Session.get('currentGame'));
+			}
 		}
+	},
+
+	'click .cardRadio':function(event){
+		// var game = Session.get('currentGame');
+		// game.SelectedCards.push(event.target.id);
+		// Session.set('currentGame',game);
+		GameData[gameIndex].SelectedCards.push(event.target.id);
+		console.log(GameData);
+		$('#nextBtn').click();
 	}
 });
 
@@ -60,5 +72,22 @@ Template.resultCapture.helpers({
 
 	ProgressPercentage:function	(){
 		return Session.get('progress');
+	}
+});
+
+Template.cardHtml.helpers({
+	IsCardSelected : function(cardId)
+	{
+		//debugger;
+		
+		for(var k in GameData)
+		{
+			for(var m in GameData[k].SelectedCards)
+			{
+				if(GameData[k].SelectedCards[m] == cardId)
+					return true;
+			}
+		}
+		return false;
 	}
 });

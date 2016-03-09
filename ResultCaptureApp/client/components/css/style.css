@@ -2319,3 +2319,21 @@ formFieldWrap input:not([type]),
 .messageWrapper{
     margin-top: 35%;
 }
+
+/*Card Selected*/
+
+span.cardNameOnly{
+    font-size: 12px;  
+}
+
+.roundedCard .cardSelector span.cardNameOnly{
+    display: none;  
+}
+.roundedCard.myActiveCard .cardSelector span.cardNameOnly{
+    display: block;
+
+}
+.roundedCard.myActiveCard .checkwrap{
+    display: none;
+}
+
