@@ -1,7 +1,7 @@
 Meteor.startup(function(){
 	//userLoggedInAndVerified();
 	// console.log(GameData);
-	Router.go('resultCapture');
+	//Router.go('resultCapture');
 });
 
 // userLoggedInAndVerified = function ()

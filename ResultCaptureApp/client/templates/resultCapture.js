@@ -21,13 +21,18 @@ Template.resultCapture.rendered=function () {
 
 Template.resultCapture.events({
 	'click #nextBtn':function(event){
+		debugger;
 		if(categoryIndex<(CardData.length-1))
 		{
-			Session.set('currentCategory', CardData[++categoryIndex]);
-			Session.set('progress', getProgress(++cardIndex));
+			if(updateScore(categoryIndex,gameIndex)){
+				Session.set('currentCategory', CardData[++categoryIndex]);
+				Session.set('progress', getProgress(++cardIndex));
+			}
 		}
 		else{
 			//getting the game index to default 0;
+			updateScore(categoryIndex,gameIndex);
+			//reset cards and category
 			categoryIndex=0;
 			Session.set('currentCategory', CardData[categoryIndex]);
 			Session.set('progress', getProgress(++cardIndex));
@@ -47,9 +52,9 @@ Template.resultCapture.events({
 		// var game = Session.get('currentGame');
 		// game.SelectedCards.push(event.target.id);
 		// Session.set('currentGame',game);
-		GameData[gameIndex].SelectedCards.push(event.target.id);
-		console.log(GameData);
-		$('#nextBtn').click();
+		
+		//console.log(GameData);
+		//$('#nextBtn').click();
 	}
 });
 
@@ -90,4 +95,11 @@ Template.cardHtml.helpers({
 		}
 		return false;
 	}
+});
+
+Template.cardHtml.events({
+'click .selectMyCard':function(event){
+	console.log(event);
+	$(event.target).find("input[type=radio]").prop( "checked", true );
+}
 });

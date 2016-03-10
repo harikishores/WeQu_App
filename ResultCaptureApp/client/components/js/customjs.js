@@ -1,5 +1,3 @@
-$(document).ready(function () {
-    
     //overview skill and progress tabs
     $("span.overviewMenuItem").click(function () {
         $(".overviewTab").show();
@@ -18,5 +16,3 @@ $(document).ready(function () {
         $(".skillsTab").hide();
         $(".ProgressTab").show();
     });
-    
-});

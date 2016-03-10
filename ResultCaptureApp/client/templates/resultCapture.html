@@ -60,7 +60,7 @@
                         <!--change the class name for card name for Leadership - 
                         strategic, delegation, coaching & empathy-->
                         
-                        <div class="selectCardBottomButton selfManagementcard selflearner"></div>
+                        <div class="selectCardBottomButton selfManagementcard selflearner cardPosition1"></div>
 
                         <div class="row">
                         	<div class="col s12">
@@ -81,10 +81,10 @@
 
         <template name="cardHtml">
         	<div class="col s6" >
-        		<div class="roundedCard selfManagementcard {{ClassName}} {{#if IsCardSelected CardId}}myActiveCard{{/if}}">
+        		<div class="roundedCard {{GroupName}} selectMyCard {{ClassName}} {{#if IsCardSelected CardId}}myActiveCard{{/if}}">
         			<div class="cardSelector">
         				<p class="checkwrap">
-        					<input name="{{GroupName}}" class="cardRadio" type="radio" id="{{CardId}}"/>
+        					<input name="{{GroupName}}" class="cardRadio" type="radio" value="{{CardId}}" id="{{CardId}}"/>
         					<label for="{{CardId}}"><span>{{CardName}}</span></label>
         				</p>
 

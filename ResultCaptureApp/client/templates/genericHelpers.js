@@ -8,7 +8,6 @@ predicateBy = function (prop){
 		return 0;
 	}
 }
-
 //used to calculate the progress of the capture
 getProgress=function (index) {
 	var totalCards = 0;
@@ -18,7 +17,6 @@ getProgress=function (index) {
 	}
 	return (index/totalCards)*100;
 }
-
 findElement = function (arr, propName, propValue) {
 	for (var i=0; i < arr.length; i++)
 	{

@@ -8,25 +8,25 @@ CardData=[
 				"CardId" :"A1",
 				"CardName":"Integrity",
 				"ClassName":"integrity",
-				"GroupName" : "personalvalue"
+				"GroupName" : "personalValueCard"
 			},
 			{
 				"CardId" :"A2",
 				"CardName":"Trust Worthy",
 				"ClassName":"trustworthy",
-				"GroupName" : "personalvalue"
+				"GroupName" : "personalValueCard"
 			},
 			{
 				"CardId" :"A3",
 				"CardName":"People Focussed",
 				"ClassName":"peoplefocused",
-				"GroupName" : "personalvalue"
+				"GroupName" : "personalValueCard"
 			},
 			{
 				"CardId" :"A4",
 				"CardName":"Business Focussed",
 				"ClassName":"businessfocused",
-				"GroupName" : "personalvalue"
+				"GroupName" : "personalValueCard"
 			}
 		],
 	},
@@ -40,25 +40,25 @@ CardData=[
 				"CardId" :"B1",
 				"CardName":"Creative",
 				"ClassName":"creative",
-				"GroupName" : "problemsolving"
+				"GroupName" : "problemSolvingCard"
 			},
 			{
 				"CardId" :"B2",
 				"CardName":"Conceptual Thinking",
 				"ClassName":"conceptualthinking",
-				"GroupName" : "problemsolving"
+				"GroupName" : "problemSolvingCard"
 			},
 			{
 				"CardId" :"B3",
 				"CardName":"Negotiation",
 				"ClassName":"negotiation",
-				"GroupName" : "problemsolving"
+				"GroupName" : "problemSolvingCard"
 			},
 			{
 				"CardId" :"B4",
 				"CardName":"Manage Conflicts",
 				"ClassName":"manageconflicts",
-				"GroupName" : "problemsolving"
+				"GroupName" : "problemSolvingCard"
 			}
 		],
 	},
@@ -72,25 +72,25 @@ CardData=[
 				"CardId" :"C1",
 				"CardName":"Self Learner",
 				"ClassName":"selflearner",
-				"GroupName" : "selfmanagement"
+				"GroupName" : "selfManagementcard"
 			},
 			{
 				"CardId" :"C2",
 				"CardName":"Initiative",
 				"ClassName":"initiative",
-				"GroupName" : "selfmanagement"
+				"GroupName" : "selfManagementcard"
 			},
 			{
 				"CardId" :"C3",
 				"CardName":"Stress Tolerance",
 				"ClassName":"stresstolerance",
-				"GroupName" : "selfmanagement"
+				"GroupName" : "selfManagementcard"
 			},
 			{
 				"CardId" :"C4",
 				"CardName":"Persistence",
 				"ClassName":"persistence",
-				"GroupName" : "selfmanagement"
+				"GroupName" : "selfManagementcard"
 			}
 		],
 	},
@@ -104,25 +104,25 @@ CardData=[
 				"CardId" :"D1",
 				"CardName":"Assertive",
 				"ClassName":"assertive",
-				"GroupName" : "teamwork"
+				"GroupName" : "teamworkCard"
 			},
 			{
 				"CardId" :"D2",
 				"CardName":"Facilitate",
 				"ClassName":"facilitate",
-				"GroupName" : "teamwork"
+				"GroupName" : "teamworkCard"
 			},
 			{
 				"CardId" :"D3",
 				"CardName":"Accepts Criticism",
 				"ClassName":"acceptscriticisms",
-				"GroupName" : "teamwork"
+				"GroupName" : "teamworkCard"
 			},
 			{
 				"CardId" :"D4",
 				"CardName":"Respecful",
 				"ClassName":"respectful",
-				"GroupName" : "teamwork"
+				"GroupName" : "teamworkCard"
 			}
 		],
 	},
@@ -136,25 +136,25 @@ CardData=[
 				"CardId" :"E1",
 				"CardName":"Strategic",
 				"ClassName":"strategic",
-				"GroupName" : "leadership"
+				"GroupName" : "leadershipCard"
 			},
 			{
 				"CardId" :"E2",
 				"CardName":"Delegation",
 				"ClassName":"delegation",
-				"GroupName" : "leadership"
+				"GroupName" : "leadershipCard"
 			},
 			{
 				"CardId" :"E3",
 				"CardName":"Coaching",
 				"ClassName":"coaching",
-				"GroupName" : "leadership"
+				"GroupName" : "leadershipCard"
 			},
 			{
 				"CardId" :"E4",
 				"CardName":"Empathy",
 				"ClassName":"empathy",
-				"GroupName" : "leadership"
+				"GroupName" : "leadershipCard"
 			}
 		],
 	},
@@ -168,25 +168,25 @@ CardData=[
 				"CardId" :"F1",
 				"CardName":"Listening",
 				"ClassName":"listening",
-				"GroupName" : "communication"
+				"GroupName" : "communicationCard"
 			},
 			{
 				"CardId" :"F2",
 				"CardName":"Socialibility",
 				"ClassName":"sociability",
-				"GroupName" : "communication"
+				"GroupName" : "communicationCard"
 			},
 			{
 				"CardId" :"F3",
 				"CardName":"Story Telling",
 				"ClassName":"storytelling",
-				"GroupName" : "communication"
+				"GroupName" : "communicationCard"
 			},
 			{
 				"CardId" :"F4",
 				"CardName":"Written Communication",
 				"ClassName":"writtencommunication",
-				"GroupName" : "communication"
+				"GroupName" : "communicationCard"
 			}
 		],
 	}
