@@ -23,3 +23,7 @@ accounts-password
 accounts-facebook
 service-configuration
 momentjs:moment
+mrt:facebook-sdk
+hedcet:touch-swipe
+chart:chart
+email

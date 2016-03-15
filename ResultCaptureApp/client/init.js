@@ -1,7 +1,19 @@
+//Facebook Init
+window.fbAsyncInit = function() {
+	FB._https = (window.location.protocol == "https:");
+	FB.init({
+		appId      : '1527224754240515',
+		secret	   : '6dfa89c1ec4c1fe64fdbb92d9f8109b1',
+		status     : true,
+		xfbml      : true
+	})
+};
+
+
 Meteor.startup(function(){
 	//userLoggedInAndVerified();
 	// console.log(GameData);
-	//Router.go('resultCapture');
+	//Router.go('FriendGameList');
 });
 
 // userLoggedInAndVerified = function ()

@@ -26,6 +26,14 @@ Router.route('/dashboard', {
 Router.route('/resultCapture', {
 	template: 'resultCapture'
 });
+
+Router.route('/FriendGameList', {
+	template: 'FriendListInvite'
+});
+
+Router.route('/EmailInvite', {
+	template: 'EmailInvite'
+});
 // Router.onBeforeAction(function(){
 // 	if (Meteor.loggingIn()){
 // 		this.render('loading');

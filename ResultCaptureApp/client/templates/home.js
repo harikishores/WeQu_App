@@ -10,6 +10,6 @@ Template.home.events({
 		// }
 		// else Router.go('/signupDefault');
 
-		Router.go('resultCapture');
+		Router.go('dashboard');
 	}
 });

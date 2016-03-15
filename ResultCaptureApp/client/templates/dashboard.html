@@ -1,9 +1,303 @@
 <template name='dashboard'>
-	<div>
-	<h4>Welcome to the dashboard</h4>
+	<div class="mobileWrap greyBg relative">
+		<div class="paddingmain animated fadeIn profileOverview">
 
-		<button id='logoutBtn'>Logout</button>
-		<button>Go Back</button>
-	</div>
-</template>
+			<div class="screenFixedTop">
+				<div class="row nomargin fixedLogo">
+					<div class="col s12">
+						<div class="logoText"><img src="images/logotext.png" /></div>
+					</div>
+				</div>
+
+				<!-- navigation -->
+				<nav class="slidemenu">
+
+					<!-- Item 1 -->
+					<input type="radio" name="slideItem" id="slide-item-1" class="slide-toggle" checked/>
+					<label for="slide-item-1"><span class="overviewMenuItem">OVERVIEW</span></label>
+
+					<!-- Item 2 -->
+					<input type="radio" name="slideItem" id="slide-item-2" class="slide-toggle" />
+					<label for="slide-item-2"><span class="skillMenuItem">SKILLS</span></label>
+
+					<!-- Item 3 -->
+					<input type="radio" name="slideItem" id="slide-item-3" class="slide-toggle" />
+					<label for="slide-item-3"><span class="progessMenuIem">PROGRESS</span></label>
+
+					<div class="clear"></div>
+
+					<!-- Bar -->
+					<div class="slider">
+						<div class="bar"></div>
+					</div>
+
+				</nav>
+				<!-- navigation -->
+			</div>
+
+			<!-- overviewTab Content -->
+			<div class="overviewTab">
+				<div class="overviewScoreScreen">
+					<div class="scoreHeader">
+						<div class="scoreWheel">
+						</div>
+						<div class="scoreWheel1">
+							<span>242</span>
+						</div>
+						<div class="scoreDetails">
+							<p>YOUR WEQU EXP SCORE</p>
+							<span>This is your overall WeQu score</span>
+						</div>
+					</div>
+					<div class="scoreGraphHolder">
+						<canvas id="canvas"></canvas>
+					</div>
+				</div>
+
+				<div class="overviewPositiveEssance">
+					<div class="scoreCardsHolder">
+						<p>MY 13 POSITIVE ESSANCE</p>
+
+						<div class="row cardsHolder">
+							<div class="col s4">
+                                <!--change the category class personalValueCard, problemSolvingCard, selfManagementcard, communicationCard,
+                                teamworkCard, leadershipCard-->
+                                
+                                <!--change the class name for card name for Personal value - 
+                                integrity, trustworthy, peoplefocused & businessfocused-->
+                                
+                                <div class="roundedCard personalValueCard cardsmall cardsmallleft businessfocused">
+                                </div>
+                            </div>
+                            
+                            <div class="col s4">
+                                <!--change the class name for card name for Problem Solving - 
+                                creative, conceptualthinking, negotiation & manageconflicts-->
+                                <div class="roundedCard problemSolvingCard manageconflicts">
+                                </div>
+                            </div>
+                            
+                            <div class="col s4">
+                                <!--change the class name for card name for Self management - 
+                                selflearner, initiative, stresstolerance & persistence-->
+                                <div class="roundedCard selfManagementcard cardsmall persistence">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row cardsHolder">
+                        	<div class="col s4">
+                                <!--change the class name for card name for Communication - 
+                                listening, sociability, storytelling & writtencommunication-->
+                                <div class="roundedCard communicationCard cardsmall cardsmallleft storytelling">
+                                </div>
+                            </div>
+                            <div class="col s4">
+                                <!--change the class name for card name for Team work - 
+                                assertive, facilitate, acceptscriticisms & respectful-->
+                                <div class="roundedCard teamworkCard acceptscriticisms">
+                                </div>
+                            </div>
+                            <div class="col s4">
+                                 <!--change the class name for card name for Leadership - 
+                                 strategic, delegation, coaching & empathy-->
+                                 <div class="roundedCard leadershipCard cardsmall empathy">
+                                 </div>
+                             </div>
+                         </div>
+
+                         <p>Initiative</p>
+
+                         <div class="commentHolderOuter">
+                         	<div class="row">
+                         		<div class="commentHolder">
+                         			<p class="commentText">Venenatis vitae, justo. Nullum dictum eu ped fellis e molis pretium</p>
+                         			<p class="commentDetails">from Ilona Owusu, January 2016</p>
+                         		</div>
+                         		<div class="commentHolder">
+                         			<p class="commentText">Venenatis vitae, justo. Nullum dictum eu ped fellis e molis pretium</p>
+                         			<p class="commentDetails">from Ilona Owusu, January 2016</p>
+                         		</div>
+                         	</div>
+                         </div>
+
+                         <p class="textSmall">Show 5 more comments</p>
+
+                     </div>
+                 </div>
+             </div>
+             <!-- overviewTab Content -->
+
+             <!-- SkillsTab Content-->
+             <div class="skillsTab" style="display:none;">
+             	<div class="row">
+             		<p>PERSONAL VALUE</p>
+             		<div class="progressHolder personalValue">
+             			<div class="progressBar">
+             				<div class="progressInner"></div>
+             				<span class="progressName">People Focussed</span>
+             				<span class="progressScore">70</span>
+             			</div>
+             			<div class="progressBar">
+             				<div class="progressInner"></div>
+             				<span class="progressName">Business Focussed</span>
+             				<span class="progressScore">70</span>
+             			</div>
+             			<div class="progressBar">
+             				<div class="progressInner"></div>
+             				<span class="progressName">Integrity</span>
+             				<span class="progressScore">70</span>
+             			</div>
+             			<div class="progressBar">
+             				<div class="progressInner"></div>
+             				<span class="progressName">Trustworthy</span>
+             				<span class="progressScore">70</span>
+             			</div>
+             		</div>
+
+             		<p>PROBLEM SOLVING</p>
+             		<div class="progressHolder problemSolving">
+             			<div class="progressBar">
+             				<div class="progressInner"></div>
+             				<span class="progressName">Creativity</span>
+             				<span class="progressScore">70</span>
+             			</div>
+             			<div class="progressBar">
+             				<div class="progressInner"></div>
+             				<span class="progressName">Negotiation</span>
+             				<span class="progressScore">70</span>
+             			</div>
+             			<div class="progressBar">
+             				<div class="progressInner"></div>
+             				<span class="progressName">Manage Conflict</span>
+             				<span class="progressScore">70</span>
+             			</div>
+             			<div class="progressBar">
+             				<div class="progressInner"></div>
+             				<span class="progressName">Conceptual Thinking</span>
+             				<span class="progressScore">70</span>
+             			</div>
+             		</div>
+
+             		<p>SELF MANAGEMENT</p>
+             		<div class="progressHolder selfManagement">
+             			<div class="progressBar">
+             				<div class="progressInner"></div>
+             				<span class="progressName">Persistence</span>
+             				<span class="progressScore">70</span>
+             			</div>
+             			<div class="progressBar">
+             				<div class="progressInner"></div>
+             				<span class="progressName">Stress Tolerance</span>
+             				<span class="progressScore">70</span>
+             			</div>
+             			<div class="progressBar">
+             				<div class="progressInner"></div>
+             				<span class="progressName">Initiative</span>
+             				<span class="progressScore">70</span>
+             			</div>
+             			<div class="progressBar">
+             				<div class="progressInner"></div>
+             				<span class="progressName">Self Learning</span>
+             				<span class="progressScore">70</span>
+             			</div>
+             		</div>
+
+             		<p>COMMUNICATION</p>
+             		<div class="progressHolder communication">
+             			<div class="progressBar">
+             				<div class="progressInner"></div>
+             				<span class="progressName">Listening</span>
+             				<span class="progressScore">70</span>
+             			</div>
+             			<div class="progressBar">
+             				<div class="progressInner"></div>
+             				<span class="progressName">Sociability</span>
+             				<span class="progressScore">70</span>
+             			</div>
+             			<div class="progressBar">
+             				<div class="progressInner"></div>
+             				<span class="progressName">Storytelling</span>
+             				<span class="progressScore">70</span>
+             			</div>
+             			<div class="progressBar">
+             				<div class="progressInner"></div>
+             				<span class="progressName">Written Communication</span>
+             				<span class="progressScore">70</span>
+             			</div>
+             		</div>
+
+             		<p>TEAM WORK</p>
+             		<div class="progressHolder teamwork">
+             			<div class="progressBar">
+             				<div class="progressInner"></div>
+             				<span class="progressName">Assertive</span>
+             				<span class="progressScore">70</span>
+             			</div>
+             			<div class="progressBar">
+             				<div class="progressInner"></div>
+             				<span class="progressName">Facilitate</span>
+             				<span class="progressScore">70</span>
+             			</div>
+             			<div class="progressBar">
+             				<div class="progressInner"></div>
+             				<span class="progressName">Accepts Criticisms</span>
+             				<span class="progressScore">70</span>
+             			</div>
+             			<div class="progressBar">
+             				<div class="progressInner"></div>
+             				<span class="progressName">Respectful</span>
+             				<span class="progressScore">70</span>
+             			</div>
+             		</div>
+
+
+             		<p>LEADERSHIP</p>
+             		<div class="progressHolder leadership">
+             			<div class="progressBar">
+             				<div class="progressInner"></div>
+             				<span class="progressName">Strategic</span>
+             				<span class="progressScore">70</span>
+             			</div>
+             			<div class="progressBar">
+             				<div class="progressInner"></div>
+             				<span class="progressName">Delegation</span>
+             				<span class="progressScore">70</span>
+             			</div>
+             			<div class="progressBar">
+             				<div class="progressInner"></div>
+             				<span class="progressName">Coaching</span>
+             				<span class="progressScore">70</span>
+             			</div>
+             			<div class="progressBar">
+             				<div class="progressInner"></div>
+             				<span class="progressName">Empathy</span>
+             				<span class="progressScore">70</span>
+             			</div>
+             		</div>
+
+             	</div>
+             </div>
+             <!-- SkillsTab Content-->
+
+             <!-- ProgressTab Content-->
+             <div class="ProgressTab" style="display:none;">
+             	<H4 class="text-center textWhite">Progress</H4>
+             </div>
+             <!-- ProgressTab Content-->
+
+             <div class="absolute width100 startbottom bottomButtonBackground">
+             	<div class="row">
+             		<div class="input-field col s12">
+             			<button id="captureBtn" class="waves-effect btn-large width100 btnWhite btnradius10">CAPTURE CARD GAME RESULTS</button>
+             		</div>
+             	</div>
+             </div>
+
+
+         </div>
+
+
+     </div>
+ </template>
 
