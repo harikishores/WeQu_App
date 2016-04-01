@@ -1,9 +1,14 @@
 Template.signupDefault.events({
     'click #facebook-login': function(event) {
         console.log('facebook login called');
+        //needs changes to the current implementation
         Meteor.loginWithFacebook({}, function(err){
             if (err) {
-                throw new Meteor.Error("Facebook login failed");
+                alert("Facebook login failed");
+            }
+            else{
+                //login logic goes here
+                alert('Facebook login successful');
             }
         });
     },

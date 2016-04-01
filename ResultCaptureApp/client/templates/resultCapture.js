@@ -47,7 +47,16 @@ Template.resultCapture.events({
 			}
 		}
 	},
-
+    'click #catNextBtn':function(event){
+        if(categoryIndex<(CardData.length-1)){
+            Session.set('currentCategory', CardData[++categoryIndex]);
+        }
+    },
+    'click #catBackBtn':function(event){
+        if(categoryIndex>0){
+            Session.set('currentCategory', CardData[--categoryIndex]);
+        }
+    },
 	'click .cardRadio':function(event){
 		// var game = Session.get('currentGame');
 		// game.SelectedCards.push(event.target.id);

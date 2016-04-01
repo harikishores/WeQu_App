@@ -17,6 +17,8 @@ getProgress=function (index) {
 	}
 	return (index/totalCards)*100;
 }
+
+//used to find the element inside an array.
 findElement = function (arr, propName, propValue) {
 	for (var i=0; i < arr.length; i++)
 	{

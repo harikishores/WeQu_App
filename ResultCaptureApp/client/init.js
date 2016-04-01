@@ -9,7 +9,6 @@ window.fbAsyncInit = function() {
 	})
 };
 
-
 Meteor.startup(function(){
 	//userLoggedInAndVerified();
 	// console.log(GameData);

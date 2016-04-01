@@ -1,9 +1,34 @@
 Router.route('/', {
-	template: 'home'
-});
+	template: 'home',
+	fastRender: true,
+	// waitOn:function(){
+	// 	return Meteor.user();
+	// },
+	// onBeforeAction:function(){
+	// 	if(Meteor.userId())
+	// 	{
+	// 		if(Meteor.user().emails[0].verified)
+	// 			Router.go('dashboard');
+	// 		else {
+	// 			Router.go('/signupAdditional');
+	// 		}
+	// 	}
+	// 	else Router.go('/signupDefault');
 
+	// 	// if(!Meteor.loggingIn() && !Meteor.user()) {
+	// 	// 	console.log('User not logged in yet');
+	// 	// }
+	// 	// else{
+	// 	// 	console.log('user logged in');
+	// 	// }
+	// }
+});
+Router.configure({
+  loadingTemplate: 'loading'
+});
 Router.route('/login', {
-	template: 'login'
+	template: 'login',
+	fastRender: true
 });
 
 
@@ -33,6 +58,10 @@ Router.route('/FriendGameList', {
 
 Router.route('/EmailInvite', {
 	template: 'EmailInvite'
+});
+
+Router.route('/GameVersion', {
+	template: 'GameVersion'
 });
 // Router.onBeforeAction(function(){
 // 	if (Meteor.loggingIn()){
