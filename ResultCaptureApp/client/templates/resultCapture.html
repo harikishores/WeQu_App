@@ -16,11 +16,14 @@
 					<div class="friendInvitationTitle cardCategory">
 						<div class="row nomargin nopadding">
 							<div class="col s12 nomargin nopadding">
-                                <span>
+                                <!--<span>
                                     <input type="button" id="catBackBtn" value="Back">     
                                     <input type="button" id="catNextBtn" value="Next">
-                                </span>
-								<p class="fontSize16 text-center cardCategoryName">{{CardData.CategoryName}}</p>
+                                </span>-->
+								<p class="fontSize16 text-center cardCategoryName">
+                                    <a href="javascript:void(0);" id="catBackBtn" class="prevnextcat prevcat"><span class="fa fa-arrow-circle-left"></span></a>{{CardData.CategoryName}}
+                                    <a href="javascript:void(0);" id="catNextBtn" class="prevnextcat nextcat"><span class="fa fa-arrow-circle-right"></span></a>
+                                </p>
 							</div>
 						</div>
 					</div>
@@ -85,15 +88,13 @@
 
         <template name="cardHtml">
         	<div class="col s6" >
-        		<div class="roundedCard {{GroupName}} selectMyCard {{ClassName}} {{#if IsCardSelected CardId}}myActiveCard{{/if}}">
+        		<div class="roundedCard {{GroupName}} selectMyCard {{ClassName}}">
         			<div class="cardSelector">
         				<p class="checkwrap">
-        					<input name="{{GroupName}}" class="cardRadio" type="radio" value="{{CardId}}" id="{{CardId}}"/>
+                            <input name="{{GroupName}}" {{IsCardSelected CardId}} class="cardRadio filled-in" type="checkbox" value="{{CardId}}" id="{{CardId}}"/>
         					<label for="{{CardId}}"><span>{{CardName}}</span></label>
         				</p>
-
                         <span class="cardNameOnly">{{CardName}}</span>
-
         			</div>
         		</div>
         	</div>

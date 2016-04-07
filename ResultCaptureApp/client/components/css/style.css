@@ -2395,3 +2395,53 @@ formFieldWrap input:not([type]),
 }
 
 
+/*--latest Style 07-04-16--*/
+/*prev next category*/
+.prevnextcat{
+ color: #fff;
+}
+
+.prevcat{
+ margin-right:10px;
+}
+
+.nextcat{
+ margin-left:10px;
+}
+/*prev next category*/
+
+/*full and mini mode*/
+
+.mode{
+ background: #fff;
+}
+/*full and mini mode*/
+
+/*Multiselect card*/
+
+.cardSelector [type="checkbox"].filled-in:not(:checked)+label:after{
+ border: 2px solid #fff;
+ border-radius: 50%;
+ height:16px;
+ width:16px;
+}
+.cardSelector [type="checkbox"]+label{
+    line-height: 16px;
+ padding-left: 22px;
+}
+.cardSelector [type="checkbox"].filled-in:checked+label:after{
+ height:16px;
+ width:16px;
+ background-color: rgba(255, 255, 255, 0.5);
+ border: 2px solid #fff;
+ border-radius: 50%;
+}
+
+.cardSelector [type="checkbox"].filled-in:checked+label:before{
+    top: -7px;
+    /*left: 1px;*/
+    width: 8px;
+    height: 17px;
+}
+/*Multiselect card*/
+/*--latest Style 07-04-16--*/

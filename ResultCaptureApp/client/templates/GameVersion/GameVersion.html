@@ -1,10 +1,24 @@
 <template name="GameVersion">
-    <br/>
-    <div>
-        <h2>Please select a game version to continue</h2>
-    </div>
-    <br/>
-    
-    <input type="button" name="" id="miniBtn" value="Mini Version">
-    <input type="button" name="" id="fullBtn" value="Full Version">
+<div class="mobileWrap greyBg relative">
+        <div class="paddingmain animated fadeIn signInWrap">
+            <!--Screen info start-->
+            <div class="row">
+                <div class="col s12">
+                    <div class="pagetitle">Choose App View Mode</div>
+                    <div class="pagedesc">Select the browsing app mode. </div>
+                </div>
+            </div>
+            <!--Screen info start-->
+            
+            <!--MINI/FULL MODE-->
+            <div class="row">
+                <div class="col s12">
+                    <a id="miniBtn" class="waves-effect btn-large width100 btnWhite btnradius10 mode"><span class="fa fa-angle-double-right circleicon"></span> MINI MODE</a>
+					<a id="fullBtn" class="waves-effect btn-large width100 btnWhite btnradius10 mode"><span class="fa fa-angle-double-right circleicon"></span> FULL MODE</a>
+                </div>
+            </div>
+            <!--MINI/FULL MODE-->
+
+            </div>
+        </div>
 </template>

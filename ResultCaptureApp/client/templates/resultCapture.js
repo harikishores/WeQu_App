@@ -21,49 +21,58 @@ Template.resultCapture.rendered=function () {
 
 Template.resultCapture.events({
 	'click #nextBtn':function(event){
-		debugger;
-		if(categoryIndex<(CardData.length-1))
-		{
-			if(updateScore(categoryIndex,gameIndex)){
-				Session.set('currentCategory', CardData[++categoryIndex]);
-				Session.set('progress', getProgress(++cardIndex));
-			}
-		}
-		else{
-			//getting the game index to default 0;
-			updateScore(categoryIndex,gameIndex);
-			//reset cards and category
-			categoryIndex=0;
-			Session.set('currentCategory', CardData[categoryIndex]);
-			Session.set('progress', getProgress(++cardIndex));
-			if(gameIndex<(GameData.length-1))
-			{
-				Session.set('currentGame', GameData[++gameIndex]);
-			}
-			else
-			{
-				categoryIndex = CardData.length;
-				console.log(Session.get('currentGame'));
-			}
-		}
+	    // debugger;
+		// if(categoryIndex<(CardData.length-1))
+		// {
+		// 	if(updateScore(categoryIndex,gameIndex)){
+		// 		Session.set('currentCategory', CardData[++categoryIndex]);
+		// 		Session.set('progress', getProgress(++cardIndex));
+		// 	}
+		// }
+		// else{
+		// 	//getting the game index to default 0;
+		// 	updateScore(categoryIndex,gameIndex);
+		// 	//reset cards and category
+		// 	categoryIndex=0;
+		// 	Session.set('currentCategory', CardData[categoryIndex]);
+		// 	Session.set('progress', getProgress(++cardIndex));
+		// 	if(gameIndex<(GameData.length-1))
+		// 	{
+		// 		Session.set('currentGame', GameData[++gameIndex]);
+		// 	}
+		// 	else
+		// 	{
+		// 		categoryIndex = CardData.length;
+		// 		console.log(Session.get('currentGame'));
+		// 	}
+		// }
 	},
     'click #catNextBtn':function(event){
+        event.preventDefault();
         if(categoryIndex<(CardData.length-1)){
+            $('input:checkbox').removeAttr('checked');
             Session.set('currentCategory', CardData[++categoryIndex]);
+            console.log(GameData);
         }
     },
     'click #catBackBtn':function(event){
+        event.preventDefault();
         if(categoryIndex>0){
+            $('input:checkbox').removeAttr('checked');
             Session.set('currentCategory', CardData[--categoryIndex]);
+            console.log(GameData);
         }
     },
-	'click .cardRadio':function(event){
-		// var game = Session.get('currentGame');
-		// game.SelectedCards.push(event.target.id);
-		// Session.set('currentGame',game);
-		
-		//console.log(GameData);
-		//$('#nextBtn').click();
+	'change .cardRadio':function(event){
+        event.preventDefault();
+        //check if the selection has been unselected and so remove from the list
+        if(!$(event.target).is(':checked')){
+            GameData[gameIndex].SelectedCards = $.grep(GameData[gameIndex].SelectedCards, function(value){
+                return value != $(event.target).val(); 
+            });
+        }
+        //update the score to the list
+        updateScore(categoryIndex,gameIndex);
 	}
 });
 
@@ -89,26 +98,24 @@ Template.resultCapture.helpers({
 	}
 });
 
+// Template.cardHtml.rendered=function(){
+//     debugger;
+//     $('input:checkbox').removeAttr('checked');  
+// };
+
 Template.cardHtml.helpers({
 	IsCardSelected : function(cardId)
 	{
-		//debugger;
-		
-		for(var k in GameData)
-		{
-			for(var m in GameData[k].SelectedCards)
-			{
-				if(GameData[k].SelectedCards[m] == cardId)
-					return true;
-			}
-		}
-		return false;
+	    // debugger;
+        if($.inArray(cardId, GameData[gameIndex].SelectedCards)  == -1)
+            return '';
+        else
+            return 'checked';
 	}
 });
 
 Template.cardHtml.events({
 'click .selectMyCard':function(event){
-	console.log(event);
-	$(event.target).find("input[type=radio]").prop( "checked", true );
+	// $(event.target).find("input[type=checkbox]").prop( "checked", true );
 }
 });
