@@ -1,7 +1,9 @@
 CardData=[
 	{
 		"CateogryId" :"A",
+		"Score":0,
 		"CategoryName" : "Personal Value",
+		"CategoryClass" : "personalValue",
 		"Cards":
 		[
 			{
@@ -33,7 +35,9 @@ CardData=[
 
 	{
 		"CateogryId" :"B",
+		"Score":0,
 		"CategoryName" : "Problem Solving",
+		"CategoryClass" : "problemSolving",
 		"Cards":
 		[	
 			{
@@ -65,7 +69,9 @@ CardData=[
 
 	{
 		"CateogryId" :"C",
+		"Score":0,
 		"CategoryName" : "Self Management",
+		"CategoryClass" : "selfManagement",
 		"Cards":
 		[
 			{
@@ -97,7 +103,9 @@ CardData=[
 
 	{
 		"CateogryId" :"D",
+		"Score":0,
 		"CategoryName" : "Team Work",
+		"CategoryClass" : "teamwork",
 		"Cards":
 		[
 			{
@@ -129,7 +137,9 @@ CardData=[
 
 	{
 		"CateogryId" :"E",
+		"Score":0,
 		"CategoryName" : "Leadership",
+		"CategoryClass" : "leadership",
 		"Cards":
 		[
 			{
@@ -162,6 +172,7 @@ CardData=[
 	{
 		"CateogryId" :"F",
 		"CategoryName" : "Communication",
+		"CategoryClass" : "communication",
 		"Cards":
 		[
 			{

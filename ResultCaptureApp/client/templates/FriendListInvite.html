@@ -27,7 +27,7 @@
 			<!--friendlist-->    
 			<div class="blackbg friendlistWrap">
 				<div class="friendlist">
-
+					{{#each connections}}
 					<!--friendlistItem-->  
 					<div class="friendlistItem active">
 						<div class="row nomargin">
@@ -36,146 +36,25 @@
 							</div>
 							<div class="col s4">
 								<div class="frndName fontSize14 textWhite">
-									Susanne
+									{{ConnectionFirstName}} {{ConnectionLastName}}
 								</div>
 								<div class="noOfGames fontSize14 textWhite">
-									7 plays
+									{{GamesPlayed}} plays
 								</div>
 							</div>
 							<div class="col s1">
 								<span class="notificationIcon"><img src="images/calloutsmallicon.png"/></span>
 							</div>
-							<div class="col s4">
-								<a class="waves-effect btn btnradius10 selectbutton"> Select</a>
-							</div>
-						</div>
-					</div>
-					<!--friendlistItem-->  
-
-
-
-					<!--friendlistItem-->  
-					<div class="friendlistItem">
-						<div class="row nomargin">
-							<div class="col s3 nopaddingRight">
-								<img src="images/profile2.png" class="frndImg"/>
-							</div>
-							<div class="col s4">
-								<div class="frndName fontSize14 textWhite">
-									Ohyoon
-								</div>
-								<div class="noOfGames fontSize14 textWhite">
-									3 plays
-								</div>
+							<div class="col s1">
+								<a data-connectionId="{{ConnectionId}}" id="gamesBtn" class="waves-effect btn btnradius10 selectbutton"> Games</a>
 							</div>
 							<div class="col s1">
-								<span class="notificationIcon"><img src="images/calloutsmallicon.png"/></span>
-							</div>
-							<div class="col s4">
-								<a class="waves-effect btn btnradius10 selectbutton"> Select</a>
-							</div>
-						</div>
-					</div>
-					<!--friendlistItem-->  
-
-					<!--friendlistItem-->  
-					<div class="friendlistItem">
-						<div class="row nomargin">
-							<div class="col s3 nopaddingRight">
-								<img src="images/sanne-reusch2.png" class="frndImg"/>
-							</div>
-							<div class="col s4">
-								<div class="frndName fontSize14 textWhite">
-									Susanne
-								</div>
-								<div class="noOfGames fontSize14 textWhite">
-									7 plays
-								</div>
-							</div>
-							<div class="col s1">
-								<span class="notificationIcon"><img src="images/calloutsmallicon.png"/></span>
-							</div>
-							<div class="col s4">
-								<a class="waves-effect btn btnradius10 selectbutton"> Select</a>
-							</div>
-						</div>
-					</div>
-					<!--friendlistItem-->  
-
-
-
-					<!--friendlistItem-->  
-					<div class="friendlistItem">
-						<div class="row nomargin">
-							<div class="col s3 nopaddingRight">
-								<img src="images/profile2.png" class="frndImg"/>
-							</div>
-							<div class="col s4">
-								<div class="frndName fontSize14 textWhite">
-									Ohyoon
-								</div>
-								<div class="noOfGames fontSize14 textWhite">
-									3 plays
-								</div>
-							</div>
-							<div class="col s1">
-								<span class="notificationIcon"><img src="images/calloutsmallicon.png"/></span>
-							</div>
-							<div class="col s4">
 								<a class="waves-effect btn btnradius10 selectbutton"> Select</a>
 							</div>
 						</div>
 					</div>
 					<!--friendlistItem--> 
-
-					<!--friendlistItem-->  
-					<div class="friendlistItem">
-						<div class="row nomargin">
-							<div class="col s3 nopaddingRight">
-								<img src="images/profile2.png" class="frndImg"/>
-							</div>
-							<div class="col s4">
-								<div class="frndName fontSize14 textWhite">
-									Ohyoon
-								</div>
-								<div class="noOfGames fontSize14 textWhite">
-									3 plays
-								</div>
-							</div>
-							<div class="col s1">
-								<span class="notificationIcon"><img src="images/calloutsmallicon.png"/></span>
-							</div>
-							<div class="col s4">
-								<a class="waves-effect btn btnradius10 selectbutton"> Select</a>
-							</div>
-						</div>
-					</div>
-					<!--friendlistItem--> 
-
-
-					<!--friendlistItem-->  
-					<div class="friendlistItem">
-						<div class="row nomargin">
-							<div class="col s3 nopaddingRight">
-								<img src="images/sanne-reusch2.png" class="frndImg"/>
-							</div>
-							<div class="col s4">
-								<div class="frndName fontSize14 textWhite">
-									Ohyoon
-								</div>
-								<div class="noOfGames fontSize14 textWhite">
-									3 plays
-								</div>
-							</div>
-							<div class="col s1">
-								<span class="notificationIcon"><img src="images/calloutsmallicon.png"/></span>
-							</div>
-							<div class="col s4">
-								<a class="waves-effect btn btnradius10 selectbutton"> Select</a>
-							</div>
-						</div>
-					</div>
-					<!--friendlistItem--> 
+					{{/each}}
 				</div>
 			</div>
 			<!--friendlist-->  

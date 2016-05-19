@@ -1,5 +1,3 @@
-smtpSettings = new Mongo.Collection('smtpSettings');
-
 Meteor.startup(function(){
   // process.env.MAIL_URL = 'smtp://guptasohaam:fnlitmqvujffzbwv@smtp.gmail.com:587/'
   if(smtpSettings.find().count()==0){
@@ -37,7 +35,7 @@ Meteor.startup(function(){
 });
 
 Meteor.methods({
-  sendEmail: function (to,text) {
+  'sendEmail': function (to) {
     try {
       if(settings){
         Email.send({

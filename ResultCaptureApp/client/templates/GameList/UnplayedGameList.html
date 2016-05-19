@@ -1,0 +1,63 @@
+<template name="UnplayedGameList">
+    <div class="mobileWrap greyBg relative">
+		<div class="paddingmain animated fadeIn profileOverview titlebarBack">
+			<!--fixed top-->
+			<div class="screenFixedTop">
+				<div class="row nomargin fixedLogo">
+					<div class="col s12">
+						<div class="listtitle fontSize25 textWhite">
+							<a class="listtitleimg" href="javascript:void(0);"><img src="images/backbtn.png" class="backbtn"/> </a>
+							<span class="listtitletext">Whom did you play with?</span>
+						</div>
+					</div>
+				</div>
+				<div class="friendInvitationWrap">
+					<div class="friendInvitationTitle">
+						<div class="row nomargin">
+							<div class="col s12">
+								<span class="calloutSmall"><img src="images/calloutsmallicon.png"/> </span>
+								<span class="commentTitle fontSize12">Complete it by leaving a comment</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--fixed top-->
+
+			<!--friendlist-->    
+			<div class="blackbg friendlistWrap">
+				<div class="friendlist">
+					{{#each games}}
+					<!--friendlistItem-->  
+					<div class="friendlistItem active">
+						<div class="row nomargin">
+							<div class="col s3 nopaddingRight">
+								<img src="images/sanne-reusch2.png" class="frndImg"/>
+							</div>
+							<div class="col s4">
+								<div class="frndName fontSize14 textWhite">
+									{{HostFirstName}} {{HostLastName}}
+								</div>
+								<div class="noOfGames fontSize14 textWhite">
+									{{Date}}
+								</div>
+							</div>
+							<div class="col s1">
+								<span class="notificationIcon"><img src="images/calloutsmallicon.png"/></span>
+							</div>
+							<div class="col s1">
+								<a id="playBtn" data-index="{{@index}}" class="waves-effect btn btnradius10 selectbutton"> Play</a>
+							</div>
+						</div>
+					</div>
+					<!--friendlistItem--> 
+					{{/each}}
+				</div>
+			</div>
+			<!--friendlist-->  
+		</div>
+
+
+	</div>
+
+</template>

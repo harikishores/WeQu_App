@@ -1,3 +1,4 @@
+
 Template.signupDefault.events({
     'click #facebook-login': function(event) {
         console.log('facebook login called');

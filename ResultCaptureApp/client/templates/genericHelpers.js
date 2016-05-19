@@ -20,8 +20,7 @@ getProgress=function (index) {
 
 //used to find the element inside an array.
 findElement = function (arr, propName, propValue) {
-	for (var i=0; i < arr.length; i++)
-	{
+	for (var i=0; i < arr.length; i++){
 		if (arr[i][propName] == propValue) 
 			return arr[i];
 	}

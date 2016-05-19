@@ -20,9 +20,9 @@
 					<input type="radio" name="slideItem" id="slide-item-2" class="slide-toggle" />
 					<label for="slide-item-2"><span class="skillMenuItem">SKILLS</span></label>
 
-					<!-- Item 3 -->
+					 <!--Item 3 
 					<input type="radio" name="slideItem" id="slide-item-3" class="slide-toggle" />
-					<label for="slide-item-3"><span class="progessMenuIem">PROGRESS</span></label>
+					<label for="slide-item-3"><span class="progessMenuIem">PROGRESS</span></label>-->
 
 					<div class="clear"></div>
 
@@ -42,7 +42,7 @@
 						<div class="scoreWheel">
 						</div>
 						<div class="scoreWheel1">
-							<span>242</span>
+							<span>{{userTotalScore}}</span>
 						</div>
 						<div class="scoreDetails">
 							<p>YOUR WEQU EXP SCORE</p>
@@ -131,151 +131,18 @@
              <!-- SkillsTab Content-->
              <div class="skillsTab" style="display:none;">
              	<div class="row">
-             		<p>PERSONAL VALUE</p>
-             		<div class="progressHolder personalValue">
+					 {{#each CardData}}
+             		<p>{{CategoryName}}</p>
+             		<div class="progressHolder {{CategoryClass}}">
+						 {{#each Cards}}
              			<div class="progressBar">
-             				<div class="progressInner"></div>
-             				<span class="progressName">People Focussed</span>
-             				<span class="progressScore">70</span>
+             				<div class="progressInner" style="width:{{CardScore CardId}}%"></div>
+             				<span class="progressName">{{CardName}}</span>
+             				<span class="progressScore">{{CardScore CardId}}%</span>
              			</div>
-             			<div class="progressBar">
-             				<div class="progressInner"></div>
-             				<span class="progressName">Business Focussed</span>
-             				<span class="progressScore">70</span>
-             			</div>
-             			<div class="progressBar">
-             				<div class="progressInner"></div>
-             				<span class="progressName">Integrity</span>
-             				<span class="progressScore">70</span>
-             			</div>
-             			<div class="progressBar">
-             				<div class="progressInner"></div>
-             				<span class="progressName">Trustworthy</span>
-             				<span class="progressScore">70</span>
-             			</div>
+						 {{/each}}
              		</div>
-
-             		<p>PROBLEM SOLVING</p>
-             		<div class="progressHolder problemSolving">
-             			<div class="progressBar">
-             				<div class="progressInner"></div>
-             				<span class="progressName">Creativity</span>
-             				<span class="progressScore">70</span>
-             			</div>
-             			<div class="progressBar">
-             				<div class="progressInner"></div>
-             				<span class="progressName">Negotiation</span>
-             				<span class="progressScore">70</span>
-             			</div>
-             			<div class="progressBar">
-             				<div class="progressInner"></div>
-             				<span class="progressName">Manage Conflict</span>
-             				<span class="progressScore">70</span>
-             			</div>
-             			<div class="progressBar">
-             				<div class="progressInner"></div>
-             				<span class="progressName">Conceptual Thinking</span>
-             				<span class="progressScore">70</span>
-             			</div>
-             		</div>
-
-             		<p>SELF MANAGEMENT</p>
-             		<div class="progressHolder selfManagement">
-             			<div class="progressBar">
-             				<div class="progressInner"></div>
-             				<span class="progressName">Persistence</span>
-             				<span class="progressScore">70</span>
-             			</div>
-             			<div class="progressBar">
-             				<div class="progressInner"></div>
-             				<span class="progressName">Stress Tolerance</span>
-             				<span class="progressScore">70</span>
-             			</div>
-             			<div class="progressBar">
-             				<div class="progressInner"></div>
-             				<span class="progressName">Initiative</span>
-             				<span class="progressScore">70</span>
-             			</div>
-             			<div class="progressBar">
-             				<div class="progressInner"></div>
-             				<span class="progressName">Self Learning</span>
-             				<span class="progressScore">70</span>
-             			</div>
-             		</div>
-
-             		<p>COMMUNICATION</p>
-             		<div class="progressHolder communication">
-             			<div class="progressBar">
-             				<div class="progressInner"></div>
-             				<span class="progressName">Listening</span>
-             				<span class="progressScore">70</span>
-             			</div>
-             			<div class="progressBar">
-             				<div class="progressInner"></div>
-             				<span class="progressName">Sociability</span>
-             				<span class="progressScore">70</span>
-             			</div>
-             			<div class="progressBar">
-             				<div class="progressInner"></div>
-             				<span class="progressName">Storytelling</span>
-             				<span class="progressScore">70</span>
-             			</div>
-             			<div class="progressBar">
-             				<div class="progressInner"></div>
-             				<span class="progressName">Written Communication</span>
-             				<span class="progressScore">70</span>
-             			</div>
-             		</div>
-
-             		<p>TEAM WORK</p>
-             		<div class="progressHolder teamwork">
-             			<div class="progressBar">
-             				<div class="progressInner"></div>
-             				<span class="progressName">Assertive</span>
-             				<span class="progressScore">70</span>
-             			</div>
-             			<div class="progressBar">
-             				<div class="progressInner"></div>
-             				<span class="progressName">Facilitate</span>
-             				<span class="progressScore">70</span>
-             			</div>
-             			<div class="progressBar">
-             				<div class="progressInner"></div>
-             				<span class="progressName">Accepts Criticisms</span>
-             				<span class="progressScore">70</span>
-             			</div>
-             			<div class="progressBar">
-             				<div class="progressInner"></div>
-             				<span class="progressName">Respectful</span>
-             				<span class="progressScore">70</span>
-             			</div>
-             		</div>
-
-
-             		<p>LEADERSHIP</p>
-             		<div class="progressHolder leadership">
-             			<div class="progressBar">
-             				<div class="progressInner"></div>
-             				<span class="progressName">Strategic</span>
-             				<span class="progressScore">70</span>
-             			</div>
-             			<div class="progressBar">
-             				<div class="progressInner"></div>
-             				<span class="progressName">Delegation</span>
-             				<span class="progressScore">70</span>
-             			</div>
-             			<div class="progressBar">
-             				<div class="progressInner"></div>
-             				<span class="progressName">Coaching</span>
-             				<span class="progressScore">70</span>
-             			</div>
-             			<div class="progressBar">
-             				<div class="progressInner"></div>
-             				<span class="progressName">Empathy</span>
-             				<span class="progressScore">70</span>
-             			</div>
-             		</div>
-
+					 {{/each}}
              	</div>
              </div>
              <!-- SkillsTab Content-->

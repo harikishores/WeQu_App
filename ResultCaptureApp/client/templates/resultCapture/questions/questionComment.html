@@ -1,0 +1,56 @@
+<template name="questionComment">
+    <div class="mobileWrap greyBg relative">
+        <div class="paddingmain animated fadeIn profileOverview titlebarBack gamestepwrap">
+            <!--fixed top-->
+            <div class="screenFixedTop">
+                <div class="flowProgress"></div>
+
+                <div class="row nomargin fixedLogo">
+                    <div class="col s12">
+                        <div class="listtitle fontSize25 textWhite">
+                            <span class="listtitletext cardTypeGameText text-center">{{Question.CommentHead}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="friendInvitationWrap">
+                    <div class="friendInvitationTitle cardCategory">
+                        <div class="row nomargin">
+                            <div class="col s12">
+                                <!--<p class="fontSize16 text-center ">SELF MANAGEMENT</p>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--fixed top-->
+
+            <!--cardlist-->
+            <div class="blackbg gameWrap ">
+                <div class="row">
+                    <div class="textareaHolder">
+                        <textarea id="commentText" placeholder="Tap and put your comment here"></textarea>
+                    </div>
+                </div>
+            </div>
+            <!--cardlist-->
+
+
+
+
+            <div class="absolute width100 startbottom bottomButtonBackground">
+                <div class="row">
+                    <div class="col s6">
+                        <div class="input-field col s12 btngapwrap">
+                            <button id="skipBtn" class="waves-effect waves-light btn-large width100 btnWhite btnradius10" >SKIP</button>
+                        </div>
+                    </div>
+                    <div class="col s6">
+                        <div class="input-field col s12 btngapwrap">
+                            <button id="nextBtn" class="waves-effect waves-light btn-large width100 btnWhite btnradius10" >NEXT</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
