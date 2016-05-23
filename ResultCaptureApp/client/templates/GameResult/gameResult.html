@@ -1,0 +1,131 @@
+<template name="gameResult">
+    <div class="mobileWrap greyBg relative">
+        <div class="paddingmain animated fadeIn profileOverview titlebarBack gamestepwrap gameOverview">
+            <!--fixed top-->
+            <div class="screenFixedTop">
+                <!--<div class="flowProgress"></div>-->
+
+                <div class="row nomargin fixedLogo">
+                    <div class="col s12">
+                        <div class="listtitle fontSize25 textWhite">
+                            <span class="listtitletext cardTypeGameText text-center">Well done, <span class="playerName">{{playerName}}</span>. Here is an overview of your play. </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="friendInvitationWrap">
+                    <div class="friendInvitationTitle cardCategory">
+                        <div class="row nomargin">
+                            <div class="col s12">
+                                <p class="fontSize16 text-center"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--fixed top-->
+
+            <!--cardlist-->
+            <div class="blackbg gameWrap">
+                
+                <div class="ProgressTab">
+                    
+                    <div class="profileHead">
+                        <p class="gameoverviewHead">WEQU SCORE</p>
+                        <p class="gameoverviewHead">{{playerName}} & {{guestName}}</p>
+                    </div>
+                    
+                    <div class="profileImage">
+                        <div class="row">
+                            <div class="col s3">
+                                <span class="blankcard" style="">
+                                </span>
+                            </div>
+                            <div class="col s3 nomargin nopadding animated fadeInLeft">
+                                <img src="images/sanne-reusch2.png" class="frndImgLarge frndImg1">
+                            </div>
+                            <div class="col s3 nomargin nopadding animated fadeInRight">
+                                <img src="images/ohyoon.png" class="frndImgLarge frndImg2">
+                            </div>
+                            <div class="col s3">
+                                <span class="blankcard" style="">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profileMatchScore">
+                        133
+                    </div>
+                    
+                    
+                    <div class="profileMatchDesc">
+                        Venenatis vitae, justo. Nullum dictum eu ped fellis e molis pretium. Venenatis vitae, justo. Nullum dictum eu ped fellis e molis pretium. Venenatis vitae, justo.
+                    </div>
+                    
+                </div>
+                
+                
+                <div class="overviewPositiveEssance">
+                    <div class="scoreCardsHolder backgroundimage">
+                        {{#each gameQuestions}}
+                            <p>{{Tag}}</p>
+                            
+                            <div class="row cardsHolder">
+                                {{#each Cards}}
+                                    <!--<div class="col s4">
+                                        <div class="roundedCard personalValueCard cardsmall cardsmallleft">
+                                        </div>
+                                    </div>-->
+                                    <div class="col s4">
+                                        <div class="roundedCard {{GroupName}} {{ClassName}}">
+                                        </div>
+                                    </div>
+                                    <!--<div class="col s4">
+                                        <div class="roundedCard selfManagementcard cardsmall">
+                                        </div>
+                                    </div>-->
+                                {{/each}}
+                            </div>
+
+                            <div class="row">
+                                <div class="col s12">
+                                    <p class="text-center textWhite width100 carddescription">{{Comment}}</p>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+                
+                
+                <div class="overviewScoreScreen">
+                    <div class="profileHead">
+                        <p class="gameoverviewHead">My WEQU SCORE</p>
+                        <p class="gameoverviewHead">Sussane & Ohyoon</p>
+                    </div>
+                    
+                    <div class="scoreGraphHolder">
+						<canvas id="canvas"></canvas>
+					</div>
+                </div>
+                
+                
+                <div class="row">
+                    <div class="col s12">
+                        <div class="input-field col s12">
+                            <!--<a class="waves-effect waves-light btn-large width100 btnWhite btnradius10" ">SHARE THIS RESULT</a>-->
+                            
+                            <a id="updateBtn" class="waves-effect waves-light btn-large width100 btnWhite btnradius10">UPDATE MY PROFILE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--cardlist-->
+
+
+        </div>
+
+
+    </div>
+
+</template>

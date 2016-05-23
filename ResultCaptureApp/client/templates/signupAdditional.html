@@ -23,16 +23,17 @@
 								<input id="uploadBtn" type="file" class="upload" />
 							</div>
 							<input id="uploadFile" placeholder="Add Your Picture" disabled="disabled" />
+							<!--{{> avatar user=this shape="circle"}}-->
 						</div>
 					</div>
 
 					<div class="formFieldWrap">
 						<div class="row">
 							<div class="input-field col s6">
-								<input name="fname" type="text" class="validate" placeholder="First name">
+								<input name="fname" type="text" class="validate" placeholder="First name" required>
 							</div>
 							<div class="input-field col s6">
-								<input name="lname" type="text" class="validate" placeholder="Last name">
+								<input name="lname" type="text" class="validate" placeholder="Last name" required>
 							</div>
 						</div>
 
@@ -40,7 +41,7 @@
 							<div class="input-field col s6">
 								<div class="selectwrap">
 									<label>
-										<select name="gender">
+										<select name="gender" required>
 											<option value="" disabled selected>Gender</option>
 											<option value="Male">Male</option>
 											<option value="Female">Female</option>
@@ -53,10 +54,12 @@
 							<div class="input-field col s6">
 								<div class="selectwrap">
 									<label>
-										<select name="education">
+										<select name="education" required>
 											<option value="" disabled selected>Education</option>
-											<option value="Education1">Education1</option>
-											<option value="Education2">Education2</option>
+											<option value="Undergraduate">Undergraduate</option>
+											<option value="Graduate">Graduate</option>
+											<option value="Post Graduate">Post Graduate</option>
+											<option value="PHD">PHD</option>
 										</select>
 									</label>
 								</div>
@@ -67,10 +70,10 @@
 							<div class="input-field col s6">
 								<div class="selectwrap">
 									<label>
-										<select name="profession">
+										<select name="profession" required>
 											<option value="" disabled selected>Profession</option>
-											<option value="Profession1">Profession1</option>
-											<option value="Profession2">Profession2</option>
+											<option value="Service">Service</option>
+											<option value="Business">Business</option>
 										</select>
 									</label>
 								</div>
@@ -79,7 +82,7 @@
 							<div class="input-field col s6">
 								<div class="selectwrap">
 									<label>
-										<select name="ethnicity">
+										<select name="ethnicity" required>
 											<option value="" disabled selected>Ethenicity</option>
 											<option value="1">Ethenicity1</option>
 											<option value="2">Ethenicity2</option>
@@ -91,7 +94,7 @@
 
 						<div class="row">
 							<div class="input-field col s12 datefield">
-								<input type="date" class="dob" id="dob" value="22/04/16">
+								<input type="date" class="dob" id="dob" value="" required>
 								<label for="dob"> Date of birth</label>
 							</div>
 

@@ -28,17 +28,21 @@ Template.questionComment.helpers({
 
 Template.questionComment.events({
     'click #nextBtn': function (event) {
-        for(var k in NewGame.Questions){
-            if(NewGame.Questions[k].QuestionId === Router.current().params._id){
-                NewGame.Questions[k].Comment = $('#commentText').val();
-                break;
+        if ($('#commentText').val().trim() !== "") {
+            for (var k in NewGame.Questions) {
+                if (NewGame.Questions[k].QuestionId === Router.current().params._id) {
+                    NewGame.Questions[k].Comment = $('#commentText').val();
+                    break;
+                }
             }
-        }
-            
-        if (nextQuestionAvailable(Router.current().params._id)){
-            Router.go('/questionCategory/' + (++Router.current().params._id));
+
+            if (nextQuestionAvailable(Router.current().params._id)) {
+                Router.go('/questionCategory/' + (++Router.current().params._id));
+            } else {
+                postFullScore();
+            }
         }else{
-            postFullScore();
+            alert('Please make sure to provide some information or else skip the question');
         }
     },
     //skip button click

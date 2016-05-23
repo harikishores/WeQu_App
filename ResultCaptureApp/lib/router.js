@@ -3,10 +3,23 @@ Router.onBeforeAction(function () {
         Router.go('/');
         this.layout("home");
     } else {
-        this.next();
+        if (!Meteor.user().emails[0].verified) {
+            this.layout("verifyEmail");
+            Router.go('/verifyEmail/' + Meteor.user().emails[0].address);
+        }
+        else if (!Meteor.user().profile) {
+            this.layout("signupAdditional");
+            Router.go('/signupAdditional');
+        }
+        else if (!Meteor.user().profile.profileComplete) {
+            this.layout("signupAdditional");
+            Router.go('/signupAdditional');
+        }
+        else
+            this.next();
     }
 }, {
-        except: ['home', , 'login', 'signupDefault', 'signupEmail', 'loginDefault', 'loginEmail', 'signupAdditional']
+        except: ['home', 'verifyEmail', 'login', 'signupDefault', 'signupEmail', 'loginDefault', 'loginEmail', 'signupAdditional']
     });
 
 
@@ -33,15 +46,24 @@ Router.route('/signupEmail', {
 });
 
 Router.route('/loginDefault', {
-    template: 'loginDefault'
+    template: 'loginDefault',
+    waitOn: function () {
+        return Meteor.subscribe('myUsers')
+    }
 });
 
 Router.route('/loginEmail', {
-    template: 'loginEmail'
+    template: 'loginEmail',
+    waitOn: function () {
+        return Meteor.subscribe('myUsers')
+    }
 });
 
 Router.route('/signupAdditional', {
-    template: 'signupAdditional'
+    template: 'signupAdditional',
+    waitOn: function () {
+        return Meteor.subscribe('myUsers')
+    }
 });
 
 Router.route('/dashboard', {
@@ -84,7 +106,12 @@ Router.route('/resultCapture/mini', {
 });
 
 Router.route('/FriendGameList', {
-    template: 'FriendListInvite'
+    waitOn: function () {
+        return [Meteor.subscribe('connections'), Meteor.subscribe('myUsers')];
+    },
+    action: function () {
+        this.render('FriendListInvite');
+    }
 });
 
 Router.route('/EmailInvite', {
@@ -98,7 +125,16 @@ Router.route('/GameVersion', {
 Router.route('/UnplayedGameList', {
     template: 'UnplayedGameList'
 });
-
+Router.route('/GameResult', {
+    template: 'gameResult',
+    waitOn: function () {
+        return [Meteor.subscribe('games'), 
+        Meteor.subscribe('myUsers')];
+    }
+});
+Router.route('/verifyEmail/:_email', {
+    template: 'verifyEmail'
+});
 
 Router.route('/GameLoading/:_email/:_firstName/:_lastName/:_playedBy', {
     template: 'GameLoading'

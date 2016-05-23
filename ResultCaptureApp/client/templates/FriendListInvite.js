@@ -4,13 +4,29 @@ Template.FriendListInvite.rendered = function () {
 
 Template.FriendListInvite.helpers({
 	connections: function () {
-		return Connections.find();
+		var cons = Connections.find().fetch();
+		debugger;
+		for (var k in cons) {
+			if (cons[k].UserId !== Meteor.userId()) {
+				var hostId = cons[k].UserId;
+				var u = Meteor.users.findOne({
+					"_id": hostId
+				});
+				if (u) {
+					cons[k].ConnectionFirstName = u.profile.firstname;
+					cons[k].ConnectionLastName = u.profile.lastname;
+					cons[k].ConnectionEmail = u.emails[0].address;
+				}
+			}
+		}
+		Session.set('connections', cons);
+		return cons;
 	}
 });
 
 Template.FriendListInvite.events({
 	'click #gamesBtn': function (event) {
-		Router.go('/GameList/' + $(event.target).attr('data-connectionId'));
+		//Router.go('/GameList/' + $(event.target).attr('data-connectionId'));
 	},
 	'click #FBFriendBtn': function (event) {
 		// FB.api( 
@@ -31,7 +47,17 @@ Template.FriendListInvite.events({
 			console.log(arguments);
 		});
 	},
-
+	'click #selectBtn': function (event) {
+		var cons = Session.get('connections');
+		var index = $(event.target).attr('data-index');
+		Router.go('/GameLoading/' +
+			cons[index].ConnectionEmail + "/" +
+			cons[index].ConnectionFirstName + "/" +
+			cons[index].ConnectionLastName + "/host");
+	},
+	'click #backBtn': function (event) {
+		Router.go('dashboard');
+	},
 	'click #inviteEmailBtn': function (event) {
 		Router.go('EmailInvite');
 	}

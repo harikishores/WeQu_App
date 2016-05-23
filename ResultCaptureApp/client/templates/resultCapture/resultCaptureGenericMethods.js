@@ -34,7 +34,7 @@ postFullScore = function () {
     if (NewGame.PlayedBy === 'host') {
         Meteor.call('finishHostGame', NewGame, function (e, r) {
             if (!e && r) {
-                alert('Data updated to the server');
+                Router.go('GameResult');
             } else {
                 alert('failed operation');
                 console.log(e);
@@ -43,7 +43,7 @@ postFullScore = function () {
     } else {
         Meteor.call('finishGuestGame', NewGame, function (e, r) {
             if (!e && r) {
-                alert('Data updated to the server');
+                Router.go('GameResult');
             } else {
                 alert('failed operation');
                 console.log(e);

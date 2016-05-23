@@ -33,3 +33,8 @@ standard-minifier-js
 materialize:materialize
 kevohagan:sweetalert
 modweb:arrive
+simple:reactive-method
+accounts-google
+themeteorchef:jquery-validation
+jamesfirst:accounts-linkedin
+npm-bcrypt

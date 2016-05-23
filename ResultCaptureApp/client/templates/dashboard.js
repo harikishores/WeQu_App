@@ -1,61 +1,63 @@
-Session.setDefault('userboard',{});
+Session.setDefault('userboard', {});
 
 Template.dashboard.rendered = function () {
-	Session.setDefault('totalScore',0);
-	Meteor.call('getDashboardData',function(e,r){
-		if(!e && r){
+	Session.setDefault('totalScore', 0);
+	Meteor.call('getDashboardData', function (e, r) {
+		if (!e && r) {
 			console.log(r);
-			Session.set('userboard',r);
+			Session.set('userboard', r);
 			setChartData(r.CategoryScore);
-			Session.set('totalScore',r.totalScore);
+			Session.set('totalScore', r.totalScore);
 		}
 	});
 }
 Template.dashboard.helpers({
-	userTotalScore : function(){
+	userTotalScore: function () {
 		return Session.get('totalScore');
 	},
-	CardData : function(){
+	CardData: function () {
 		return CardData;
 	},
-	CardScore : function(CardId){
+	CardScore: function (CardId) {
 		var d = Session.get('userboard');
 		var score = 0;
-		if(d){
-			for(var k in d.CardScores){
-				if(d.CardScores[k].CardId === CardId){
+		if (d) {
+			for (var k in d.CardScores) {
+				if (d.CardScores[k].CardId === CardId) {
 					score = d.CardScores[k].Score;
 					break;
 				}
 			}
 		}
-		debugger;
-		if(score < 0) score = 0;
-		return ((score/(d.totalGames*2))*100);
+		if (score < 0) score = 0;
+		var res = ((score / (d.totalGames * 2)) * 100);
+		if (isNaN(res))
+			res = 0;
+		return res;
 	},
-	GetPositiveEssence : function(){
+	GetPositiveEssence: function () {
 		var d = Session.get('userboard');
-		if(d.Questions.length > 0){
-			
+		if (d.Questions.length > 0) {
+
 		}
 	}
 });
 var setChartData = function (CategoryScore) {
 	var chartLabels = [];
 	var scores = [];
-	for (var k in CardData){
+	for (var k in CardData) {
 		chartLabels.push(CardData[k].CategoryName);
-		var d = $.grep(CategoryScore,function(e){
+		var d = $.grep(CategoryScore, function (e) {
 			return e.CategoryId == CardData[k].CateogryId;
 		});
-		
-		if(d.length !== 0){    
-			if(d[0].Score <= 0)
-				d[0].Score = 1;
+
+		if (d.length !== 0) {
+			if (d[0].Score < 0)
+				d[0].Score = 0;
 			scores.push(d[0].Score);
 		}
 	}
-		
+
 
 	var radarChartData = {
 		labels: chartLabels,
@@ -78,6 +80,9 @@ var setChartData = function (CategoryScore) {
 
 
 Template.dashboard.events({
+	'click #invitationBtn':function(event){
+		Router.go('UnplayedGameList')	;
+	},
 	'click span.skillMenuItem': function (event) {
 		event.preventDefault();
 		$(".overviewTab").hide();

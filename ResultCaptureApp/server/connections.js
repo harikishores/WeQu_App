@@ -1,7 +1,11 @@
 Meteor.publish('connections', function () {
-    return Connections.find({
-        'UserId': this.userId
+    var cons = Connections.find({
+        $or: [
+            { 'UserId': this.userId },
+            { 'ConnectionId': this.userId }
+        ]
     });
+    return cons;
 });
 
 Meteor.methods({
@@ -12,7 +16,12 @@ Meteor.methods({
                 'ConnectionEmail': connection.Email
             }).fetch();
 
-            if (cons.length === 0) {
+            var consver = Connections.find({
+                'ConnectionId': this.userId,
+                'UserId': connection.Id
+            }).fetch()
+
+            if (cons.length === 0 && consver.length === 0) {
                 return Connections.insert({
                     'UserId': this.userId,
                     'DateAdded': new Date(),
@@ -23,6 +32,9 @@ Meteor.methods({
                     'GamesPlayed': 0
                 });
             } else {
+                if (cons[0] === undefined)
+                    return consver[0];
+                    
                 return cons[0];
             }
         }

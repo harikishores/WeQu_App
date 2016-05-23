@@ -1,6 +1,6 @@
 var userboard = {
     totalScore: 0,
-    totalGames : 0,
+    totalGames: 0,
     CardScores: [],
     CategoryScore: [],
     Questions: []
@@ -25,18 +25,18 @@ var SetupCategoryAndCardScore = function () {
                 "Score": 0
             })
         }
-        
-        for(var n in CardData[m].Cards){
+
+        for (var n in CardData[m].Cards) {
             userboard.CardScores.push({
-               'CardId' : CardData[m].Cards[n].CardId,
-               'Score' : 0
+                'CardId': CardData[m].Cards[n].CardId,
+                'Score': 0
             });
         }
     }
 }
 var updateCardScore = function (cardScore) {
-    for(var k in  userboard.CardScores){
-        if(userboard.CardScores[k].CardId === cardScore.CardId){
+    for (var k in userboard.CardScores) {
+        if (userboard.CardScores[k].CardId === cardScore.CardId) {
             userboard.CardScores[k].Score += cardScore.Point;
             break;
         }
@@ -59,17 +59,16 @@ Meteor.methods({
     'getDashboardData': function () {
         userboard.totalScore = 0;
         var userHostGames = Games.find({
-            $or: [
-            { 'HostId': this.userId },
-            { 'InvitedId': this.userId }
-        ]
+            'HostId': this.userId
         }).fetch();
 
         var userInvitedGames = Games.find({
             'InvitedId': this.userId
         }).fetch();
-        SetupCategoryAndCardScore();
         
+        
+        SetupCategoryAndCardScore();
+
         //adding data where current user was the host
         if (userHostGames.length > 0) {
             userboard.totalGames = userHostGames.length;
@@ -87,10 +86,10 @@ Meteor.methods({
                     for (var o in GameData) {
                         if (GameData[o].Id === data[n].CategoryId) {
                             point = GameData[o].Points;
-                            for(var a in data[n].SelectedCards){
+                            for (var a in data[n].SelectedCards) {
                                 updateCardScore({
-                                    Point : point,
-                                    CardId : data[n].SelectedCards[a]
+                                    Point: point,
+                                    CardId: data[n].SelectedCards[a]
                                 });
                             }
                             break;
@@ -101,16 +100,40 @@ Meteor.methods({
                 userboard.Questions.push(userHostGames[k].Host.Questions);
             }
         }
-        // //adding data where current user was invited for a game
-        // if (userInvitedGames) {
-        //     for (var k in userInvitedGames) {
-        //         var scores = userInvitedGames[k].Invited.GameScores;
-        //         for (var m in scores) {
-        //             userboard.totalScore += scores[m].Score;
-        //         }
-        //     }
-        // }
+        
+        
+        
+                //adding data where current user was the host
+        if (userInvitedGames.length > 0) {
+            userboard.totalGames = userInvitedGames.length;
+            for (var k in userInvitedGames) {
+                var scores = userInvitedGames[k].Invited.GameScores;
+                var data = userInvitedGames[k].Invited.GameData;
+                for (var m in scores) {
+                    userboard.totalScore += scores[m].Score;
+                    udpateCategoryScore(scores[m]);
+                }
 
+                for (var n in data) {
+                    var point = 0;
+                    //fetch the point
+                    for (var o in GameData) {
+                        if (GameData[o].Id === data[n].CategoryId) {
+                            point = GameData[o].Points;
+                            for (var a in data[n].SelectedCards) {
+                                updateCardScore({
+                                    Point: point,
+                                    CardId: data[n].SelectedCards[a]
+                                });
+                            }
+                            break;
+                        }
+                    }
+                }
+                //add the questions and comments
+                userboard.Questions.push(userInvitedGames[k].Invited.Questions);
+            }
+        }
         return userboard;
     }
 });

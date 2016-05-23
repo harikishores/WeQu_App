@@ -1,7 +1,7 @@
 Template.home.events({
 	'click #startBtn':function(event){
         event.preventDefault();
-        Meteor.logout();
+        // Meteor.logout();
         if(Meteor.userId())
         {
             Router.go('dashboard');

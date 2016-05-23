@@ -15,6 +15,7 @@ Questions.sort(predicateBy('QuestionId'));
 
 Template.questionCategory.rendered = function () {
     //Session.setDefault('currentQuestion',Questions[Router.current().params._id])
+    selectedCards = [];
     if (!this.rendered) {
         this.rendered = true;
     }

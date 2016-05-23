@@ -6,7 +6,11 @@
 // };
 
 Template.signupEmail.events({
-    'submit form': function(event) {
+    'click #backBtn': function (event) {
+        debugger;
+        Router.go('/signupdefault');
+    },
+    'submit form': function (event) {
         try {
             event.preventDefault();
             var email = $('[name=email]').val();
@@ -14,24 +18,29 @@ Template.signupEmail.events({
             Accounts.createUser({
                 email: email,
                 password: password
-            }, function(error) {
-                debugger;
+            }, function (error) {
                 if (error) {
                     switch (error.error) {
                         case 403: //User email already exists
-                            sweetAlert("Oops...",'Email already exists', "error");
+
                             break;
                         default:
-                            sweetAlert("Oops...",'Failed to login. Please try again later.','error');
+                            sweetAlert("Oops...", 'Failed to login. Please try again later.', 'error');
                     }
                 }
                 else {
+                    Meteor.call('sendVerificationLink', (e, r) => {
+                        if (!e) {
+                            console.log(r);
+                        } else console.log(e);
+
+                    });
                     Router.go('signupAdditional');
                 }
             });
         }
         catch (e) {
-            sweetAlert("Oops...",e, "error");
+            sweetAlert("Oops...", e, "error");
         }
     }
 });
