@@ -1022,7 +1022,7 @@ p.gameoverviewHead {
 
 .cardsmall {
     height: 100px;
-    width: 70%;
+    /*width: 70%;*/
     margin-top: 20px;
 }
 
@@ -1932,7 +1932,7 @@ p.gameoverviewHead {
 }
 
 .frndImg1 {
-    float: right;
+    /*float: right;*/
 }
 
 .frndImg2 {
@@ -2644,7 +2644,7 @@ p.gameoverviewHead {
         line-height: 43px;
     }
     .cardTypeGameText {
-        font-size: 18px;
+        font-size: 12px;
     }
     .cardCategoryName{
         font-size: 15px;
@@ -2658,7 +2658,7 @@ p.gameoverviewHead {
     }
     .cardTypeGameText {
         height: 43px;
-        line-height: 21px;
+        line-height: 14px;
     }
 }
 
@@ -2752,12 +2752,12 @@ p.gameoverviewHead {
 
 @media (max-width: 320px) {
     .btnWhite {
-        font-size: 16px;
+        font-size: 12px;
     }
     .facebookbtn {
-        font-size: 14px;
+        font-size: 12px;
     }
     .googleBtn {
-        font-size: 14px;
+        font-size: 12px;
     }
 }

@@ -1,5 +1,12 @@
+
+Template.GameVersion.rendered = function () {
+    console.log('GameVersion rendered');
+    debugger;
+}
+
+
 Template.GameVersion.events({
-    'click #miniBtn': function(event) {
+    'click #miniBtn': function (event) {
         swal({
             title: "Are you sure?",
             text: "You have selected to play mini mode, Do you want to start the game?",
@@ -8,7 +15,7 @@ Template.GameVersion.events({
             confirmButtonColor: "#DD6B55",
             confirmButtonText: "Yes, Proceed!",
             closeOnConfirm: false
-        }, function() {
+        }, function () {
             swal.close();
             NewGame.GameMode = "Mini";
             Router.go('/resultCapture/mini')
@@ -18,7 +25,7 @@ Template.GameVersion.events({
         // var userSelectedOption = confirm('You have selected to play mini mode, Do you want to start the game?');
         // if (userSelectedOption) Router.go('resultCapture', { 'mode': 'mini' });
     },
-    'click #fullBtn': function(event) {
+    'click #fullBtn': function (event) {
         swal({
             title: "Are you sure?",
             text: "You have selected to play full mode, Do you want to start the game?",
@@ -27,14 +34,26 @@ Template.GameVersion.events({
             confirmButtonColor: "#DD6B55",
             confirmButtonText: "Yes, Proceed!",
             closeOnConfirm: false
-        }, function() {
+        }, function () {
             swal.close();
             NewGame.GameMode = "Full";
             Router.go('/resultCapture/full')
         });
+    },
 
-
-        // var userSelectedOption = confirm('You have selected to play full mode, Do you want to start the game?');
-        // if (userSelectedOption) Router.go('resultCapture', { 'mode': 'full' });
+    'click #cancelGameBtn': (event) => {
+        swal({
+            title: "Are you sure?",
+            text: "You have selected to play full mode, Do you want to start the game?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, Proceed!",
+            closeOnConfirm: false
+        }, function () {
+            swal.close();
+            Meteor.call('cancelGame');
+            Router.go('/dashboard');
+        });
     }
 });

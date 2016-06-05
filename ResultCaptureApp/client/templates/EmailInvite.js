@@ -1,22 +1,21 @@
 Template.EmailInvite.events({
-    'click #sendEmailBtn': function (event) {
+    'submit form': function (event) {
+        event.preventDefault();
         try {
-            //Meteor.call('sendEmail', $('#email').val(), 'This is a test of Email.send.');
-            // var b  = Meteor.call('userExists', 'soham@t.t',function (e,r) { 
-            //     debugger;
-            //     if(!e && r){
-            //         console.log(r);
-            //     }
-            //  });
-            Router.go('/GameLoading/' +
+            debugger;
+            var url = '/GameLoading/' +
                 $('#email').val() + "/" +
                 $('#firstname').val() + "/" +
-                $('#lastname').val() + "/host");
+                $('#lastname').val() + "/host";
+            Router.go(url);
 
         } catch (e) {
             sweetAlert('Oops...', e, 'error');
         } finally {
-
+            
         }
+    },
+    'click #backBtn': (event) => {
+        history.back();
     }
 });

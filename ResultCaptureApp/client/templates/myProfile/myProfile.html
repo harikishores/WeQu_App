@@ -1,12 +1,10 @@
-<template name='signupAdditional'>
+<template name='myProfile'>
 	<div class="mobileWrap greyBg relative">
 		<div class="paddingmain animated fadeIn signInWrap">
 			<!--Screen info start-->
 			<div class="row nomargin">
 				<div class="col s12">
-					<div class="pagetitle">JOIN NOW</div>
 					<div class="pagedesc2">ABOUT YOU</div>
-					<div class="pagedescsmall">Enter your personal details so we can personalize your experience</div>
 				</div>
 			</div>
 			<!--Screen info start-->
@@ -14,7 +12,6 @@
 			<!--Sign In Form-->
 
 			<div class="row ">
-				<form>
 				<div class="formWrap">
 					<div class="row nomargin">
 						<div class="input-field col s12 nomargin">
@@ -23,7 +20,7 @@
 								<span class="custom-span"></span>
 								<input id="uploadBtn" type="file" class="upload" />
 							</div>
-							<input id="uploadFile" placeholder="Add Your Picture" disabled="disabled" />
+							<!--<input id="uploadFile" placeholder="Add Your Picture" disabled="disabled" />-->
 							<!--{{> avatar user=this shape="circle"}}-->
 						</div>
 					</div>
@@ -31,10 +28,10 @@
 					<div class="formFieldWrap">
 						<div class="row">
 							<div class="input-field col s6">
-								<input name="fname" type="text" class="validate" placeholder="First name" required>
+								<input  name="fname" type="text" class="validate" placeholder="First Name" required>
 							</div>
 							<div class="input-field col s6">
-								<input name="lname" type="text" class="validate" placeholder="Last name" required>
+								<input name="lname" type="text" class="validate" placeholder="Last Name" required>
 							</div>
 						</div>
 
@@ -42,7 +39,7 @@
 							<div class="input-field col s6">
 								<div class="selectwrap">
 									<label>
-										<select name="gender" required>
+										<select name="gender" required> 
 											<option value="" disabled selected>Gender</option>
 											<option value="Male">Male</option>
 											<option value="Female">Female</option>
@@ -71,7 +68,7 @@
 							<div class="input-field col s6">
 								<div class="selectwrap">
 									<label>
-										<select name="profession" required>
+										<select name="profession" required> 
 											<option value="" disabled selected>Profession</option>
 											<option value="Service">Service</option>
 											<option value="Business">Business</option>
@@ -115,18 +112,22 @@
 					</div>
 
 					<div class="row">
-						<div class="input-field col s12 btngapwrap">
-							<button type="submit" class="waves-effect btn-large width100 btnWhite btnradius10">SUBMIT</button>
+                        <div class="input-field col s3 btngapwrap">
+							<a id="backBtn" class="waves-effect btn-large width100 btnWhite btnradius10">BACK</a>
+						</div>
+						<div class="input-field col s3 btngapwrap">
+							<a id="submitBtn" class="waves-effect btn-large width100 btnWhite btnradius10">SUBMIT</a>
+						</div>
+                        <div class="input-field col s3 btngapwrap">
+							<a id="changePasswordBtn" class="waves-effect btn-large width100 btnWhite btnradius10">PASSWORD</a>
+						</div>
+						<div class="input-field col s3 btngapwrap">
+							<a id="logoutBtn" class="waves-effect btn-large width100 btnWhite btnradius10">LOGOUT</a>
 						</div>
 					</div>
 				</div>
-				</form>
 			</div>
 			<!--Sign In Form-->
-
-
 		</div>
-
-
 	</div>
 </template>

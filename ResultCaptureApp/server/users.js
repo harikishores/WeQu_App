@@ -67,6 +67,8 @@ Meteor.methods({
             };
         }
         else return undefined;
+    },
+    'getUserPositiveEssences': () => {
     }
 });
 

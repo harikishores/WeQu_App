@@ -8,7 +8,7 @@
                 <div class="row nomargin nopadding fixedLogo">
                     <div class="col s12 nomargin nopadding">
                         <div class="listtitle fontSize25 textWhite">
-                            <span class="listtitletext cardTypeGameText text-center">Select <span class="cardTypeGame">{{GameData.Name}}</span>cards you got from <span class="playerName">Opponent</span></span>
+                            <span class="listtitletext cardTypeGameText text-center">Select <span class="cardTypeGame">{{GameData.Name}}</span> cards you got from <span class="playerName">Opponent</span></span>
                         </div>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                 {{#each CardData}}
                 <div class="row"> 
                    
-                 <div class="fontSize16 text-center cardCategoryName cardCategoryNameNew">{{CategoryName}}</div>
+                 <div class="fontSize14 text-center cardCategoryName cardCategoryNameNew">{{CategoryName}}</div>
                  {{#each Cards}}
                  <div class="col s6">
                     <label for="{{CardId}}">
@@ -29,11 +29,11 @@
                         <!--<span class="cardname-select textWhite fontSize12">MORE TRUE</span>-->
                         <div class="cardSelector">
                             <p class="checkwrap">
-                                <input name="{{GroupName}}" class="cardRadio filled-in" type="checkbox" data-Cateogry="{{../CateogryId}}" value="{{CardId}}" id="{{CardId}}"
+                                <input name="{{GroupName}}" class="cardRadio filled-in {{IsCardSelectedInCategory CardId}}" type="checkbox" data-Cateogry="{{../CateogryId}}" value="{{CardId}}" id="{{CardId}}"
                                 />
                                 <label for="{{CardId}}"><span>{{CardName}}</span></label>
                             </p>
-                            {{IsCardSelected CardId}}
+                            <!--{{IsCardSelected CardId}}-->
                             <span class="cardNameOnly">{{CardName}}</span>
                         </div>
                     </div>

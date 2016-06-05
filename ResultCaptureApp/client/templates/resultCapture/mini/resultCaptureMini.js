@@ -21,11 +21,18 @@ CardData.sort(predicateBy('CategoryId'));
 
 Template.resultCaptureMini.rendered = function () {
     GameData = this.data;
-    Session.setDefault('sessionSelectedCards', []);
+    categoryIndex = 0;
+    cardIndex = 0;
+    score = [];
+    cardSelectionComplete = false;
+    gameIndex = 0;
 
+    Session.setDefault('sessionSelectedCards', []);
+    Session.set('sessionSelectedCards', []);
     //Sected Card Count
     Session.setDefault('currentCategory', CardData);
     //Track Game
+
     Session.setDefault('currentGame', GameData[gameIndex]);
     if (!this.rendered) {
         this.rendered = true;
@@ -49,20 +56,20 @@ Template.resultCaptureMini.events({
             //udpate rest of the cards
             ++gameIndex;
             var selCards = Session.get('sessionSelectedCards');
-            for(var k in CardData){
-                for(var m in CardData[k].Cards){
-                    var c = $.grep(selCards,function(e){
-                       return e.cardId == CardData[k].Cards[m].CardId;
+            for (var k in CardData) {
+                for (var m in CardData[k].Cards) {
+                    var c = $.grep(selCards, function (e) {
+                        return e.cardId == CardData[k].Cards[m].CardId;
                     });
-                    
-                    if(c.length === 0){
+
+                    if (c.length === 0) {
                         GameData[gameIndex].SelectedCards.push(CardData[k].Cards[m].CardId);
                         CardData[k].Score += GameData[gameIndex].Points;
                     }
                 }
             }
             //update rest of the cards finish
-            
+
             for (var k in GameData) {
                 NewGame.CategoryCards.push({
                     "CategoryId": GameData[k].Id,
@@ -97,50 +104,50 @@ Template.resultCaptureMini.events({
 
     'change .cardRadio': function (event) {
         event.preventDefault();
-        //check is 6 cards selected from the category
-        if ($(event.target).is(':checked') && GameData[gameIndex].SelectedCards.length === 12) {
-            alert('Only 12 cards can be selected under a single category, Press next to continue.');
-            $(event.target).prop('checked', false);
-            return;
-        }
-        //check 6 cards ends
-
-
-        var valueUdpate = $(event.target).val();//value to be updated
-        var valueChecked = false; //is the element checked
-        var valueExists = false; // does the eleement value exists in the array of selected cards of the current game index?
-        var valueIndex = GameData[gameIndex].SelectedCards.indexOf(valueUdpate); //-1 indicates not in any index.
-        if ($(event.target).is(':checked')) { valueChecked = true; }
-
-        if (valueIndex !== -1) {
-            valueExists = true;
-        }
-
-        if (valueChecked && !valueExists && Session.get('sessionSelectedCards').length < 24) { //if value is checked and does not exists in the array of selected Cards.
-            GameData[gameIndex].SelectedCards.push(valueUdpate);
-            var catId = $(event.target).attr('data-Cateogry')
-            for (var k in CardData) {
-                if (CardData[k].CateogryId === catId) {
-                    CardData[k].Score += GameData[gameIndex].Points;
-                }
+        if (!$(event.target).is(".myActiveCard")) {
+            //check is 6 cards selected from the category
+            if ($(event.target).is(':checked') && GameData[gameIndex].SelectedCards.length >= 12) {
+                alert('Only 12 cards can be selected under a single category, Press next to continue.');
+                $(event.target).prop('checked', false);
+                return;
             }
-            setSession.updateSelectedCards(valueUdpate, true);
-            return;
-        }
+            //check 6 cards ends
+            var valueUdpate = $(event.target).val();//value to be updated
+            var valueChecked = false; //is the element checked
+            var valueExists = false; // does the eleement value exists in the array of selected cards of the current game index?
+            var valueIndex = GameData[gameIndex].SelectedCards.indexOf(valueUdpate); //-1 indicates not in any index.
+            if ($(event.target).is(':checked')) { valueChecked = true; }
 
-        if (!valueChecked && valueExists) { //if the value is not checked but exists in the array of selected cards.
-            GameData[gameIndex].SelectedCards.splice(valueIndex, 1);
-            var catId = $(event.target).attr('data-Cateogry')
-            for (var k in CardData) {
-                if (CardData[k].CateogryId === catId) {
-                    CardData[k].Score -= GameData[gameIndex].Points;
-                }
+            if (valueIndex !== -1) {
+                valueExists = true;
             }
-            Session.updateSelectedCards(valueUdpate, false);
-            return;
+
+            if (valueChecked && !valueExists && Session.get('sessionSelectedCards').length < 24) { //if value is checked and does not exists in the array of selected Cards.
+                GameData[gameIndex].SelectedCards.push(valueUdpate);
+                var catId = $(event.target).attr('data-Cateogry')
+                for (var k in CardData) {
+                    if (CardData[k].CateogryId === catId) {
+                        CardData[k].Score += GameData[gameIndex].Points;
+                    }
+                }
+                setSession.updateSelectedCards(valueUdpate, true);
+                return;
+            }
+
+            if (!valueChecked && valueExists) { //if the value is not checked but exists in the array of selected cards.
+                GameData[gameIndex].SelectedCards.splice(valueIndex, 1);
+                var catId = $(event.target).attr('data-Cateogry')
+                for (var k in CardData) {
+                    if (CardData[k].CateogryId === catId) {
+                        CardData[k].Score -= GameData[gameIndex].Points;
+                    }
+                }
+                setSession.updateSelectedCards(valueUdpate, false);
+                return;
+            }
+            //update the score to the list
+            //updateScore(categoryIndex, gameIndex);
         }
-        //update the score to the list
-        //updateScore(categoryIndex, gameIndex);
     }
 });
 
@@ -194,13 +201,13 @@ Template.resultCaptureMini.helpers({
     IsCardSelected: function (cardId) {
         try {
             // var control = $(this.CardId);
-            var selCards = Session.get('sessionSelectedCards');
-            var index = $.grep(selCards, function (e) { return e.cardId === cardId; });
-            if (index.length === 0)
-                $('#' + cardId).prop('checked', false);
-            else
-                $('#' + cardId).prop('checked', true);
-            return '';
+            // var selCards = Session.get('sessionSelectedCards');
+            // var index = $.grep(selCards, function (e) { return e.cardId === cardId; });
+            // if (index.length === 0)
+            //     $('#' + cardId).prop('checked', false);
+            // else
+            //     $('#' + cardId).prop('checked', true);
+            // return '';
         } catch (e) {
 
         }

@@ -29,11 +29,11 @@
                         <!--<span class="cardname-select textWhite fontSize12">MORE TRUE</span>-->
                         <div class="cardSelector">
                             <p class="checkwrap">
-                                <input name="{{GroupName}}" class="cardRadio filled-in" type="checkbox" data-Cateogry="{{../CateogryId}}" value="{{CardId}}" id="{{CardId}}"
+                                <input name="{{GroupName}}" class="cardRadio filled-in {{IsCardSelectedInCategory CardId}}" type="checkbox" data-Cateogry="{{../CateogryId}}" value="{{CardId}}" id="{{CardId}}"
                                 />
                                 <label for="{{CardId}}"><span>{{CardName}}</span></label>
                             </p>
-                            {{IsCardSelected CardId}}
+                            <!--{{IsCardSelected CardId}}-->
                             <span class="cardNameOnly">{{CardName}}</span>
                         </div>
                     </div>

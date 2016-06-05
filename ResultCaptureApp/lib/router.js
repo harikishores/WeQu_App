@@ -19,13 +19,12 @@ Router.onBeforeAction(function () {
             this.next();
     }
 }, {
-        except: ['home', 'verifyEmail', 'login', 'signupDefault', 'signupEmail', 'loginDefault', 'loginEmail', 'signupAdditional']
+        except: ['home', 'verifyEmail', 'login', 'signupDefault', 'signupEmail', 'loginDefault', 'loginEmail', 'signupAdditional', 'forgotPassword']
     });
 
 
 Router.route('/', {
-    template: 'home',
-    fastRender: true,
+    template: 'home'
 });
 Router.configure({
     loadingTemplate: 'loading'
@@ -82,7 +81,6 @@ Router.route('/resultCapture/full', {
     template: 'resultCaptureFull',
     data: function () {
         var questions = [];
-
         questions = GameData;
         return questions;
     }
@@ -122,29 +120,38 @@ Router.route('/GameVersion', {
     template: 'GameVersion'
 });
 
+Router.route('/friendInviteEmail', {
+    template: 'friendInviteEmail'
+});
+
 Router.route('/UnplayedGameList', {
     template: 'UnplayedGameList'
 });
 Router.route('/GameResult', {
     template: 'gameResult',
     waitOn: function () {
-        return [Meteor.subscribe('games'), 
-        Meteor.subscribe('myUsers')];
+        return [Meteor.subscribe('games'), Meteor.subscribe('myUsers')];
     }
 });
 Router.route('/verifyEmail/:_email', {
     template: 'verifyEmail'
 });
 
+Router.route('/forgotPassword', {
+    template: 'forgotPassword'
+});
+
+Router.route('/myProfile', {
+    template: 'myProfile',
+    waitOn: () => {
+        Meteor.subscribe('myUsers');
+    }
+});
+
+Router.route('/changePassword', {
+    template: 'changePassword'
+});
+
 Router.route('/GameLoading/:_email/:_firstName/:_lastName/:_playedBy', {
     template: 'GameLoading'
 });
-// Router.onBeforeAction(function(){
-// 	if (Meteor.loggingIn()){
-// 		this.render('loading');
-// 	} else if (Meteor.user() && !Meteor.user().emails[0].verified){
-// 		this.render('verification');
-// 	} else {
-// 		this.next();
-// 	}
-// })

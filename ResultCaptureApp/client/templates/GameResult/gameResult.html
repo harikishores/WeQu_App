@@ -32,7 +32,7 @@
                     
                     <div class="profileHead">
                         <p class="gameoverviewHead">WEQU SCORE</p>
-                        <p class="gameoverviewHead">{{playerName}} & {{guestName}}</p>
+                        <p class="gameoverviewHead">{{playerName}}</p>
                     </div>
                     
                     <div class="profileImage">
@@ -41,11 +41,8 @@
                                 <span class="blankcard" style="">
                                 </span>
                             </div>
-                            <div class="col s3 nomargin nopadding animated fadeInLeft">
+                            <div class="col s12 nomargin nopadding ">
                                 <img src="images/sanne-reusch2.png" class="frndImgLarge frndImg1">
-                            </div>
-                            <div class="col s3 nomargin nopadding animated fadeInRight">
-                                <img src="images/ohyoon.png" class="frndImgLarge frndImg2">
                             </div>
                             <div class="col s3">
                                 <span class="blankcard" style="">
@@ -55,7 +52,7 @@
                     </div>
                     
                     <div class="profileMatchScore">
-                        133
+                        {{gameScore}}
                     </div>
                     
                     
@@ -73,18 +70,10 @@
                             
                             <div class="row cardsHolder">
                                 {{#each Cards}}
-                                    <!--<div class="col s4">
-                                        <div class="roundedCard personalValueCard cardsmall cardsmallleft">
-                                        </div>
-                                    </div>-->
                                     <div class="col s4">
                                         <div class="roundedCard {{GroupName}} {{ClassName}}">
                                         </div>
                                     </div>
-                                    <!--<div class="col s4">
-                                        <div class="roundedCard selfManagementcard cardsmall">
-                                        </div>
-                                    </div>-->
                                 {{/each}}
                             </div>
 
@@ -100,8 +89,7 @@
                 
                 <div class="overviewScoreScreen">
                     <div class="profileHead">
-                        <p class="gameoverviewHead">My WEQU SCORE</p>
-                        <p class="gameoverviewHead">Sussane & Ohyoon</p>
+                        <p class="gameoverviewHead">My WEQU GRAPH</p>
                     </div>
                     
                     <div class="scoreGraphHolder">

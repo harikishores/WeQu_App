@@ -1,17 +1,6 @@
 
 Template.loginDefault.events({
     'click #facebook-login': function (event) {
-        console.log('facebook login called');
-        //needs changes to the current implementation
-        // Meteor.loginWithFacebook({}, function (err, r) {
-        //     if (err) {
-        //         alert("Facebook login failed");
-        //     }
-        //     else {
-        //         Router.go('/signupAdditional');
-        //     }
-        // });
-
         Meteor.loginWithFacebook({ requestPermissions: ['user_friends', 'public_profile', 'email'] }, (err) => {
             if (err) {
                 alert("Facebook login failed");
@@ -44,5 +33,13 @@ Template.loginDefault.events({
                 throw new Meteor.Error("Logout failed");
             }
         })
+    },
+
+    'click #forgotPasswordBtn': (event) => {
+        Router.go('/forgotPassword');
+    },
+    
+    'click #signInBtn':(event)=>{
+        Router.go('/loginEmail');
     }
 });

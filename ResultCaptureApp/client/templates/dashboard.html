@@ -13,16 +13,16 @@
 				<nav class="slidemenu">
 
 					<!-- Item 1 -->
-					<input type="radio" name="slideItem" id="slide-item-1" class="slide-toggle" checked/>
+					<input type="radio" data-pane="dashboard" name="slideItem" id="slide-item-1" class="slide-toggle" checked/>
 					<label for="slide-item-1"><span class="overviewMenuItem">OVERVIEW</span></label>
 
 					<!-- Item 2 -->
-					<input type="radio" name="slideItem" id="slide-item-2" class="slide-toggle" />
+					<input type="radio" data-pane="skills" name="slideItem" id="slide-item-2" class="slide-toggle" />
 					<label for="slide-item-2"><span class="skillMenuItem">SKILLS</span></label>
 
-					 <!--Item 3 
-					<input type="radio" name="slideItem" id="slide-item-3" class="slide-toggle" />
-					<label for="slide-item-3"><span class="progessMenuIem">PROGRESS</span></label>-->
+					 <!--Item 3 -->
+					<input type="radio" data-pane="profile" name="slideItem" id="slide-item-3" class="slide-toggle" />
+					<label for="slide-item-3"><span class="progessMenuIem">PROFILE</span></label>
 
 					<div class="clear"></div>
 
@@ -56,55 +56,16 @@
 
 				<div class="overviewPositiveEssance">
 					<div class="scoreCardsHolder">
-						<p>MY 13 POSITIVE ESSANCE</p>
+						<p>MY {{myPositiveEssences.length}} POSITIVE ESSANCE</p>
 
 						<div class="row cardsHolder">
+							{{#each myPositiveEssences}}
 							<div class="col s4">
-                                <!--change the category class personalValueCard, problemSolvingCard, selfManagementcard, communicationCard,
-                                teamworkCard, leadershipCard-->
-                                
-                                <!--change the class name for card name for Personal value - 
-                                integrity, trustworthy, peoplefocused & businessfocused-->
-                                
-                                <div class="roundedCard personalValueCard cardsmall cardsmallleft businessfocused">
+                                <div class="roundedCard {{GroupName}} cardsmall {{ClassName}}">
                                 </div>
                             </div>
-                            
-                            <div class="col s4">
-                                <!--change the class name for card name for Problem Solving - 
-                                creative, conceptualthinking, negotiation & manageconflicts-->
-                                <div class="roundedCard problemSolvingCard manageconflicts">
-                                </div>
-                            </div>
-                            
-                            <div class="col s4">
-                                <!--change the class name for card name for Self management - 
-                                selflearner, initiative, stresstolerance & persistence-->
-                                <div class="roundedCard selfManagementcard cardsmall persistence">
-                                </div>
-                            </div>
+							{{/each}}
                         </div>
-                        
-                        <div class="row cardsHolder">
-                        	<div class="col s4">
-                                <!--change the class name for card name for Communication - 
-                                listening, sociability, storytelling & writtencommunication-->
-                                <div class="roundedCard communicationCard cardsmall cardsmallleft storytelling">
-                                </div>
-                            </div>
-                            <div class="col s4">
-                                <!--change the class name for card name for Team work - 
-                                assertive, facilitate, acceptscriticisms & respectful-->
-                                <div class="roundedCard teamworkCard acceptscriticisms">
-                                </div>
-                            </div>
-                            <div class="col s4">
-                                 <!--change the class name for card name for Leadership - 
-                                 strategic, delegation, coaching & empathy-->
-                                 <div class="roundedCard leadershipCard cardsmall empathy">
-                                 </div>
-                             </div>
-                         </div>
 <!--
                          <p>Initiative</p>
 

@@ -20,13 +20,22 @@ CardData.sort(predicateBy('CategoryId'));
 
 
 Template.resultCaptureFull.rendered = function () {
-    GameData = this.data;
-    Session.setDefault('sessionSelectedCards', []);
 
+    GameData = this.data;
+    categoryIndex = 0;
+    cardIndex = 0;
+    score = [];
+    cardSelectionComplete = false;
+    gameIndex = 0;
+
+    Session.setDefault('sessionSelectedCards', []);
+    Session.set('sessionSelectedCards', []);
     //Sected Card Count
     Session.setDefault('currentCategory', CardData);
     //Track Game
+
     Session.setDefault('currentGame', GameData[gameIndex]);
+    Session.setDefault('previousGame', undefined);
     if (!this.rendered) {
         this.rendered = true;
     }
@@ -64,6 +73,7 @@ Template.resultCaptureFull.events({
     },
 
     'click #nextBtn': function (event) {
+        event.preventDefault();
         if (GameData[gameIndex].SelectedCards.length === 6) {
             if (gameIndex < (GameData.length - 1)) {
                 Session.set('currentGame', GameData[++gameIndex]);
@@ -74,6 +84,7 @@ Template.resultCaptureFull.events({
     },
     //back button click
     'click #backBtn': function (event) {
+        event.preventDefault();
         if (gameIndex > 0) {
             Session.set('currentGame', GameData[--gameIndex]);
         }
@@ -81,49 +92,60 @@ Template.resultCaptureFull.events({
 
     'change .cardRadio': function (event) {
         event.preventDefault();
-        //check is 6 cards selected from the category
-        if ($(event.target).is(':checked') && GameData[gameIndex].SelectedCards.length === 6) {
-            alert('Only 6 cards can be selected under a single category, Press next to continue.');
-            $(event.target).prop('checked', false);
-            return;
-        }
-        //check 6 cards ends
-
-        var valueUdpate = $(event.target).val();//value to be updated
-        var valueChecked = false; //is the element checked
-        var valueExists = false; // does the eleement value exists in the array of selected cards of the current game index?
-        var valueIndex = GameData[gameIndex].SelectedCards.indexOf(valueUdpate); //-1 indicates not in any index.
-        if ($(event.target).is(':checked')) { valueChecked = true; }
-
-        if (valueIndex !== -1) {
-            valueExists = true;
-        }
-
-        if (valueChecked && !valueExists && Session.get('sessionSelectedCards').length < 24) { //if value is checked and does not exists in the array of selected Cards.
-            GameData[gameIndex].SelectedCards.push(valueUdpate);
-            var catId = $(event.target).attr('data-Cateogry')
-            for (var k in CardData) {
-                if (CardData[k].CateogryId === catId) {
-                    CardData[k].Score += GameData[gameIndex].Points;
-                }
+        if (!$(event.target).is(".myActiveCard")) {
+            //check is 6 cards selected from the category
+            if ($(event.target).is(':checked') && GameData[gameIndex].SelectedCards.length === 6) {
+                alert('Only 6 cards can be selected under a single category, Press next to continue.');
+                $(event.target).prop('checked', false);
+                return;
             }
-            setSession.updateSelectedCards(valueUdpate, true);
-            return;
+            //check 6 cards ends
+
+            var valueUdpate = $(event.target).val();//value to be updated
+            var valueChecked = false; //is the element checked
+            var valueExists = false; // does the eleement value exists in the array of selected cards of the current game index?
+            var valueIndex = GameData[gameIndex].SelectedCards.indexOf(valueUdpate); //-1 indicates not in any index.
+            if ($(event.target).is(':checked')) { valueChecked = true; }
+
+            if (valueIndex !== -1) {
+                valueExists = true;
+            }
+
+            if (valueChecked && !valueExists && Session.get('sessionSelectedCards').length < 24) { //if value is checked and does not exists in the array of selected Cards.
+                GameData[gameIndex].SelectedCards.push(valueUdpate);
+                var catId = $(event.target).attr('data-Cateogry')
+                for (var k in CardData) {
+                    if (CardData[k].CateogryId === catId) {
+                        CardData[k].Score += GameData[gameIndex].Points;
+                    }
+                }
+                setSession.updateSelectedCards(valueUdpate, true);
+            }
+
+            if (!valueChecked && valueExists) { //if the value is not checked but exists in the array of selected cards.
+                GameData[gameIndex].SelectedCards.splice(valueIndex, 1);
+                var catId = $(event.target).attr('data-Cateogry')
+                for (var k in CardData) {
+                    if (CardData[k].CateogryId === catId) {
+                        CardData[k].Score -= GameData[gameIndex].Points;
+                    }
+                }
+                setSession.updateSelectedCards(valueUdpate, false);
+            }
         }
 
-        if (!valueChecked && valueExists) { //if the value is not checked but exists in the array of selected cards.
-            GameData[gameIndex].SelectedCards.splice(valueIndex, 1);
-            var catId = $(event.target).attr('data-Cateogry')
-            for (var k in CardData) {
-                if (CardData[k].CateogryId === catId) {
-                    CardData[k].Score -= GameData[gameIndex].Points;
-                }
-            }
-            setSession.updateSelectedCards(valueUdpate, false);
-            return;
-        }
-        //update the score to the list
-        //updateScore(categoryIndex, gameIndex);
+        // for (var k in CardData) {
+        //     for (var l in CardData[k].Cards) {
+        //         var elem = $('#' + CardData[k].Cards[l].CardId);
+        //         if (elem) {
+        //             if (GameData[gameIndex].SelectedCards.indexOf(CardData[k].Cards[l].CardId) === -1) {
+        //                 $(elem).prop('checked', false);
+        //             } else {
+        //                 $(elem).prop('checked', true);
+        //             }
+        //         }
+        //     }
+        // }
     }
 });
 
@@ -138,11 +160,6 @@ Template.resultCaptureFull.helpers({
     // this is not working
     checkModeAndCardSelection: function () {
         try {
-            // if (GameData.length === 2 && Session.get('sessionSelectedCards').length === 12) {
-            //     cardSelectionComplete = true;
-            //     return true;
-            // }
-
             if (Session.get('sessionSelectedCards').length === 24) {
                 cardSelectionComplete = true;
                 return true;
@@ -177,13 +194,13 @@ Template.resultCaptureFull.helpers({
     IsCardSelected: function (cardId) {
         try {
             // var control = $(this.CardId);
-            var selCards = Session.get('sessionSelectedCards');
-            var index = $.grep(selCards, function (e) { return e.cardId === cardId; });
-            if (index.length === 0)
-                $('#' + cardId).prop('checked', false);
-            else
-                $('#' + cardId).prop('checked', true);
-            return '';
+            // var selCards = Session.get('sessionSelectedCards');
+            // var index = $.grep(selCards, function (e) { return e.cardId === cardId; });
+            // if (index.length === 0)
+            //     $('#' + cardId).prop('checked', false);
+            // else
+            //     $('#' + cardId).prop('checked', true);
+            // return '';
         } catch (e) {
 
         }

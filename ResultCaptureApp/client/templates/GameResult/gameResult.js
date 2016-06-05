@@ -1,4 +1,7 @@
+
 Template.gameResult.rendered = function () {
+    debugger;
+    Session.setDefault('gameScore', 0);
     if (NewGame.PlayedBy === 'host') {
         var game = Games.findOne({ 'GameId': NewGame._id });
         if (game) {
@@ -11,6 +14,9 @@ Template.gameResult.rendered = function () {
 Template.gameResult.helpers({
     rendered: function () {
 
+    },
+    gameScore: () => {
+        return Session.get('gameScore');
     },
     playerName: () => {
         return Meteor.user().profile.firstname;
@@ -63,6 +69,8 @@ Template.gameResult.events({
 var setChartData = function (CategoryScore) {
     var chartLabels = [];
     var scores = [];
+    var GametotalScore = 0;
+
     for (var k in CardData) {
         chartLabels.push(CardData[k].CategoryName);
         var d = $.grep(CategoryScore, function (e) {
@@ -77,10 +85,11 @@ var setChartData = function (CategoryScore) {
             if (d[0].Score < 0)
                 d[0].Score = 0;
             scores.push(Math.ceil((d[0].Score / totalScore) * 100));
+            GametotalScore += d[0].Score;
         }
     }
 
-
+    Session.set('gameScore', GametotalScore);
     var radarChartData = {
         labels: chartLabels,
         datasets: [

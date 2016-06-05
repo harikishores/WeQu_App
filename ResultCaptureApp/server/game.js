@@ -1,5 +1,5 @@
 Meteor.publish('games', function () {
-    
+
     return Games.find({
         $or: [
             { 'HostId': this.userId },
@@ -9,31 +9,35 @@ Meteor.publish('games', function () {
 });
 
 Meteor.methods({
-    'getGamesWithConnection' : function(connectionId){
+    'cancelGame': (GameId) => {
+        Games.remove({ 'GameId': GameId });
+        Meteor.call('removeConnectionGame')
+    },
+    'getGamesWithConnection': function (connectionId) {
         var returnArr = [];
         var hostGames = Games.find({
-            'HostId':this.userId,
-            'InvitedId' : connectionId
+            'HostId': this.userId,
+            'InvitedId': connectionId
         }).fetch();
         var invitedGames = Games.find({
-            'HostId':connectionId,
-            'InvitedId' : this.userId
+            'HostId': connectionId,
+            'InvitedId': this.userId
         }).fetch();
-        if(hostGames.length > 0) returnArr.push(hostGames);
-        if(invitedGames.length > 0) returnArr.push(invitedGames);
+        if (hostGames.length > 0) returnArr.push(hostGames);
+        if (invitedGames.length > 0) returnArr.push(invitedGames);
         return returnArr;
     },
-    'getUnattendedGames':function(){
+    'getUnattendedGames': function () {
         var g = Games.find({
-           'InvitedId' : this.userId,
-           'InvitedGameComplete' : false
-        },{sort: {'Date': -1}}).fetch();
+            'InvitedId': this.userId,
+            'InvitedGameComplete': false
+        }, { sort: { 'Date': -1 } }).fetch();
 
-        for(var k in g){
+        for (var k in g) {
             var hostId = g[k].HostId;
-            if(hostId){
-                var u = Meteor.users.findOne({'_id':hostId});
-                if(u){
+            if (hostId) {
+                var u = Meteor.users.findOne({ '_id': hostId });
+                if (u) {
                     g[k].HostFirstName = u.profile.firstname;
                     g[k].HostLastName = u.profile.lastname;
                     g[k].Email = u.emails[0].address;
@@ -78,6 +82,7 @@ Meteor.methods({
                 });
                 //send email
                 Meteor.call('sendEmail', guest.email);
+                console.log(game);
                 return game;
             }
             return undefined;
@@ -106,7 +111,7 @@ Meteor.methods({
         }
         return undefined;
     },
-    'finishGuestGame':function(gameData){
+    'finishGuestGame': function (gameData) {
         if (gameData !== undefined) {
             var game = Games.update({
                 '_id': gameData.GameId

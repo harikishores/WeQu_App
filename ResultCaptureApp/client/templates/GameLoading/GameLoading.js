@@ -33,6 +33,7 @@ Template.GameLoading.rendered = function () {
             lastName: Router.current().params._lastName
         }, function (e, r) {
             if (!e && r) {
+                debugger;
                 NewGame.PlayedBy = "host";
                 NewGame.GameId = r;
                 NewGame.InvitedUserName = Router.current().params._firstName;
@@ -40,10 +41,11 @@ Template.GameLoading.rendered = function () {
             }
             else {
                 alert('Oops, something snapped. Please try again');
-                ROuter.go('/dashboard');
+                Router.go('/dashboard');
             }
         });
     } else {
+        debugger;
         var playerIdGame = Router.current().params._playedBy;
         var d = playerIdGame.split('_');
         var gameId = d[0];
@@ -67,11 +69,8 @@ Template.GameLoading.helpers({
             host: Meteor.user().profile.firstname,
             invited: Router.current().params._firstName
         }
+    },
+    getDate : ()=>{
+        return moment(this.date).format("MMM DD YYYY");
     }
 });
-
-Template.GameLoading.events({
-    // 'click #foo': function(event, template) { 
-
-    // } 
-}); 

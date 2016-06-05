@@ -35,7 +35,7 @@ Meteor.startup(function () {
 });
 
 Meteor.methods({
-  'sendVerificationLink' : function () {
+  'sendVerificationLink': function () {
     let userId = Meteor.userId();
     if (userId) {
       return Accounts.sendVerificationEmail(userId);

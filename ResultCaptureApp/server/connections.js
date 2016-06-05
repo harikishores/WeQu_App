@@ -34,7 +34,7 @@ Meteor.methods({
             } else {
                 if (cons[0] === undefined)
                     return consver[0];
-                    
+
                 return cons[0];
             }
         }
@@ -48,6 +48,16 @@ Meteor.methods({
         }, {
                 $inc: {
                     'GamesPlayed': 1
+                }
+            });
+    },
+    'removeConnectionGame': function (data) {
+        var cons = Connections.update({
+            'UserId': data.HostId,
+            'ConnectionId': data.ConnectionId
+        }, {
+                $inc: {
+                    'GamesPlayed': -1
                 }
             });
     }
