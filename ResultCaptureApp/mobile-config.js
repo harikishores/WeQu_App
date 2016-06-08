@@ -44,3 +44,4 @@ App.launchScreens({
 
 App.setPreference('StatusBarOverlaysWebView', 'true');
 App.setPreference('StatusBarBackgroundColor', '#fffff');
+App.setPreference('AutoHideSplashScreen', 'true');

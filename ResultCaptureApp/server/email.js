@@ -41,15 +41,25 @@ Meteor.methods({
       return Accounts.sendVerificationEmail(userId);
     }
   },
-  'sendEmail': function (to) {
+  'sendEmail': function (to, sentFrom, isNewUser, pass) {
     try {
       if (settings) {
-        Email.send({
-          to: to,
-          from: settings.from,
-          subject: settings.Mails[0].Subject,
-          text: settings.Mails[0].Body
-        });
+        if (isNewUser === false) {
+          Email.send({
+            to: to,
+            from: settings.from,
+            subject: "WEQU Game invitations from " + sentFrom.Name,
+            text: "You have been invited to play a game by " + sentFrom.Email + ". Kindly login to the app to submit your results"
+          });
+        } else {
+          Email.send({
+            to: to,
+            from: settings.from,
+            subject: "WEQU Game invitations from " + sentFrom.Name,
+            text: "You have been invited to play a game by " + sentFrom.Email + ". Kindly install the app to submit your results. \nYour account is created where the username is your current email and the password is " + pass + ". You can change the password after you login from the profile section"
+          });
+        }
+
       }
     } catch (e) {
       console.log(e);

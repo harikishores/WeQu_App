@@ -8,6 +8,16 @@ Meteor.publish('games', function () {
     });
 });
 
+var generatePassword = (passLength) => {
+    var length = passLength,
+        charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+        retVal = "";
+    for (var i = 0, n = charset.length; i < length; ++i) {
+        retVal += charset.charAt(Math.floor(Math.random() * n));
+    }
+    return retVal;
+}
+
 Meteor.methods({
     'cancelGame': (GameId) => {
         Games.remove({ 'GameId': GameId });
@@ -49,11 +59,14 @@ Meteor.methods({
     'setGame': function (guest) {
         try {
             var user = Accounts.findUserByEmail(guest.email);
+            var pass = undefined;
             if (user === undefined) {
+                pass = generatePassword(9);
                 user = Accounts.createUser({
                     email: guest.email,
                     firstName: guest.firstName,
-                    lastName: guest.lastName
+                    lastName: guest.lastName,
+                    password: pass
                 });
             } else { user = user._id; }
 
@@ -81,8 +94,15 @@ Meteor.methods({
                     'ConnectionId': user
                 });
                 //send email
-                Meteor.call('sendEmail', guest.email);
-                console.log(game);
+                var currentUser = Meteor.users.findOne({ '_id': this.userId });
+                if (currentUser) {
+                    Meteor.call('sendEmail', guest.email, {
+                        Name: currentUser.profile.firstname + " " + currentUser.profile.lastname,
+                        Email: currentUser.emails[0].address
+                    }, pass == undefined ? false : true, pass);
+                }
+
+
                 return game;
             }
             return undefined;
