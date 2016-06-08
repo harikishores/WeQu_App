@@ -326,7 +326,7 @@ button.picker__close:focus {
 .pagedesc {
     color: #fff;
     margin-bottom: 15px;
-    font-size: 16px;
+    font-size: 12px;
     line-height: 20px;
     text-align: center;
 }
@@ -2682,14 +2682,14 @@ p.gameoverviewHead {
         line-height: 25px;
     }
     .btnWhite {
-        font-size: 14px;
+        font-size: 9px;
     }
     .facebookbtn {
-        font-size: 13px;
+        font-size: 12px;
         padding: 0 2px;
     }
     .googleBtn {
-        font-size: 13px;
+        font-size: 12px;
     }
     .facebookbtn .fa-facebook-square{
         padding-right: 0px;

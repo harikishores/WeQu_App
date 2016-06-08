@@ -2,12 +2,10 @@
 Template.gameResult.rendered = function () {
     debugger;
     Session.setDefault('gameScore', 0);
-    if (NewGame.PlayedBy === 'host') {
-        var game = Games.findOne({ 'GameId': NewGame._id });
-        if (game) {
-            debugger;
-            setChartData(NewGame.GameScores);
-        }
+    var game = Games.findOne({ 'GameId': NewGame._id });
+    if (game) {
+        debugger;
+        setChartData(NewGame.GameScores);
     }
 }
 
