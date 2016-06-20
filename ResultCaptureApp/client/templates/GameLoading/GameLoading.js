@@ -81,13 +81,7 @@ Template.GameLoading.helpers({
 
         if (type == 'guest') {
             var id = undefined;
-            if (Router.current().params._playedBy !== 'host') {
-                var playerIdGame = Router.current().params._playedBy;
-                var d = playerIdGame.split('_');
-                id = d[2];
-            }else{
-                id = Router.current().params._guestId;
-            }
+            id = Router.current().params._guestId;
 
             if (id) {
                 var u = Meteor.users.findOne({ '_id': id });

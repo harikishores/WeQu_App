@@ -31,7 +31,7 @@ Template.UnplayedGameList.events({
                 games[index].Email + "/" +
                 games[index].HostFirstName + "/" +
                 games[index].HostLastName + "/" +
-                games[index]._id + "_" + games[index].GameMode + "_" + games[index].HostId);
+                games[index]._id + "_" + games[index].GameMode + "/" + games[index].HostId);
         }
     }
 });
