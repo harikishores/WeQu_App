@@ -22,6 +22,9 @@ Template.gameResult.helpers({
     guestName: () => {
         return NewGame.InvitedUserName;
     },
+    profilePicture: () => {
+        return '/cfs/files/images/' + Meteor.user().profile.imageId+ '/images?store=thumbs';
+    },
     gameQuestions: () => {
         var data = [];
         for (var k in NewGame.Questions) {

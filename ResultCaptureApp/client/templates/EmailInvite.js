@@ -6,9 +6,8 @@ Template.EmailInvite.events({
             var url = '/GameLoading/' +
                 $('#email').val() + "/" +
                 $('#firstname').val() + "/" +
-                $('#lastname').val() + "/host";
+                $('#lastname').val() + "/host/"+undefined;
             Router.go(url);
-
         } catch (e) {
             sweetAlert('Oops...', e, 'error');
         } finally {
