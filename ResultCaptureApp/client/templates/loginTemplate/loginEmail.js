@@ -29,33 +29,53 @@ Template.loginEmail.events({
             var password = $('[name=password]').val();
             Meteor.call('getUserStatus', email, password, (e, r) => {
                 if (!e) {
-                    console.log(r);
                     if (r === undefined) {
-                        Accounts.createUser({ email: email, password: password }, (e) => {
+                        sweetAlert("Oops...", 'User nor found', "error");
+                    } else {
+                        Meteor.loginWithPassword(email, password, (e) => {
                             if (e) {
                                 sweetAlert("Oops...", e.reason, "error");
                             } else {
-                                Router.go('/verifyEmail/' + email);
-                            }
-                        })
-                    } else {
-                        if (r.service === 'password') {
-                            Meteor.loginWithPassword(email, password, (e) => {
-                                if (e) {
-                                    sweetAlert("Oops...", e.reason, "error");
-                                } else {
-                                    if (!r.user.emails[0].verified) {
-                                        Router.go('/verifyEmail/' + email);
-                                    }
-                                    else if(!r.user.profile || !r.user.profile.profileComplete) Router.go('/signupAdditional')
-                                    else Router.go('/dashboard');
+                                if (!r.user.emails[0].verified) {
+                                    Router.go('/verifyEmail/' + email);
                                 }
-                            });
-                        } else throwLoginError(r.user);
+                                else if (!r.user.profile || !r.user.profile.profileComplete) Router.go('/signupAdditional')
+                                else Router.go('/dashboard');
+                            }
+                        });
                     }
                 }
-                else console.log(e);
             })
+
+
+            // Meteor.call('getUserStatus', email, password, (e, r) => {
+            //     if (!e) {
+            //         if (r === undefined) {
+            //             Accounts.createUser({ email: email, password: password }, (e) => {
+            //                 if (e) {
+            //                     sweetAlert("Oops...", e.reason, "error");
+            //                 } else {
+            //                     Router.go('/verifyEmail/' + email);
+            //                 }
+            //             })
+            //         } else {
+            //             if (r.service === 'password') {
+            //                 Meteor.loginWithPassword(email, password, (e) => {
+            //                     if (e) {
+            //                         sweetAlert("Oops...", e.reason, "error");
+            //                     } else {
+            //                         if (!r.user.emails[0].verified) {
+            //                             Router.go('/verifyEmail/' + email);
+            //                         }
+            //                         else if(!r.user.profile || !r.user.profile.profileComplete) Router.go('/signupAdditional')
+            //                         else Router.go('/dashboard');
+            //                     }
+            //                 });
+            //             } else throwLoginError(r.user);
+            //         }
+            //     }
+            //     else console.log(e);
+            // })
         }
         catch (e) {
             sweetAlert("Oops...", "Something snapped. Please try again later\n Reason : " + e, "error");

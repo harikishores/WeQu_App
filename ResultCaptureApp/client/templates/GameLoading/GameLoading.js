@@ -33,7 +33,6 @@ Template.GameLoading.rendered = function () {
             lastName: Router.current().params._lastName
         }, function (e, r) {
             if (!e && r) {
-                debugger;
                 NewGame.PlayedBy = "host";
                 NewGame.GameId = r;
                 NewGame.InvitedUserName = Router.current().params._firstName;
@@ -45,7 +44,6 @@ Template.GameLoading.rendered = function () {
             }
         });
     } else {
-        debugger;
         var playerIdGame = Router.current().params._playedBy;
         var d = playerIdGame.split('_');
         var gameId = d[0];
@@ -54,11 +52,14 @@ Template.GameLoading.rendered = function () {
             NewGame.PlayedBy = "guest";
             NewGame.GameId = gameId;
             NewGame.GameMode = mode;
-            
-            if(mode === 'Full')
+
+            if (mode === 'Full')
                 Router.go('/resultCapture/full');
             else
-                Router.go('/resultCapture/mini');    
+                Router.go('/resultCapture/mini');
+        } else {
+            alert('The other user has not yet played the game, Please try again later');
+            Router.go('/dashboard');
         }
     }
 }
@@ -70,7 +71,30 @@ Template.GameLoading.helpers({
             invited: Router.current().params._firstName
         }
     },
-    getDate : ()=>{
+    getDate: () => {
         return moment(this.date).format("MMM DD YYYY");
+    },
+    profileImage: (type) => {
+        if (type == 'host') {
+            return '/cfs/files/images/' + Meteor.user().profile.imageId + '/images?store=thumbs';
+        }
+
+        if (type == 'guest') {
+            var id = undefined;
+            if (Router.current().params._playedBy !== 'host') {
+                var playerIdGame = Router.current().params._playedBy;
+                var d = playerIdGame.split('_');
+                id = d[2];
+            }else{
+                id = Router.current().params._guestId;
+            }
+
+            if (id) {
+                var u = Meteor.users.findOne({ '_id': id });
+                if (u) {
+                    return '/cfs/files/images/' + u.profile.imageId + '/images?store=thumbs';
+                }
+            }
+        }
     }
 });

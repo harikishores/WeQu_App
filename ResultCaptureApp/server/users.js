@@ -25,6 +25,9 @@ Meteor.publish('myUsers', function () {
 });
 
 Meteor.methods({
+    'uploadImage': (file) => {
+        file.save('/profilePictures/' + this.userId + ".jpg");
+    },
     'UserhasPassword': function (email, password) {
         var user = Accounts.findUserByEmail(email);
         if (user) {

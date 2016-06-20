@@ -51,6 +51,7 @@ Meteor.methods({
                     g[k].HostFirstName = u.profile.firstname;
                     g[k].HostLastName = u.profile.lastname;
                     g[k].Email = u.emails[0].address;
+                    g[k].HostImageId = u.profile.imageId;
                 }
             }
         }

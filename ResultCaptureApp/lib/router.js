@@ -125,7 +125,10 @@ Router.route('/friendInviteEmail', {
 });
 
 Router.route('/UnplayedGameList', {
-    template: 'UnplayedGameList'
+    template: 'UnplayedGameList',
+    waitOn: () => {
+        return [Meteor.subscribe('images')];
+    }
 });
 Router.route('/GameResult', {
     template: 'gameResult',
@@ -144,7 +147,7 @@ Router.route('/forgotPassword', {
 Router.route('/myProfile', {
     template: 'myProfile',
     waitOn: () => {
-        Meteor.subscribe('myUsers');
+        return [Meteor.subscribe('myUsers'), Meteor.subscribe('images')];
     }
 });
 
@@ -152,6 +155,9 @@ Router.route('/changePassword', {
     template: 'changePassword'
 });
 
-Router.route('/GameLoading/:_email/:_firstName/:_lastName/:_playedBy', {
-    template: 'GameLoading'
+Router.route('/GameLoading/:_email/:_firstName/:_lastName/:_playedBy/:_guestId', {
+    template: 'GameLoading',
+    waitOn: () => {
+        return [Meteor.subscribe('myUsers'),Meteor.subscribe('images')];
+    }
 });

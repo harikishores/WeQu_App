@@ -1,12 +1,12 @@
 <template name="UnplayedGameList">
-    <div class="mobileWrap greyBg relative">
+	<div class="mobileWrap greyBg relative">
 		<div class="paddingmain animated fadeIn profileOverview titlebarBack">
 			<!--fixed top-->
 			<div class="screenFixedTop">
 				<div class="row nomargin fixedLogo">
 					<div class="col s12">
 						<div class="listtitle fontSize25 textWhite">
-							<a id="backBtn" class="listtitleimg" href="javascript:void(0);"><img src="images/backbtn.png" class="backbtn"/> </a>
+							<a id="backBtn" class="listtitleimg" href="javascript:void(0);"><img src="images/backbtn.png" class="backbtn" /> </a>
 							<span class="listtitletext">My Game Invitations</span>
 						</div>
 					</div>
@@ -24,15 +24,17 @@
 			</div>
 			<!--fixed top-->
 
-			<!--friendlist-->    
+			<!--friendlist-->
 			<div class="blackbg friendlistWrap">
 				<div class="friendlist">
 					{{#each games}}
-					<!--friendlistItem-->  
+					<!--friendlistItem-->
 					<div class="friendlistItem active">
 						<div class="row nomargin">
 							<div class="col s3 nopaddingRight">
-								<img src="images/sanne-reusch2.png" class="frndImg"/>
+								<div class="frndImgWrap">
+								<img style="width:100%;height:100%" src="{{profileImage HostImageId}}" class="frndImg" alt="thumbnail">
+								</div>
 							</div>
 							<div class="col s4">
 								<div class="frndName fontSize14 textWhite">
@@ -50,11 +52,11 @@
 							</div>
 						</div>
 					</div>
-					<!--friendlistItem--> 
+					<!--friendlistItem-->
 					{{/each}}
 				</div>
 			</div>
-			<!--friendlist-->  
+			<!--friendlist-->
 		</div>
 
 

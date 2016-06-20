@@ -26,6 +26,15 @@ Meteor.startup(function () {
         clientId: "758ew0beoeqe01",
         secret: "qwAMdc8wlJ3KxgY1"
     });
-
-
+    Images.allow({
+        'insert': () => {
+            return true;
+        },
+        'download': () => {
+            return true;
+        },
+        'remove':()=>{
+            return true;
+        }
+    });
 });

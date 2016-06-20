@@ -5,7 +5,7 @@ Template.FriendListInvite.rendered = function () {
 Template.FriendListInvite.helpers({
 	connections: function () {
 		var cons = Connections.find().fetch();
-		debugger;
+		console.log(cons);
 		for (var k in cons) {
 			if (cons[k].UserId !== Meteor.userId()) {
 				var hostId = cons[k].UserId;
@@ -21,6 +21,12 @@ Template.FriendListInvite.helpers({
 		}
 		Session.set('connections', cons);
 		return cons;
+	},
+	profilePicture: (connectionId) => {
+		var u = Meteor.users.findOne({ '_id': connectionId });
+		if (u) {
+			return '/cfs/files/images/' + u.profile.imageId + '/images?store=thumbs';
+		}
 	}
 });
 
@@ -50,10 +56,11 @@ Template.FriendListInvite.events({
 	'click #selectBtn': function (event) {
 		var cons = Session.get('connections');
 		var index = $(event.target).attr('data-index');
+		console.log(cons);
 		Router.go('/GameLoading/' +
 			cons[index].ConnectionEmail + "/" +
 			cons[index].ConnectionFirstName + "/" +
-			cons[index].ConnectionLastName + "/host");
+			cons[index].ConnectionLastName + "/host/" + cons[index].ConnectionId);
 	},
 	'click #backBtn': function (event) {
 		Router.go('dashboard');

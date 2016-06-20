@@ -38,8 +38,12 @@ Template.loginDefault.events({
     'click #forgotPasswordBtn': (event) => {
         Router.go('/forgotPassword');
     },
-    
-    'click #signInBtn':(event)=>{
+
+    'click #signInBtn': (event) => {
         Router.go('/loginEmail');
+    },
+
+    'click #signUpBtn': (event) => {
+        Router.go('/signupemail');
     }
 });

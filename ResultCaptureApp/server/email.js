@@ -2,10 +2,10 @@ Meteor.startup(function () {
   // process.env.MAIL_URL = 'smtp://guptasohaam:fnlitmqvujffzbwv@smtp.gmail.com:587/'
   if (smtpSettings.find().count() == 0) {
     smtpSettings.insert({
-      username: 'guptasohaam',
-      password: 'fnlitmqvujffzbwv',
+      username: 'soham.geotechinfo',
+      password: 'sg@12345',
       server: 'smtp.gmail.com',
-      from: 'guptasohaam@gmail.com',
+      from: 'soham.geotechinfo@gmail.com',
       port: 587,
       Mails: [
         {

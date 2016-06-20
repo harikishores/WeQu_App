@@ -1398,7 +1398,11 @@ p.gameoverviewHead {
     height: 80px;
     border-radius: 40px;
 }
-
+.frndImgWrap{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
 .nopaddingRight {
     padding-right: 0px !important;
 }
