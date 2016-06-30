@@ -32,7 +32,11 @@
 					<div class="friendlistItem active">
 						<div class="row nomargin">
 							<div class="col s3 nopaddingRight">
-								<img src="{{profilePicture ConnectionId}}" class="frndImg"/>
+								{{#if currentUserId ConnectionId}}
+									<img src="{{profilePicture ConnectionId}}" class="frndImg"/>
+								{{else}}
+									<img src="{{profilePicture UserId}}" class="frndImg"/>	
+								{{/if}}
 							</div>
 							<div class="col s4">
 								<div class="frndName fontSize14 textWhite">

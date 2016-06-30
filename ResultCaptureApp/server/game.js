@@ -97,10 +97,12 @@ Meteor.methods({
                 //send email
                 var currentUser = Meteor.users.findOne({ '_id': this.userId });
                 if (currentUser) {
-                    Meteor.call('sendEmail', guest.email, {
-                        Name: currentUser.profile.firstname + " " + currentUser.profile.lastname,
-                        Email: currentUser.emails[0].address
-                    }, pass == undefined ? false : true, pass);
+                    if (guest.email !== 'selfplayedguest@wequ.com') {
+                        Meteor.call('sendEmail', guest.email, {
+                            Name: currentUser.profile.firstname + " " + currentUser.profile.lastname,
+                            Email: currentUser.emails[0].address
+                        }, pass == undefined ? false : true, pass);
+                    }
                 }
 
 

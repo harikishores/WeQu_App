@@ -547,8 +547,13 @@ textarea.materialize-textarea:focus.invalid+label:after {
     border: 1px solid #fff;
 }
 
-.fileUpload input.upload {
-    position: absolute;
+.fileUpload img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.fileUpload input.upload {    position: absolute;
     top: 0;
     right: 0;
     margin: 0;
@@ -1397,10 +1402,12 @@ p.gameoverviewHead {
     width: 80px;
     height: 80px;
     border-radius: 40px;
+    object-fit: cover;
 }
 .frndImgWrap{
     width: 80px;
     height: 80px;
+    object-fit: cover;
     border-radius: 50%;
 }
 .nopaddingRight {
@@ -1941,6 +1948,7 @@ p.gameoverviewHead {
 
 .frndImg2 {
     float: left;
+    object-fit: cover;
 }
 
 .frndImgLarge {
@@ -1948,6 +1956,7 @@ p.gameoverviewHead {
     height: 120px;
     border-radius: 60px;
     border: 2px solid #fff;
+    object-fit: cover;
 }
 
 .profileImage {
@@ -2730,6 +2739,7 @@ p.gameoverviewHead {
         width: 60px;
         height: 60px;
         border-radius: 30px;
+        object-fit: cover;
     }
     .frndName {
         margin-top: 15px;

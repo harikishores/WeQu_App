@@ -1,7 +1,6 @@
 Template.myProfile.rendered = () => {
     Session.setDefault('isEdit', false);
     var user = Meteor.user();
-    console.log(user);
     if (user) {
         $('[name=fname]').val(user.profile.firstname);
         $('[name=lname]').val(user.profile.lastname);
@@ -23,8 +22,11 @@ Template.myProfile.helpers({
     },
     profilePic: function () {
         var images = Images.find({ '_id': Meteor.user().profile.imageId });
-        console.log(images.fetch());
         return images;
+    },
+    hasImage :(obj)=>{
+        if(obj.fetch().length > 0) return true;
+        else return false;
     }
 });
 var updateUserData = (newUser, profileImageId) => {
@@ -53,8 +55,9 @@ Template.myProfile.events({
             var reader = new FileReader();
             reader.onload = function (e) {
                 $('#myImg').attr('src', e.target.result);
+                $('#myImg').attr('height', '100%');
+                $('#myImg').attr('width', '100%');
             }
-
             reader.readAsDataURL(input.files[0]);
         }
     },
@@ -80,7 +83,6 @@ Template.myProfile.events({
             fsFile.metadata = { ownerId: Meteor.userId() };
             Images.insert(fsFile, function (err, file) {
                 if (!err && file) {
-                    console.log(file);
                     profileImageId = file._id;
                     updateUserData(newUser, profileImageId);
                 }

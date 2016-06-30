@@ -82,3 +82,15 @@ var getServiceType = (user) => {
     if (user.services.linkedin) return 'linkedin';
     if (user.services === {} && user.emails) return 'guest';
 }
+
+Meteor.startup(function () {
+    var user = Accounts.findUserByEmail('selfplayedguest@wequ.com');
+    if (user === undefined) {
+        Accounts.createUser({
+            email: 'selfplayedguest@wequ.com',
+            firstName: 'SELF',
+            lastName: 'PLAYED',
+            password: 'wequ@76426'
+        });
+    }
+});

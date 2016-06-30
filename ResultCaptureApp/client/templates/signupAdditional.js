@@ -57,7 +57,6 @@ Template.signupAdditional.events({
     },
 
     'change #uploadBtn': (e, tmpl) => {
-        debugger;
         var input = tmpl.find('input[type=file]');
         var files = input.files;
         if (files.length > 0) {
