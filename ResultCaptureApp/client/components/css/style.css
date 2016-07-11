@@ -989,6 +989,10 @@ formFieldWrap input:not([type]),
 .scoreCardsHolder .row .col {
     padding: 0 5px;
 }
+.row .col.s4{
+    float: none !important;
+    display:inline-block !important;
+}
 
 .scoreCardsHolder>p,
 p.gameoverviewHead {
@@ -1013,6 +1017,7 @@ p.gameoverviewHead {
 
 .cardsHolder {
     margin-top: 20px;
+    font-size: 0;
 }
 
 .commentHolderOuter {
