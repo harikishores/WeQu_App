@@ -120,6 +120,8 @@ Template.resultCaptureFull.events({
                     }
                 }
                 setSession.updateSelectedCards(valueUdpate, true);
+                var cid = $(event.target).prop('id');
+                $('#' + cid + '_div').addClass('selectedCard');
             }
 
             if (!valueChecked && valueExists) { //if the value is not checked but exists in the array of selected cards.
@@ -131,6 +133,8 @@ Template.resultCaptureFull.events({
                     }
                 }
                 setSession.updateSelectedCards(valueUdpate, false);
+                var cid = $(event.target).prop('id');
+                $('#' + cid + '_div').removeClass('selectedCard');
             }
         }
 

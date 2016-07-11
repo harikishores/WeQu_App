@@ -60,7 +60,7 @@
         font-size: 13px;
         padding: 0 2px;
     }
-    .googleBtn {
+    .googleBtn, .linkedinBtn {
         font-size: 13px;
     }
     .facebookbtn .fa-facebook-square{

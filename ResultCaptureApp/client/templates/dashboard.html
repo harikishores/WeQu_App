@@ -7,6 +7,10 @@
 					<div class="col s12">
 						<div class="logoText"><img src="images/logotext.png" /></div>
 					</div>
+					<a href="javascript:void(0);" id="invitationBtn" class="notification">
+						<!--<span class="notificationCount"></span>-->
+						<span class="fa fa-bell"></span>
+					</a>
 				</div>
 
 				<!-- navigation -->
@@ -20,7 +24,7 @@
 					<input type="radio" data-pane="skills" name="slideItem" id="slide-item-2" class="slide-toggle" />
 					<label for="slide-item-2"><span class="skillMenuItem">SKILLS</span></label>
 
-					 <!--Item 3 -->
+					<!--Item 3 -->
 					<input type="radio" data-pane="profile" name="slideItem" id="slide-item-3" class="slide-toggle" />
 					<label for="slide-item-3"><span class="progessMenuIem">PROFILE</span></label>
 
@@ -61,12 +65,11 @@
 						<div class="row cardsHolder">
 							{{#each myPositiveEssences}}
 							<div class="col s4">
-                                <div class="roundedCard {{GroupName}} cardsmall {{ClassName}}">
-                                </div>
-                            </div>
+								<div class="roundedCard {{GroupName}} {{ClassName}}"></div>
+							</div>
 							{{/each}}
-                        </div>
-<!--
+						</div>
+						<!--
                          <p>Initiative</p>
 
                          <div class="commentHolderOuter">
@@ -84,51 +87,50 @@
 
                          <p class="textSmall">Show 5 more comments</p>-->
 
-                     </div>
-                 </div>
-             </div>
-             <!-- overviewTab Content -->
+					</div>
+				</div>
+			</div>
+			<!-- overviewTab Content -->
 
-             <!-- SkillsTab Content-->
-             <div class="skillsTab" style="display:none;">
-             	<div class="row">
-					 {{#each CardData}}
-             		<p>{{CategoryName}}</p>
-             		<div class="progressHolder {{CategoryClass}}">
-						 {{#each Cards}}
-             			<div class="progressBar">
-             				<div class="progressInner" style="width:{{CardScore CardId}}%"></div>
-             				<span class="progressName">{{CardName}}</span>
-             				<span class="progressScore">{{CardScore CardId}}%</span>
-             			</div>
-						 {{/each}}
-             		</div>
-					 {{/each}}
-             	</div>
-             </div>
-             <!-- SkillsTab Content-->
+			<!-- SkillsTab Content-->
+			<div class="skillsTab" style="display:none;">
+				<div class="row">
+					{{#each CardData}}
+					<p>{{CategoryName}}</p>
+					<div class="progressHolder {{CategoryClass}}">
+						{{#each Cards}}
+						<div class="progressBar">
+							<div class="progressInner" style="width:{{CardScore CardId}}%"></div>
+							<span class="progressName">{{CardName}}</span>
+							<span class="progressScore">{{CardScore CardId}}%</span>
+						</div>
+						{{/each}}
+					</div>
+					{{/each}}
+				</div>
+			</div>
+			<!-- SkillsTab Content-->
 
-             <!-- ProgressTab Content-->
-             <div class="ProgressTab" style="display:none;">
-             	<H4 class="text-center textWhite">Progress</H4>
-             </div>
-             <!-- ProgressTab Content-->
+			<!-- ProgressTab Content-->
+			<div class="ProgressTab" style="display:none;">
+				<H4 class="text-center textWhite">Progress</H4>
+			</div>
+			<!-- ProgressTab Content-->
 
-             <div class="absolute width100 startbottom bottomButtonBackground">
-             	<div class="row">
-					 <div class="input-field col s6">
+			<div class="absolute width100 startbottom bottomButtonBackground">
+				<div class="row">
+					<!--<div class="input-field col s12">
              			<button id="invitationBtn" class="waves-effect btn-large width100 btnWhite btnradius10">GAME INVITATIONS</button>
-             		</div>
-             		<div class="input-field col s6">
-             			<button id="captureBtn" class="waves-effect btn-large width100 btnWhite btnradius10">CAPTURE CARD GAME</button>
-             		</div>
-             	</div>
-             </div>
+             		</div>-->
+					<div class="input-field col s12">
+						<button id="captureBtn" class="waves-effect btn-large width100 btnWhite btnradius10">CAPTURE CARD GAME RESULTS</button>
+					</div>
+				</div>
+			</div>
 
 
-         </div>
+		</div>
 
 
-     </div>
- </template>
-
+	</div>
+</template>

@@ -3,7 +3,7 @@ Template.dashboard.rendered = function () {
 	Session.setDefault('totalScore', 0);
 	Session.setDefault('userboard', {});
 	Session.setDefault('myPostiveEssences', {});
-	
+
 	Meteor.call('getDashboardData', function (e, r) {
 		if (!e && r) {
 			console.log(r);
@@ -49,7 +49,6 @@ Template.dashboard.rendered = function () {
 }
 
 var containsCard = (CardId, arr) => {
-	debugger;
 	var index = $.grep(arr, (e) => {
 		return e.CardId == CardId;
 	});
@@ -59,7 +58,20 @@ var containsCard = (CardId, arr) => {
 
 	return false;
 }
+var listToMatrix = (list, elementsPerSubArray) => {
+    var matrix = [], i, k;
 
+    for (i = 0, k = -1; i < list.length; i++) {
+        if (i % elementsPerSubArray === 0) {
+            k++;
+            matrix[k] = [];
+        }
+
+        matrix[k].push(list[i]);
+    }
+
+    return matrix;
+}
 var getParticularCard = (cardId) => {
 	for (var k in CardData) {
 		for (var l in CardData[k].Cards) {
@@ -72,11 +84,31 @@ var getParticularCard = (cardId) => {
 	return undefined;
 }
 Template.dashboard.helpers({
+	checkCardIndexLayout: (index) => {
+		var positive_essences = Session.get('myPostiveEssences');
+		if (positive_essences.length > 0) {
+			var totalRows = Math.ceil(positive_essences.length / 3);
+
+		}
+	},
 	userTotalScore: function () {
 		return Session.get('totalScore');
 	},
 	myPositiveEssences: () => {
 		return Session.get('myPostiveEssences');
+	},
+	postive_essences: {
+		get: () => {
+			return Session.get('myPostiveEssences');
+		},
+		totalRows: () => {
+			return Math.ceil(Session.get('myPostiveEssences').length / 3);
+		},
+		cardsInRow: (row) => {	
+			var rows = this.totalRows();
+			var cards = this.get();
+
+		}
 	},
 	CardData: function () {
 		return CardData;

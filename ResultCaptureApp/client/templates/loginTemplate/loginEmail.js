@@ -22,6 +22,9 @@ Template.loginEmail.events({
     'click #backBtn': function (event) {
         Router.go('/logindefault');
     },
+    'click #forgotPasswordBtn': (event) => {
+        Router.go('/forgotPassword');
+    },
     'submit form': function (event) {
         event.preventDefault();
         try {

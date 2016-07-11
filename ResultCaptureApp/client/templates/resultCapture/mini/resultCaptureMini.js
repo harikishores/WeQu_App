@@ -131,6 +131,8 @@ Template.resultCaptureMini.events({
                     }
                 }
                 setSession.updateSelectedCards(valueUdpate, true);
+                var cid = $(event.target).prop('id');
+                $('#' + cid + '_div').addClass('selectedCard');
                 return;
             }
 
@@ -143,6 +145,8 @@ Template.resultCaptureMini.events({
                     }
                 }
                 setSession.updateSelectedCards(valueUdpate, false);
+                var cid = $(event.target).prop('id');
+                $('#' + cid + '_div').removeClass('selectedCard');
                 return;
             }
             //update the score to the list

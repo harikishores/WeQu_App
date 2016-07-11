@@ -23,9 +23,9 @@
 
                  <div class="fontSize16 text-center cardCategoryName cardCategoryNameNew">{{CategoryName}}</div>
                  {{#each Cards}}
-                 <div class="col s6">
+                 <div class="col s6 cardView">
                     <label for="{{CardId}}">
-                    <div class="roundedCard {{GroupName}} selectMyCard {{ClassName}} {{IsCardSelectedInCategory CardId}}">
+                    <div id="{{CardId}}_div" class="roundedCard {{GroupName}} selectMyCard {{ClassName}} {{IsCardSelectedInCategory CardId}}">
                         <!--<span class="cardname-select textWhite fontSize12">MORE TRUE</span>-->
                         <div class="cardSelector">
                             <p class="checkwrap">
