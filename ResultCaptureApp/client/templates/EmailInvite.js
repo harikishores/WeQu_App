@@ -2,7 +2,7 @@ Template.EmailInvite.events({
     'submit form': function (event) {
         event.preventDefault();
         try {
-            var url = '/GameLoading/' +
+            var url = '/GameVersion/' +
                 $('#email').val() + "/" +
                 $('#firstname').val() + "/" +
                 $('#lastname').val() + "/host/" + undefined;
@@ -18,7 +18,7 @@ Template.EmailInvite.events({
     },
     'click #noInviteBtn': (event) => {
         var selfPlayedEmail = 'selfplayedguest@wequ.com';
-        var url = '/GameLoading/' +
+        var url = '/GameVersion/' +
             selfPlayedEmail + "/" +
             'SELF+' + "/" +
             'PLAYED' + "/host/" + undefined;

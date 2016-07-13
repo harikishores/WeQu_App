@@ -1,7 +1,5 @@
 
 Template.GameVersion.rendered = function () {
-    console.log('GameVersion rendered');
-    debugger;
 }
 
 
@@ -18,7 +16,11 @@ Template.GameVersion.events({
         }, function () {
             swal.close();
             NewGame.GameMode = "Mini";
-            Router.go('/resultCapture/mini')
+            var url = '/GameLoading/' +
+                Router.current().params._email + "/" +
+                Router.current().params._firstName + "/" +
+                Router.current().params._lastName + "/host_mini/" + undefined;
+            Router.go(url)
         });
 
         // swal({ title: "Are you sure?", text: "You will not be able to recover this imaginary file!", type: "warning", showCancelButton: true, confirmButtonColor: "#DD6B55", confirmButtonText: "Yes, delete it!", cancelButtonText: "No, cancel plx!", closeOnConfirm: false, closeOnCancel: false }, function(isConfirm) { if (isConfirm) { swal("Deleted!", "Your imaginary file has been deleted.", "success"); } else { swal("Cancelled", "Your imaginary file is safe :)", "error"); } });
@@ -37,7 +39,11 @@ Template.GameVersion.events({
         }, function () {
             swal.close();
             NewGame.GameMode = "Full";
-            Router.go('/resultCapture/full')
+            var url = '/GameLoading/' +
+                Router.current().params._email + "/" +
+                Router.current().params._firstName  + "/" +
+                Router.current().params._lastName + "/host_full/" + undefined;
+            Router.go(url)
         });
     },
 

@@ -86,7 +86,7 @@ Meteor.methods({
                     'UpdatedDate': new Date(),
                     'HostGameComplete': false,
                     'InvitedGameComplete': false,
-                    'GameMode': '',
+                    'GameMode': guest.mode,
                     'Host': {},
                     'Invited': {}
                 });

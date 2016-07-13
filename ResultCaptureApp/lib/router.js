@@ -116,7 +116,7 @@ Router.route('/EmailInvite', {
     template: 'EmailInvite'
 });
 
-Router.route('/GameVersion', {
+Router.route('/GameVersion/:_email/:_firstName/:_lastName/:_playedBy/:_guestId', {
     template: 'GameVersion'
 });
 

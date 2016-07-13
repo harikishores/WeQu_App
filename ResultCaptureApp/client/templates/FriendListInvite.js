@@ -61,7 +61,7 @@ Template.FriendListInvite.events({
 		var cons = Session.get('connections');
 		var index = $(event.target).attr('data-index');
 		console.log(cons);
-		Router.go('/GameLoading/' +
+		Router.go('/GameVersion/' +
 			cons[index].ConnectionEmail + "/" +
 			cons[index].ConnectionFirstName + "/" +
 			cons[index].ConnectionLastName + "/host/" + cons[index].ConnectionId);
