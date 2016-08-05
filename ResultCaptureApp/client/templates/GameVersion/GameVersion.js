@@ -27,6 +27,9 @@ Template.GameVersion.events({
         // var userSelectedOption = confirm('You have selected to play mini mode, Do you want to start the game?');
         // if (userSelectedOption) Router.go('resultCapture', { 'mode': 'mini' });
     },
+    'click #backBtn': (event) => {
+        history.back();
+    },
     'click #fullBtn': function (event) {
         swal({
             title: "Are you sure?",

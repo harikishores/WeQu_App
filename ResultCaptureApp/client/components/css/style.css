@@ -85,7 +85,9 @@ x:-o-prefocus,
 .nopadding {
     padding: 0px !important;
 }
-
+.noPaddingBottom{
+    padding-bottom: 0px !important;
+}
 .paddingmain {
     padding: 30px 0;
 }
@@ -123,6 +125,9 @@ x:-o-prefocus,
 
 .textWhite {
     color: #fff;
+}
+.textBlack {
+    color: #000;
 }
 
 .textgrey {
@@ -225,9 +230,8 @@ x:-o-prefocus,
 
 .logo {
     width: 166px;
-    width: 166px;
     height: auto;
-    margin: 12% auto 0;
+    margin: 0 auto;
     display: block;
 }
 
@@ -340,7 +344,7 @@ button.picker__close:focus {
 .pagetitle {
     color: #fff;
     font-size: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     text-align: center;
     text-transform: uppercase;
     position: relative;
@@ -2793,9 +2797,8 @@ p.gameoverviewHead {
     }
     .logo {
         width: 140px;
-        width: 140px;
         height: auto;
-        margin: 24% auto 0;
+        margin: 0 auto;
         display: block;
     }
     .taglineinner {
@@ -2864,7 +2867,7 @@ p.gameoverviewHead {
         margin-top: 10px;
     }
     .signuplink {
-        font-size: 12px;
+        font-size: 14px;
     }
     .noOfGames,
     .frndName {
@@ -2886,4 +2889,112 @@ p.gameoverviewHead {
     .googleBtn {
         font-size: 12px;
     }
+}
+
+/* Added new css styles
+   Author: Amit Bhattacharjee;
+ */
+
+ /* css for loader page */
+.pg-loading-logo{
+    width: 80px;
+}
+.pg-loading-screen .pg-loading-html {
+    margin-top: 0;
+}
+.pg-loading-logo-header {
+    position: absolute;
+    top: 20px;
+}
+.pg-loading-screen {
+    background-image: url(/images/greyiconicbg.png);
+}
+.loading-message{
+    font-weight: 800;
+    color: #fff;
+    font-size: 18px;
+}
+
+.marginTop15{
+    margin-top: 15px;
+}
+.marginTop20{
+    margin-top: 20px;
+}
+.marginTop30{
+    margin-top: 30px;
+}
+
+.addPicLabel{
+    text-align: center;
+    margin-top: 5px;
+}
+.text-shadow{
+    text-shadow: 0px 0px 1px #000;
+}
+.joinBtn{
+    background: #5e5e5e;
+    padding: 0 25px;
+    margin: 0 auto;
+    display: block;
+}
+.joinBtn:hover,.joinBtn:active{
+    background: #737171;
+}
+.gameModeContainer{
+    height: calc(100% - 80px);
+}
+.height100{
+    height: 100%;
+}
+.height50{
+    height: calc(50% - 10px);
+}
+.v-middle-outer{
+    display: table;
+}
+.v-middle-inner{
+    display: table-cell;
+    vertical-align: middle;
+}
+.startbottom{
+    width: calc(100% - 18px);
+}
+/* Radar Chart CSS */
+#radarChart{
+    font-size: 13px;
+    font-weight: 300;
+    fill: #fff;
+    text-align: center;
+    cursor: default;
+    color: #fff;
+}
+#radarChart .legend {
+    font-family: 'Raleway', sans-serif;
+    fill: #333333;
+}
+#radarChart .tooltip {
+    line-height: 1;
+    font-weight: bold;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 2px;
+    position: absolute;
+}
+#radarChart .tooltip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    /*content: "\25BC";*/
+    text-align: center;
+}
+.axisLabel{
+    display: none;
+}
+.axis_legend{
+    /*font-size: 13px !important;*/
 }

@@ -2,19 +2,26 @@
 <div class="mobileWrap greyBg relative">
         <div class="paddingmain animated fadeIn signInWrap">
             <!--Screen info start-->
-            <div class="row">
+            <div class="row nomargin">
                 <div class="col s12">
-                    <div class="pagetitle">Choose App View Mode</div>
-                    <div class="pagedesc">Select the browsing app mode. </div>
+                    <div class="listtitle fontSize25 textWhite pagetitle bold">
+                        <a id="backBtn" class="listtitleimg" href="javascript:void(0);"><img src="images/backbtn.png" class="backbtn"> </a>
+                        <span class="listtitletext">Choose Game Mode</span>
+                    </div>
+                    <!-- <div class="pagetitle">
+                        <a id="backBtn" class="listtitleimg"><img src="images/backbtn.png" class="backbtn"/> </a>
+                        <span class="listtitletext">Choose Game Mode</span>
+                    </div> -->
+                    <div class="pagedesc">How many cards did you use. </div>
                 </div>
             </div>
             <!--Screen info start-->
             
             <!--MINI/FULL MODE-->
-            <div class="row">
-                <div class="col s12">
-                    <a id="miniBtn" class="waves-effect btn-large width100 btnWhite btnradius10 mode"><span class="fa fa-angle-double-right circleicon"></span> MINI MODE</a>
-					<a id="fullBtn" class="waves-effect btn-large width100 btnWhite btnradius10 mode"><span class="fa fa-angle-double-right circleicon"></span> FULL MODE</a>
+            <div class="row gameModeContainer">
+                <div class="col s12 height100">
+                    <a id="miniBtn" class="waves-effect btn-large width100 btnWhite btnradius10 mode height50 bold v-middle-outer"><!-- <span class="fa fa-angle-double-right circleicon"></span> --> <span class="v-middle-inner">12 Cards</span></a>
+					<a id="fullBtn" class="waves-effect btn-large width100 btnWhite btnradius10 mode height50 bold v-middle-outer"><!-- <span class="fa fa-angle-double-right circleicon"></span> --> <span class="v-middle-inner">24 Cards</span></a>
                 </div>
             </div>
             <!--MINI/FULL MODE-->

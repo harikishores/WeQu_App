@@ -1,13 +1,13 @@
 <template name="verifyEmail">
         <div class="mobileWrap greyBg relative">
-        <div class="paddingmain animated fadeIn profileOverview titlebarBack gamestepwrap">
-            <!--fixed top-->
-            <div class="screenFixedTop">
+        <div class="paddingmain animated fadeIn profileOverview">
+            <!--fixed top--> 
+            <!-- <div class="screenFixedTop"> -->
                 <!--<div class="flowProgress"></div>-->
-                <div class="row nomargin fixedLogo">
+                <div class="row nomargin fixedLogo screenFixedTop">
                     <div class="col s12">
-                        <div class="listtitle fontSize25 textWhite">
-                            <span class="listtitletext cardTypeGameText text-center">We have sent you a verification email on {{emailToVerify}}. Please verify to continue.</span>
+                        <div class="logoText">
+                            <img src="/images/logotext.png">
                         </div>
                     </div>
                 </div>
@@ -15,30 +15,35 @@
                     <div class="friendInvitationTitle cardCategory">
                         <div class="row nomargin">
                             <div class="col s12">
-                                <!--<p class="fontSize16 text-center ">SELF MANAGEMENT</p>-->
+                                <p class="text-center ">
+                                    <span class="listtitletext text-center fontSize16">A verification email is sent to {{emailToVerify}}. Please verify to continue.</span>
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!--fixed top-->
-            <div class="absolute width100 startbottom bottomButtonBackground">
+            <!-- </div> -->
+            <!--fixed top--> <!-- bottomButtonBackground -->
+            <div class="absolute width100 startbottom">
                 <div class="row">
-                    <div class="col s4">
-                        <div class="input-field col s12 btngapwrap">
-                            <button id="resendBtn" class="waves-effect waves-light btn-large width100 btnWhite btnradius10" >RESEND LINK</button>
+                    <!-- <div class="col s4"> -->
+                        <div class="col s12 btngapwrap text-center marginTop15">
+                            <a id="resendBtn" href="javascript:void(0)" class="textWhite  signuplink bold">Resend an email</a>
                         </div>
-                    </div>
-                    <div class="col s4">
+                        <div class="col s12 btngapwrap text-center marginTop20">
+                            <a id="cancelBtn" href="javascript:void(0)" class="textWhite  signuplink bold" >Cancel my account</a>
+                        </div>
+                    <!-- </div> -->
+                    <!-- <div class="col s4"> -->
                         <div class="input-field col s12 btngapwrap">
                             <button id="nextBtn" class="waves-effect waves-light btn-large width100 btnWhite btnradius10" >NEXT</button>
                         </div>
-                    </div>
-                    <div class="col s4">
+                    <!-- </div> -->
+                    <!-- <div class="col s4">
                         <div class="input-field col s12 btngapwrap">
-                            <button id="cancelBtn" class="waves-effect waves-light btn-large width100 btnWhite btnradius10" >CANCEL</button>
+                            <button id="cancelBtn" href="javascript:void(0)" class="textWhite text-center signuplink bold" >Cancel my account</button>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

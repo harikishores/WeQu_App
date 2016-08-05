@@ -1,7 +1,7 @@
 Template.loading.rendered = function () {
   if ( ! Session.get('loadingSplash') ) {
     this.loading = window.pleaseWait({
-      logo: '/images/logo.png',
+      logo: '/images/logotext.png',
       backgroundColor: '#7f8c8d',
       loadingHtml: message + spinner
     });
@@ -11,9 +11,10 @@ Template.loading.rendered = function () {
 
 Template.loading.destroyed = function () {
   if ( this.loading ) {
-    this.loading.finish();
+   this.loading.finish();
   }
 };
 
-var message = '<p class="loading-message">Please Wait</p>';
-var spinner = '<div class="sk-spinner sk-spinner-rotating-plane"></div>';
+var message = '<p class="loading-message">Loading...</p>';
+// var spinner = '<div class="sk-spinner sk-spinner-rotating-plane"></div>';
+var spinner = '';

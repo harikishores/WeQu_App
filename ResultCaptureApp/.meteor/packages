@@ -42,3 +42,4 @@ timw:native-loading
 cfs:standard-packages
 cfs:gridfs
 cfs:filesystem
+d3js:d3
