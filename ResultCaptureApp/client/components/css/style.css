@@ -2958,7 +2958,7 @@ p.gameoverviewHead {
     vertical-align: middle;
 }
 .startbottom{
-    width: calc(100% - 18px);
+    /*width: calc(100% - 18px);*/
 }
 /* Radar Chart CSS */
 #radarChart{

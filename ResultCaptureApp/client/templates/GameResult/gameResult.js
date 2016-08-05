@@ -68,9 +68,10 @@ Template.gameResult.events({
 });
 
 var setChartData = function (CategoryScore) {
-    var chartLabels = [];
+    var chartValues = [];
     var scores = [];
     var GametotalScore = 0;
+    var check = 0;
 
     for (var k in CardData) {
         // chartLabels.push(CardData[k].CategoryName);
@@ -92,28 +93,31 @@ var setChartData = function (CategoryScore) {
             };
             chartValues.push(obj);
             GametotalScore += d[0].Score;
+            check = 1;
         }
     }
     Session.set('gameScore', GametotalScore);
-    var scoreObj = {
-        "key": CardData[k].CateogryId,
-        "values": chartValues
-    };
-    scores.push(scoreObj);
+    if(check == 1){
+        var scoreObj = {
+            "key": CardData[k].CateogryId,
+            "values": chartValues
+        };
+        scores.push(scoreObj);
+    }
 
       var  chartResize = function(){
-      var width = document.getElementById('radarChart').offsetWidth;
-      if(width > 520){width = 520;}
-      else if(width < 300){width = 300;}
-      var color = d3.scale.ordinal().range(["#EDC951","#CC333F","#00A0B0"]);
-        
-      var radarChartOptions = {
-            width: width,
-            height: width,
-            color: color
-      };
-      radarChart.options(radarChartOptions).update();
-    }
+          var width = document.getElementById('radarChart').offsetWidth;
+          if(width > 520){width = 520;}
+          else if(width < 300){width = 300;}
+          var color = d3.scale.ordinal().range(["#EDC951","#CC333F","#00A0B0"]);
+            
+          var radarChartOptions = {
+                width: width,
+                height: width,
+                color: color
+          };
+          radarChart.options(radarChartOptions).update();
+        }
       window.addEventListener('resize', chartResize);
     
       radarChart = RadarChart();
