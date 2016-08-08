@@ -2968,6 +2968,7 @@ p.gameoverviewHead {
     text-align: center;
     cursor: default;
     color: #fff;
+    /*position: relative;*/
 }
 #radarChart .legend {
     font-family: 'Raleway', sans-serif;
@@ -2997,4 +2998,10 @@ p.gameoverviewHead {
 }
 .axis_legend{
     /*font-size: 13px !important;*/
+}
+.profileOverview{
+    position: initial !important;
+} 
+.overflowHidden{
+    overflow: hidden;
 }

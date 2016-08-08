@@ -945,12 +945,15 @@ RadarChart = function () {
             
          tooltip
           .html(value)
+          .style("left", (d3.event.pageX - 30) + "px")
+          .style("top", (d3.event.pageY + 20) + "px")
           .transition().duration(200)
           .style('opacity', 1);
           
-         tooltip 
-          .style("left", (d3.event.pageX) + "px")
-          .style("top", (d3.event.pageY - 20) + "px");
+         // tooltip 
+              // .style("left", (d3.event.pageX) + "px")
+              // .style("top", (d3.event.pageY - 20) + "px")
+         //  ;
    }
 
    function tooltip_hide() {
