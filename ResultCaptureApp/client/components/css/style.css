@@ -1516,6 +1516,7 @@ p.gameoverviewHead {
     height: 80px;
     border-radius: 40px;
     object-fit: cover;
+    border: 1px solid #fff;
 }
 .frndImgWrap{
     width: 80px;
