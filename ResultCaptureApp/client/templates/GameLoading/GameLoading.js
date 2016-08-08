@@ -39,7 +39,7 @@ Template.GameLoading.rendered = function () {
                 NewGame.GameId = r;
                 NewGame.InvitedUserName = Router.current().params._firstName;
                 NewGame, GameMode = mode;
-                if (mode === 'Full')
+                if (mode === 'full')
                     Router.go('/resultCapture/full');
                 else
                     Router.go('/resultCapture/mini');
@@ -59,7 +59,7 @@ Template.GameLoading.rendered = function () {
             NewGame.GameId = gameId;
             NewGame.GameMode = mode;
 
-            if (mode === 'Full')
+            if (mode === 'full')
                 Router.go('/resultCapture/full');
             else
                 Router.go('/resultCapture/mini');
