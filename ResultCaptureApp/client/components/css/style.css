@@ -1522,6 +1522,7 @@ p.gameoverviewHead {
     height: 80px;
     object-fit: cover;
     border-radius: 50%;
+    background: url(images/profileicon.png) center center no-repeat;
 }
 .nopaddingRight {
     padding-right: 0px !important;
