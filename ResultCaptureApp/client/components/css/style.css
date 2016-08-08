@@ -585,6 +585,7 @@ textarea.materialize-textarea:focus.invalid+label:after {
     text-align: center;
     border-radius: 60px;
     border: 1px solid #fff;
+    background: url(images/profileicon.png) center center no-repeat;
 }
 
 .fileUpload img{
