@@ -150,7 +150,7 @@ var setChartData = function (CategoryScore) {
 				d[0].Score = 0;
 			if (d[0].Score !== 0) {check = 1;}
 			var obj = {
-				"axis": CardData[k].CategoryName,
+				"axis": splitter(CardData[k].CategoryName, 10),
 				"value": d[0].Score
 			};
 			chartValues.push(obj);
