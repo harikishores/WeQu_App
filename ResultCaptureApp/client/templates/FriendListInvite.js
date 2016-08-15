@@ -57,6 +57,14 @@ Template.FriendListInvite.events({
 			console.log(arguments);
 		});
 	},
+    'click #noInviteBtn': (event) => {
+        var selfPlayedEmail = 'selfplayedguest@wequ.com';
+        var url = '/GameVersion/' +
+            selfPlayedEmail + "/" +
+            'SELF+' + "/" +
+            'PLAYED' + "/host/" + undefined;
+        Router.go(url);
+    },
 	'click #selectBtn': function (event) {
 		var cons = Session.get('connections');
 		var index = $(event.target).attr('data-index');

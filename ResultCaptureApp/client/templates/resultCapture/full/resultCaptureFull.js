@@ -186,6 +186,7 @@ Template.resultCaptureFull.helpers({
                 if (index.length !== 0) {
                     //is the card selected in the same category?
                     if (index[0].gameId !== currentGame.Id) {
+                        $('#' +cardId + '_div').removeClass('selectedCard');
                         return 'myActiveCard';
                     }
                 }

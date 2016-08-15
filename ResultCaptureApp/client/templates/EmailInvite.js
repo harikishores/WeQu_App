@@ -15,13 +15,5 @@ Template.EmailInvite.events({
     },
     'click #backBtn': (event) => {
         history.back();
-    },
-    'click #noInviteBtn': (event) => {
-        var selfPlayedEmail = 'selfplayedguest@wequ.com';
-        var url = '/GameVersion/' +
-            selfPlayedEmail + "/" +
-            'SELF+' + "/" +
-            'PLAYED' + "/host/" + undefined;
-        Router.go(url);
     }
 });
