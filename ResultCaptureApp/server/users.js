@@ -82,7 +82,17 @@ var getServiceType = (user) => {
     if (user.services.linkedin) return 'linkedin';
     if (user.services === {} && user.emails) return 'guest';
 }
+Meteor.users.allow({
+  update: function(userId, user) {
+    return true; 
 
+    /**
+     * Don't use `return true` in production!
+     * You probably need something like this:
+     * return Meteor.users.findOne(userId).profile.isAdmin;
+     */
+  }
+});
 Meteor.startup(function () {
     var user = Accounts.findUserByEmail('selfplayedguest@wequ.com');
     if (user === undefined) {

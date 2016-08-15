@@ -5,8 +5,8 @@ Meteor.startup(function () {
 
     ServiceConfiguration.configurations.insert({
         service: 'facebook',
-        appId: '1527224754240515',
-        secret: '6dfa89c1ec4c1fe64fdbb92d9f8109b1'
+        appId: '686427678196672',
+        secret: '3654d5d288f7aa1c0bcf9ae7372ffc95'
     });
 
     Accounts.loginServiceConfiguration.remove({
@@ -14,8 +14,8 @@ Meteor.startup(function () {
     });
     Accounts.loginServiceConfiguration.insert({
         service: "google",
-        clientId: "989623098286-5paj1mnrbtgcequcbjctcopkdfgolfka.apps.googleusercontent.com",
-        secret: "tOIAfjMgUF3z5DvJfijpjZ8m"
+        clientId: "616860015684-eafp65np9pip0t82smn1uu57m82bblpg.apps.googleusercontent.com",
+        secret: "RfiSRo4WXW5gSu04hpo9naxn"
     });
 
     Accounts.loginServiceConfiguration.remove({

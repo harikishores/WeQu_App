@@ -36,10 +36,10 @@ modweb:arrive
 simple:reactive-method
 accounts-google
 themeteorchef:jquery-validation
-jamesfirst:accounts-linkedin
 npm-bcrypt
 timw:native-loading
 cfs:standard-packages
 cfs:gridfs
 cfs:filesystem
 d3js:d3
+pauli:accounts-linkedin
