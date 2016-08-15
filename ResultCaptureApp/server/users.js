@@ -83,15 +83,15 @@ var getServiceType = (user) => {
     if (user.services === {} && user.emails) return 'guest';
 }
 Meteor.users.allow({
-  update: function(userId, user) {
-    return true; 
+    update: function (userId, user) {
+        return true;
 
-    /**
-     * Don't use `return true` in production!
-     * You probably need something like this:
-     * return Meteor.users.findOne(userId).profile.isAdmin;
-     */
-  }
+        /**
+         * Don't use `return true` in production!
+         * You probably need something like this:
+         * return Meteor.users.findOne(userId).profile.isAdmin;
+         */
+    }
 });
 Meteor.startup(function () {
     var user = Accounts.findUserByEmail('selfplayedguest@wequ.com');
@@ -102,5 +102,9 @@ Meteor.startup(function () {
             lastName: 'PLAYED',
             password: 'wequ@76426'
         });
+        var u = Accounts.findUserByEmail('selfplayedguest@wequ.com');
+        if (u !== undefined) {
+            Meteor.users.update(u._id, {$set: {"emails.0.verified" :true}});
+        }
     }
 });
