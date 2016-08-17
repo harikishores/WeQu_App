@@ -7,17 +7,8 @@
 					<div class="col s12">
 						<div class="listtitle fontSize25 textWhite">
 							<a id="backBtn" class="listtitleimg"><img src="images/backbtn.png" class="backbtn"/> </a>
-							<span class="listtitletext">Whom did you play with?</span>
-						</div>
-					</div>
-				</div>
-				<div class="friendInvitationWrap">
-					<div class="friendInvitationTitle">
-						<div class="row nomargin">
-							<div class="col s12">
-								<span class="calloutSmall"><img src="images/calloutsmallicon.png"/> </span>
-								<span class="commentTitle fontSize12">Complete it by leaving a comment</span>
-							</div>
+							<span class="listtitletext">Friend List</span>
+							<!-- <span class="listtitletext">Whom did you play with?</span> -->
 						</div>
 					</div>
 				</div>
@@ -25,7 +16,7 @@
 			<!--fixed top-->
 
 			<!--friendlist-->    
-			<div class="blackbg friendlistWrap">
+			<div class="blackbg friendlistWrap noTopPadding">
 				<div class="friendlist">
 					{{#each connections}}
 					<!--friendlistItem-->  
@@ -46,9 +37,6 @@
 									{{GamesPlayed}} plays
 								</div>
 							</div>
-							<div class="col s1">
-								<span class="notificationIcon"><img src="images/calloutsmallicon.png"/></span>
-							</div>
 							<div class="col s4">
 								<a id="selectBtn" data-index="{{@index}}" class="waves-effect btn btnradius10 selectbutton"> Select</a>
 							</div>
@@ -62,8 +50,6 @@
 
 			{{>Invite}}
 		</div>
-
-
 	</div>
 
 </template>
@@ -71,20 +57,21 @@
 <template name="Invite">
 	<div class="absolute width100 startbottom bottomButtonBackground">
 		<div class="row">
-			<div class="col s12">
-				<button id="FBFriendBtn" class="waves-effect btn-large width100 btnWhite btnradius10 facebookbtn"><span class="fa fa-facebook-square"></span> Invite friends with Facebook</button>
-				<a class="waves-effect btn-large width100 btnWhite btnradius10 googleBtn"><span class="fa fa-google-plus"></span>Invite friends with Google</a>
+			<div class="col s12 marginTop20">
+				<button id="noInviteBtn" class="waves-effect btn-large width100 btnWhite btnradius10 normalText signinlinkRegister">Continue without sending invitation</button>
+
+				<button id="inviteEmailBtn" class="waves-effect btn-large width100 btnWhite btnradius10 normalText bold">Invite friends with email</button>
 			</div>
 		</div>
-					<div class="row">
-						<div class="input-field col s12 btngapwrap">
-							<a id="noInviteBtn" class="textWhite textWhite text-center signinlinkRegister" href="javascript:void(0);">Continue Without Sending Invitation</a>
-						</div>
-					</div>
+		<!-- <div class="row">
+			<div class="input-field col s12 btngapwrap">
+				<a id="noInviteBtn" class="textWhite textWhite text-center signinlinkRegister" href="javascript:void(0);">Continue Without Sending Invitation</a>
+			</div>
+		</div>
 		<div class="row">
 			<div class="col s12 text-center">
 				<a id="inviteEmailBtn" href="javascript:void(0)" class="textWhite text-center signuplink bold">Invite friends with email</a>
 			</div>
-		</div>
+		</div> -->
 	</div>
 </template>
