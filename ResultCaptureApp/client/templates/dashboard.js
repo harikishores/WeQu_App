@@ -150,7 +150,7 @@ var setChartData = function (CategoryScore) {
 				d[0].Score = 0;
 			if (d[0].Score !== 0) {check = 1;}
 			var obj = {
-				"axis": CardData[k].CategoryName,
+				"axis": checkLegend(CardData[k].CategoryName),
 				"value": d[0].Score
 			};
 			chartValues.push(obj);
@@ -168,7 +168,7 @@ var setChartData = function (CategoryScore) {
       var width = document.getElementById('radarChart').offsetWidth;
       if(width > 520){width = 520;}
       else if(width < 300){width = 300;}
-      var color = d3.scale.ordinal().range(["#EDC951","#CC333F","#00A0B0"]);
+      var color = d3.scale.ordinal().range(["#FFFFFF","#CC333F","#00A0B0"]);
         
       var radarChartOptions = {
             width: width,
@@ -182,10 +182,10 @@ var setChartData = function (CategoryScore) {
   	radarChart = RadarChart();
   	d3.select('#radarChart').call(radarChart);
 
-  	radarChart.options({circles: {fill: 'none', color: '#CDCDCD'}});
-  	radarChart.options({margins: {top: 50, right: 60, bottom: 50, left: 60}});
-  	radarChart.options({axes: {lineColor: 'white'}, filter: false});
-  	radarChart.options({circles: {maxValue: 0, levels: 4}});
+  	radarChart.options({circles: {fill: 'none', color: '#929090'}});
+  	radarChart.options({margins: {top: 100, right: 100, bottom: 100, left: 100}});
+  	radarChart.options({axes: {lineColor: '#929090'}, filter: false});
+  	radarChart.options({circles: {maxValue: 0, levels: 7}});
   	chartResize();
   	radarChart.data(scores).update();
 

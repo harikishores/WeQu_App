@@ -1472,13 +1472,13 @@ p.gameoverviewHead {
 
 .friendlistItem {
     padding: 10px 0;
-    border-bottom: 1px solid #484747;
+    border-bottom: 1px solid #383737;
 }
 
 .friendlistItem:hover,
 .friendlistItem.active {
-    background: #D0376F;
-    background: rgba(208, 55, 111, 0.7);
+    /*background: #D0376F;
+    background: rgba(208, 55, 111, 0.7);*/
 }
 
 .friendInvitationTitle {
@@ -3009,7 +3009,7 @@ p.gameoverviewHead {
     display: none;
 }
 .axis_legend{
-    /*font-size: 13px !important;*/
+    font-size: 13px !important;
 }
 .profileOverview{
     position: initial !important;
