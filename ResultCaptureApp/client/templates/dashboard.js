@@ -90,6 +90,17 @@ Template.dashboard.helpers({
 
 		}
 	},
+	unplayedGames: function () {
+        Meteor.call('getUnattendedGames', function (e, r) {
+            Session.set('games', r);
+        });
+		console.log(Session.get('games'));
+        if(Session.get('games') !== undefined){
+			return true;
+		}else{
+			return false;
+		}
+    },
 	userTotalScore: function () {
 		return Session.get('totalScore');
 	},

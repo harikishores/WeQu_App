@@ -6,9 +6,7 @@ Template.UnplayedGameList.rendered = function () {
 
 Template.UnplayedGameList.helpers({
     games: function () {
-        //return ReactiveMethod.call("getUnattendedGames");
         Meteor.call('getUnattendedGames', function (e, r) {
-            console.log(r);
             Session.set('games', r);
         });
         return Session.get('games');
