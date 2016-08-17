@@ -175,7 +175,7 @@ var setChartData = function (CategoryScore) {
         scores.push(scoreObj);
     }
 
-	  var  chartResize = function(){
+  	var  chartResize = function(){
       var width = document.getElementById('radarChart').offsetWidth;
       if(width > 520){width = 520;}
       else if(width < 300){width = 300;}
@@ -188,17 +188,17 @@ var setChartData = function (CategoryScore) {
       };
       radarChart.options(radarChartOptions).update();
     }
-   	  window.addEventListener('resize', chartResize);
-    
-      radarChart = RadarChart();
-      d3.select('#radarChart').call(radarChart);
+	window.addEventListener('resize', chartResize);
 
-      radarChart.options({circles: {fill: 'none', color: '#CDCDCD'}});
-      radarChart.options({margins: {top: 50, right: 60, bottom: 50, left: 60}});
-      radarChart.options({axes: {lineColor: 'white'}, filter: false});
-      radarChart.options({circles: {maxValue: 0, levels: 4}});
-      chartResize();
-      radarChart.data(scores).update();
+  	radarChart = RadarChart();
+  	d3.select('#radarChart').call(radarChart);
+
+  	radarChart.options({circles: {fill: 'none', color: '#CDCDCD'}});
+  	radarChart.options({margins: {top: 50, right: 60, bottom: 50, left: 60}});
+  	radarChart.options({axes: {lineColor: 'white'}, filter: false});
+  	radarChart.options({circles: {maxValue: 0, levels: 4}});
+  	chartResize();
+  	radarChart.data(scores).update();
 
 	// var radarChartData = {
 	// 	labels: chartLabels,

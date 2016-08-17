@@ -843,6 +843,13 @@ formFieldWrap input:not([type]),
     top: 10px;
     font-size: 20px;
 }
+.notification img{
+    height: 25px;
+}
+.notification .bell-active{
+    display: none;
+    height: 27px;
+}
 .fixedLogo .notificationCount{
     position: absolute;
     background: #d0376f;
@@ -2927,7 +2934,9 @@ p.gameoverviewHead {
 .marginTop30{
     margin-top: 30px;
 }
-
+.noTopPadding{
+    padding-top: 0px;
+}
 .addPicLabel{
     text-align: center;
     margin-top: 5px;
@@ -2945,7 +2954,7 @@ p.gameoverviewHead {
     background: #737171;
 }
 .gameModeContainer{
-    height: calc(100% - 80px);
+    height: calc(100% - 102px);
 }
 .height100{
     height: 100%;
@@ -3007,4 +3016,7 @@ p.gameoverviewHead {
 } 
 .overflowHidden{
     overflow: hidden;
+}
+.normalText{
+    text-transform: none;
 }
