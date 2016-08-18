@@ -201,24 +201,6 @@ var setChartData = function (CategoryScore) {
 	radarChart.options({ circles: { maxValue: 0, levels: 7 } });
 	chartResize();
 	radarChart.data(scores).update();
-
-	// var radarChartData = {
-	// 	labels: chartLabels,
-	// 	datasets: [
-	// 		{
-	// 			label: "My First dataset",
-	// 			fillColor: "rgba(220,220,220,0.2)",
-	// 			strokeColor: "rgba(220,220,220,1)",
-	// 			pointColor: "rgba(220,220,220,1)",
-	// 			pointStrokeColor: "#fff",
-	// 			pointHighlightFill: "#fff",
-	// 			pointHighlightStroke: "rgba(220,220,220,1)",
-	// 			data: scores
-	// 		}]
-	// };
-	// window.myRadar = new Chart(document.getElementById("canvas").getContext("2d")).Radar(radarChartData, {
-	// 	responsive: true
-	// });
 }
 
 
