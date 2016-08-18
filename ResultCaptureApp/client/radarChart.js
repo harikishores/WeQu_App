@@ -9,6 +9,7 @@ RadarChart = function () {
    // options which should be accessible via ACCESSORS
    var data = [];
    var _data = [];
+   var colorArray = ['#d0376f','#3fa033','#9964b8','#f46021','#1c307e','#2baadb'];
    var options = {
       filter: 'glow',        // define your own filter; false = no filter;
 
@@ -24,9 +25,9 @@ RadarChart = function () {
       },
 
       circles: { 
-         levels: 8, 
-         maxValue: 0, 
-         labelFactor: 1.25, 
+         levels: 7, 
+         maxValue: 10, 
+         labelFactor: 1.50, 
          opacity: 0.1, 
          fill: "#4b4b4b", 
          color: "#fff"
@@ -36,7 +37,7 @@ RadarChart = function () {
          colors: {},            // color lookup by key
          opacity: 0.35,
          borderWidth: 2,
-         rounded: true,
+         rounded: false,
          dotRadius: 5,
          sort: true,          // sort layers by approximation of size, smallest on top
          filter: []
@@ -252,8 +253,8 @@ RadarChart = function () {
                     .attr("class", "line")
                     .attr("x1", 0)
                     .attr("y1", 0)
-                    .attr("x2", function(d, i, j) { return calcX(null, 1.1, j); })
-                    .attr("y2", function(d, i, j) { return calcY(null, 1.1, j); })
+                    .attr("x2", function(d, i, j) { return calcX(null, 1.2, j); })
+                    .attr("y2", function(d, i, j) { return calcY(null, 1.2, j); })
                     .on('mouseover', function(d, i, j) { if (events.line.mouseover) events.line.mouseover(d, j); })
                     .on('mouseout', function(d, i, j) { if (events.line.mouseout) events.line.mouseout(d, j); })
                     .style("stroke", options.axes.lineColor)
@@ -268,9 +269,37 @@ RadarChart = function () {
                     .transition().duration(duration)
                     .style("stroke", options.axes.lineColor)
                     .style("stroke-width", options.axes.lineWidth)
-                    .attr("x2", function(d, i, j) { return calcX(null, 1.1, j); })
-                    .attr("y2", function(d, i, j) { return calcY(null, 1.1, j); })
+                    .attr("x2", function(d, i, j) { return calcX(null, 1.2, j); })
+                    .attr("y2", function(d, i, j) { return calcY(null, 1.2, j); })
 
+                /* Outer Circle */
+                var update_outerCircles = update_axes.selectAll(".oCircle")
+                    .data(function(d) { return [d]; }, get_axis)
+
+                update_outerCircles.enter()
+                    .append("circle")
+                    .attr("class", "oCircle")
+                    .attr("cx", function(d, i, j) { return calcX(null, 1.2, j); })
+                    .attr("cy", function(d, i, j) { return calcY(null, 1.2, j); })
+                    .attr("r", "5")
+                    .attr("fill", "#4b4b4b")
+                    .style("stroke", function(d, i, j) { return colorArray[j]; })
+                    .style("stroke-width", "2px")
+
+                update_outerCircles.exit()
+                    .transition().duration(duration * .5)
+                    .delay(function(d, i) { return 0; })
+                    .remove();
+
+                update_outerCircles
+                    .transition().duration(duration)
+                    .style("stroke", function(d, i, j) { return colorArray[j]; })
+                    .style("stroke-width", "2px")
+                    .attr("cx", function(d, i, j) { return calcX(null, 1.2, j); })
+                    .attr("cy", function(d, i, j) { return calcY(null, 1.2, j); })
+                    .attr("r", "5")
+                    .attr("fill", "#4b4b4b")
+                /**/
                 var update_axis_legends = update_axes.selectAll(".axis_legend")
                     .data(function(d) { return [d]; }, get_axis)
 
@@ -950,10 +979,6 @@ RadarChart = function () {
           .transition().duration(200)
           .style('opacity', 1);
           
-         // tooltip 
-              // .style("left", (d3.event.pageX) + "px")
-              // .style("top", (d3.event.pageY - 20) + "px")
-         //  ;
    }
 
    function tooltip_hide() {
@@ -1005,17 +1030,10 @@ RadarChart = function () {
 
    return chart;
 }
-splitter = function (str, l){
-    var strs = '';
-    while(str.length > l){
-        var pos = str.substring(0, l).lastIndexOf(' ');
-        pos = pos <= 0 ? l : pos;
-        strs +=  str.substring(0, pos) + ' ';
-        var i = str.indexOf(' ', pos)+1;
-        if(i < pos || i > pos+l)
-            i = pos;
-        str = str.substring(i);
-    }
-    strs += str + ' ';
-    return strs;
+
+checkLegend = function(str){
+  if(str == 'Communication'){
+    return 'Communi -cation';
+  }
+  else{return str;}
 }

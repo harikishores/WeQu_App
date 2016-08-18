@@ -3,11 +3,7 @@ Template.dashboard.rendered = function () {
 	Session.setDefault('totalScore', 0);
 	Session.setDefault('userboard', {});
 	Session.setDefault('myPostiveEssences', {});
-	Tracker.autorun(function () {
-		Meteor.call('getUnattendedGames', (e, r) => {
-			Session.set('unattendedGames', r);
-		});
-	})
+
 	Meteor.call('getDashboardData', function (e, r) {
 		if (!e && r) {
 			Session.set('userboard', r);
@@ -87,13 +83,6 @@ var getParticularCard = (cardId) => {
 	return undefined;
 }
 Template.dashboard.helpers({
-	checkZero: (g) => {
-		if (g.fetch().length > 0) return false;
-		else return true;
-	},
-	myUnattendedGames: () => {
-		return Session.get('unattendedGames');
-	},
 	checkCardIndexLayout: (index) => {
 		var positive_essences = Session.get('myPostiveEssences');
 		if (positive_essences.length > 0) {
@@ -101,17 +90,6 @@ Template.dashboard.helpers({
 
 		}
 	},
-	games: function () {
-        // Meteor.call('getUnattendedGames', function (e, r) {
-        //     Session.set('games', r);
-        // });
-		var g = Games.find({
-            'InvitedId': Meteor.userId(),
-            'InvitedGameComplete': false
-        });
-        Session.set('games', g);
-		return g;
-    },
 	userTotalScore: function () {
 		return Session.get('totalScore');
 	},
@@ -125,7 +103,7 @@ Template.dashboard.helpers({
 		totalRows: () => {
 			return Math.ceil(Session.get('myPostiveEssences').length / 3);
 		},
-		cardsInRow: (row) => {
+		cardsInRow: (row) => {	
 			var rows = this.totalRows();
 			var cards = this.get();
 
@@ -170,15 +148,15 @@ var setChartData = function (CategoryScore) {
 		if (d.length !== 0) {
 			if (d[0].Score < 0)
 				d[0].Score = 0;
-			if (d[0].Score !== 0) { check = 1; }
+			if (d[0].Score !== 0) {check = 1;}
 			var obj = {
-				"axis": CardData[k].CategoryName,
+				"axis": checkLegend(CardData[k].CategoryName),
 				"value": d[0].Score
 			};
 			chartValues.push(obj);
 		}
 	}
-	if (check == 1) {
+	if(check == 1){
         var scoreObj = {
             "key": CardData[k].CateogryId,
             "values": chartValues
@@ -186,30 +164,30 @@ var setChartData = function (CategoryScore) {
         scores.push(scoreObj);
     }
 
-	var chartResize = function () {
-		var width = document.getElementById('radarChart').offsetWidth;
-		if (width > 520) { width = 520; }
-		else if (width < 300) { width = 300; }
-		var color = d3.scale.ordinal().range(["#EDC951", "#CC333F", "#00A0B0"]);
-
-		var radarChartOptions = {
+  	var  chartResize = function(){
+      var width = document.getElementById('radarChart').offsetWidth;
+      if(width > 520){width = 520;}
+      else if(width < 300){width = 300;}
+      var color = d3.scale.ordinal().range(["#FFFFFF","#CC333F","#00A0B0"]);
+        
+      var radarChartOptions = {
             width: width,
             height: width,
             color: color
-		};
-		radarChart.options(radarChartOptions).update();
+      };
+      radarChart.options(radarChartOptions).update();
     }
 	window.addEventListener('resize', chartResize);
 
-	radarChart = RadarChart();
-	d3.select('#radarChart').call(radarChart);
+  	radarChart = RadarChart();
+  	d3.select('#radarChart').call(radarChart);
 
-	radarChart.options({ circles: { fill: 'none', color: '#CDCDCD' } });
-	radarChart.options({ margins: { top: 50, right: 60, bottom: 50, left: 60 } });
-	radarChart.options({ axes: { lineColor: 'white' }, filter: false });
-	radarChart.options({ circles: { maxValue: 0, levels: 4 } });
-	chartResize();
-	radarChart.data(scores).update();
+  	radarChart.options({circles: {fill: 'none', color: '#929090'}});
+  	radarChart.options({margins: {top: 100, right: 100, bottom: 100, left: 100}});
+  	radarChart.options({axes: {lineColor: '#929090'}, filter: false});
+  	radarChart.options({circles: {maxValue: 0, levels: 7}});
+  	chartResize();
+  	radarChart.data(scores).update();
 
 	// var radarChartData = {
 	// 	labels: chartLabels,
