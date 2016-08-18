@@ -66,7 +66,10 @@ Router.route('/signupAdditional', {
 });
 
 Router.route('/dashboard', {
-    template: 'dashboard'
+    template: 'dashboard',
+    waitOn: function () {
+        return Meteor.subscribe('games')
+    }
 });
 
 Router.route('/questionCategory/:_id', {
@@ -158,6 +161,6 @@ Router.route('/changePassword', {
 Router.route('/GameLoading/:_email/:_firstName/:_lastName/:_playedBy/:_guestId', {
     template: 'GameLoading',
     waitOn: () => {
-        return [Meteor.subscribe('myUsers'),Meteor.subscribe('images')];
+        return [Meteor.subscribe('myUsers'), Meteor.subscribe('images')];
     }
 });

@@ -5,7 +5,6 @@ Template.FriendListInvite.rendered = function () {
 Template.FriendListInvite.helpers({
 	connections: function () {
 		var cons = Connections.find().fetch();
-		console.log(cons);
 		for (var k in cons) {
 			if (cons[k].UserId !== Meteor.userId()) {
 				var hostId = cons[k].UserId;
@@ -49,13 +48,6 @@ Template.FriendListInvite.events({
 		// 			console.log('No can do' + JSON.stringify(response, null, 4));
 		// 		}
 		// 	});
-
-		FB.ui({
-			method: 'appinvite',
-			message: 'You should learn more about the Platform.'
-		}, function () {
-			console.log(arguments);
-		});
 	},
     'click #noInviteBtn': (event) => {
         var selfPlayedEmail = 'selfplayedguest@wequ.com';

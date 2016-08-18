@@ -9,8 +9,11 @@
 					</div>
 					<a href="javascript:void(0);" id="invitationBtn" class="notification">
 						<!--<span class="notificationCount"></span>-->
-						<img class="bell" src="images/Bell.png" />
-						<img class="bell-active" src="images/Bell_active.png" />
+						{{#if checkZero games}}
+							<img class="bell" src="images/Bell.png" />
+						{{else}}
+							<img class="bell" src="images/Bell_active.png" />
+						{{/if}}
 					</a>
 				</div>
 
