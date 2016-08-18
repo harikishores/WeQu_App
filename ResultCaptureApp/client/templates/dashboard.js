@@ -180,7 +180,9 @@ var setChartData = function (CategoryScore) {
 	var chartResize = function () {
 		var width = document.getElementById('radarChart').offsetWidth;
 		if (width > 520) { width = 520; }
-		else if (width < 300) { width = 300; }
+		else if (width < 340) { width = 340; }
+		var labelFactor = labelFactorVal(width);
+
 		var color = d3.scale.ordinal().range(["#FFFFFF", "#CC333F", "#00A0B0"]);
 
 		var radarChartOptions = {
@@ -189,6 +191,7 @@ var setChartData = function (CategoryScore) {
             color: color
 		};
 		radarChart.options(radarChartOptions).update();
+		radarChart.options({ circles: { labelFactor: labelFactor } });
     }
 	window.addEventListener('resize', chartResize);
 
@@ -198,9 +201,15 @@ var setChartData = function (CategoryScore) {
 	radarChart.options({ circles: { fill: 'none', color: '#929090' } });
 	radarChart.options({ margins: { top: 100, right: 100, bottom: 100, left: 100 } });
 	radarChart.options({ axes: { lineColor: '#929090' }, filter: false });
-	radarChart.options({ circles: { maxValue: 0, levels: 7 } });
+	radarChart.options({ circles: { maxValue: 10, levels: 7, labelFactor: 1.5 } });
 	chartResize();
-	radarChart.data(scores).update();
+
+	if(scores.length > 0){
+		radarChart.data(scores).update();
+	}
+	else{
+		radarChart.data(defaultData).update();
+	}
 }
 
 

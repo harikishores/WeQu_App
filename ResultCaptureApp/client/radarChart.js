@@ -1,5 +1,6 @@
 RadarChart = function () {
 
+   
    // TODO:
    // wrapWidth should probably be calculated rather than an option
    // slider to change maxValue on the fly
@@ -14,7 +15,7 @@ RadarChart = function () {
       filter: 'glow',        // define your own filter; false = no filter;
 
       width: window.innerWidth,
-	    height: window.innerHeight,
+     height: window.innerHeight,
 
       // Margins for the SVG
       margins: {
@@ -27,7 +28,7 @@ RadarChart = function () {
       circles: { 
          levels: 7, 
          maxValue: 10, 
-         labelFactor: 1.50, 
+         labelFactor: 1.70, 
          opacity: 0.1, 
          fill: "#4b4b4b", 
          color: "#fff"
@@ -46,7 +47,7 @@ RadarChart = function () {
       axes: {
          lineColor: "white",
          lineWidth: "2px",
-         wrapWidth: 60,	      // The number of pixels after which a label needs to be given a new line
+         wrapWidth: 60,       // The number of pixels after which a label needs to be given a new line
          filter: [],
          invert: [],
          ranges: {"Large Screen": [0, 1]}           // { axisname: [min, max], axisname: [min, max]  }
@@ -59,7 +60,7 @@ RadarChart = function () {
          position: { x: 25, y: 25 }
       },
 
-      color: d3.scale.category10()	   //Color function
+      color: d3.scale.category10()     //Color function
    }
 
    // nodes layered such that radarInvisibleCircles always on top of radarAreas
@@ -300,6 +301,7 @@ RadarChart = function () {
                     .attr("r", "5")
                     .attr("fill", "#4b4b4b")
                 /**/
+
                 var update_axis_legends = update_axes.selectAll(".axis_legend")
                     .data(function(d) { return [d]; }, get_axis)
 
@@ -333,7 +335,7 @@ RadarChart = function () {
                                  "cardinal-closed" : 
                                  "linear-closed" )
                    .radius(function(d) { return radial_calcs.rScale(d.value); })
-                   .angle(function(d,i) {	return i * radial_calcs.angleSlice; });
+                   .angle(function(d,i) { return i * radial_calcs.angleSlice; });
 
                 var update_blobWrapper = chart_node.selectAll(".radarWrapper")
                    .data(_data, get_key)
@@ -913,15 +915,15 @@ RadarChart = function () {
       //Dim all blobs
       d3.selectAll(".radarArea")
          .transition().duration(200)
-			.style("fill-opacity", function(d, i, j) {
+      .style("fill-opacity", function(d, i, j) {
             return options.areas.filter.indexOf(d.key) >= 0 ? 0 : 0.1;
           }); 
       //Bring back the hovered over blob
       d3.select(self)
          .transition().duration(200)
-			.style("fill-opacity", function(d, i, j) {
+      .style("fill-opacity", function(d, i, j) {
             return options.areas.filter.indexOf(d.key) >= 0 ? 0 : 0.7;
-         });	
+         });  
    }
 
    function areaMouseout(d, i, self) {
@@ -934,22 +936,22 @@ RadarChart = function () {
    }
 
    // on mouseover for the legend symbol
-	function legendMouseover(d, i, self) {
+  function legendMouseover(d, i, self) {
          var area = keys.indexOf(d) >= 0 ? d : keyScale(d); 
 
-			//Dim all blobs
-			d3.selectAll(".radarArea")
-				.transition().duration(200)
-				.style("fill-opacity", function(d, i, j) {
+      //Dim all blobs
+      d3.selectAll(".radarArea")
+        .transition().duration(200)
+        .style("fill-opacity", function(d, i, j) {
                return options.areas.filter.indexOf(d.key) >= 0 ? 0 : 0.1;
             }); 
-			//Bring back the hovered over blob
+      //Bring back the hovered over blob
          d3.selectAll(".radarArea." + area.replace(/\s+/g, ''))
-				.transition().duration(200)
-				.style("fill-opacity", function(d, i, j) {
+        .transition().duration(200)
+        .style("fill-opacity", function(d, i, j) {
                return options.areas.filter.indexOf(d.key) >= 0 ? 0 : 0.7;
-            });	
-	}
+            }); 
+  }
 
    function legendClick(d, i, self) {
          var keys = data.map(function(m) {return m.key});
@@ -974,11 +976,14 @@ RadarChart = function () {
             
          tooltip
           .html(value)
-          .style("left", (d3.event.pageX - 30) + "px")
+          .style("left", (d3.event.pageX) + "px")
           .style("top", (d3.event.pageY + 20) + "px")
           .transition().duration(200)
           .style('opacity', 1);
           
+         // tooltip 
+         //  .style("left", (d3.event.pageX) + "px")
+         //  .style("top", (d3.event.pageY - 20) + "px");
    }
 
    function tooltip_hide() {
@@ -987,7 +992,7 @@ RadarChart = function () {
           .style("opacity", 0);
    }
 
-	// Helper Functions
+  // Helper Functions
    // ----------------
 
    function add_index(key, values) {
@@ -1000,33 +1005,33 @@ RadarChart = function () {
    var get_key = function(d) { return d && d.key; };
    var get_axis = function(d) { return d && d.axis; };
 
-	// Wraps SVG text	
-	// modification of: http://bl.ocks.org/mbostock/7555321
-	function wrap(text, width) {
-	  text.each(function(d, i, j) {
-		var text = d3.select(this);
-		var words = d.axis.split(/\s+/).reverse();
-		var word;
-		var line = [];
-		var lineNumber = 0;
-		var lineHeight = 1.4; // ems
+  // Wraps SVG text 
+  // modification of: http://bl.ocks.org/mbostock/7555321
+  function wrap(text, width) {
+    text.each(function(d, i, j) {
+    var text = d3.select(this);
+    var words = d.axis.split(/\s+/).reverse();
+    var word;
+    var line = [];
+    var lineNumber = 0;
+    var lineHeight = 1.4; // ems
       var x = calcX(null, options.circles.labelFactor, j);
       var y = calcY(null, options.circles.labelFactor, j);
-	   var dy = parseFloat(text.attr("dy"));
-		var tspan = text.text(null).append("tspan").attr("dy", dy + "em");
+     var dy = parseFloat(text.attr("dy"));
+    var tspan = text.text(null).append("tspan").attr("dy", dy + "em");
 
-		while (word = words.pop()) {
-		   line.push(word);
-		   tspan.text(line.join(" "));
-		   if (tspan.node().getComputedTextLength() > width) {
+    while (word = words.pop()) {
+       line.push(word);
+       tspan.text(line.join(" "));
+       if (tspan.node().getComputedTextLength() > width) {
             line.pop();
             tspan.text(line.join(" "));
             line = [word];
             tspan = text.append("tspan").attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
-		   }
-		}
-	  });
-	}
+       }
+    }
+    });
+  }
 
    return chart;
 }
@@ -1037,3 +1042,32 @@ checkLegend = function(str){
   }
   else{return str;}
 }
+labelFactorVal = function(width){
+  if(width <= 400){
+    return 1.7;
+  }
+  else if(width > 400 && width < 480){return 1.6;}
+  else return 1.45;
+}
+defaultData = [{
+                "key": "A",
+                "values": [{
+                    "axis": "Personal Value",
+                    "value": 0
+                }, {
+                    "axis": "Problem Solving",
+                    "value": 0
+                }, {
+                    "axis": "Self Management",
+                    "value": 0
+                }, {
+                    "axis": "Team Work",
+                    "value": 0
+                }, {
+                    "axis": "Leadership",
+                    "value": 0
+                }, {
+                    "axis": "Communi -cation",
+                    "value": 0
+                }]
+            }];
