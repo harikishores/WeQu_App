@@ -2,11 +2,11 @@ Meteor.startup(function () {
   // process.env.MAIL_URL = 'smtp://guptasohaam:fnlitmqvujffzbwv@smtp.gmail.com:587/'
   if (smtpSettings.find().count() == 0) {
     smtpSettings.insert({
-      username: 'soham.geotechinfo',
-      password: 'sg@12345',
+      username: 'contact@wequ.co',
+      password: 'WeQuality',
       server: 'smtp.gmail.com',
-      from: 'soham.geotechinfo@gmail.com',
-      port: 587,
+      from: 'contact@wequ.co',
+      port: 465,
       Mails: [
         {
           Name: 'App Request',
