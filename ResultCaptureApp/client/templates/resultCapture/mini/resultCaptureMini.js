@@ -81,7 +81,7 @@ Template.resultCaptureMini.events({
             else
                 NewGame.GameMode = "Full";
             NewGame.HostUserId = Meteor.userId();
-            debugger;
+            // debugger;
             Router.go('/questionCategory/1');
         });
     },
@@ -231,7 +231,7 @@ Template.resultCaptureMini.helpers({
             return ((Session.get('sessionSelectedCards').length / 12) * 100);
         } catch (e) {
             console.clear();
-            console.log(e);
+            // console.log(e);
             return 0;
         }
     }

@@ -152,30 +152,26 @@ Template.dashboard.helpers({
 var setChartData = function (CategoryScore) {
 	var chartValues = [];
 	var scores = [];
-	var check = 0;
 	for (var k in CardData) {
 		var d = $.grep(CategoryScore, function (e) {
 			return e.CategoryId == CardData[k].CateogryId;
 		});
-
-		if (d.length !== 0) {
+		if (d.length !== 0) {			
 			if (d[0].Score < 0)
 				d[0].Score = 0;
-			if (d[0].Score !== 0) { check = 1; }
 			var obj = {
-				"axis": checkLegend(CardData[k].CategoryName),
+				"axis": CardData[k].CategoryName,
 				"value": d[0].Score
 			};
 			chartValues.push(obj);
 		}
 	}
-	if (check == 1) {
-        var scoreObj = {
-            "key": CardData[k].CateogryId,
-            "values": chartValues
-        };
-        scores.push(scoreObj);
-    }
+    var scoreObj = {
+        "key": CardData[k].CateogryId,
+        "values": chartValues
+    };
+    scores.push(scoreObj);
+    console.log(scores);
 
 	var chartResize = function () {
 		var width = document.getElementById('radarChart').offsetWidth;
@@ -203,13 +199,7 @@ var setChartData = function (CategoryScore) {
 	radarChart.options({ axes: { lineColor: '#929090' }, filter: false });
 	radarChart.options({ circles: { maxValue: 10, levels: 7, labelFactor: 1.5 } });
 	chartResize();
-
-	if(scores.length > 0){
-		radarChart.data(scores).update();
-	}
-	else{
-		radarChart.data(defaultData).update();
-	}
+	radarChart.data(scores).update();
 }
 
 

@@ -1,10 +1,10 @@
 
 Template.gameResult.rendered = function () {
-    debugger;
+    // debugger;
     Session.setDefault('gameScore', 0);
     var game = Games.findOne({ 'GameId': NewGame._id });
     if (game) {
-        debugger;
+        // debugger;
         setChartData(NewGame.GameScores);
     }
 }
@@ -32,7 +32,7 @@ Template.gameResult.helpers({
                 return e.QuestionId == NewGame.Questions[k].QuestionId
             });
             if (d) {
-                debugger;
+                // debugger;
                 var tag = d[0].Tag;
                 var selCards = [];
                 var comment = NewGame.Questions[k].Comment;
@@ -55,7 +55,7 @@ Template.gameResult.helpers({
 
             }
         }
-        debugger;
+        // debugger;
         return data;
     }
 
@@ -71,7 +71,7 @@ var setChartData = function (CategoryScore) {
     var chartValues = [];
     var scores = [];
     var GametotalScore = 0;
-    var check = 0;
+    // var check = 0;
 
     for (var k in CardData) {
         var d = $.grep(CategoryScore, function (e) {
@@ -85,28 +85,29 @@ var setChartData = function (CategoryScore) {
             if (d[0].Score < 0)
                 d[0].Score = 0;
             var obj = {
-                "axis": checkLegend(CardData[k].CategoryName),
+                "axis": CardData[k].CategoryName,
                 "value": Math.ceil((d[0].Score / totalScore) * 100)
             };
             chartValues.push(obj);
             GametotalScore += d[0].Score;
-            check = 1;
+            // check = 1;
         }
     }
     Session.set('gameScore', GametotalScore);
-    if(check == 1){
-        var scoreObj = {
-            "key": CardData[k].CateogryId,
-            "values": chartValues
-        };
-        scores.push(scoreObj);
-    }
+    // if(check == 1){
+    var scoreObj = {
+        "key": CardData[k].CateogryId,
+        "values": chartValues
+    };
+    scores.push(scoreObj);
+    // }
 
     var chartResize = function () {
         var width = document.getElementById('radarChart').offsetWidth;
         if (width > 520) { width = 520; }
-        else if (width < 300) { width = 300; }
+        else if (width < 340) { width = 340; }
         var labelFactor = labelFactorVal(width);
+
         var color = d3.scale.ordinal().range(["#FFFFFF", "#CC333F", "#00A0B0"]);
 
         var radarChartOptions = {
@@ -127,11 +128,5 @@ var setChartData = function (CategoryScore) {
     radarChart.options({ axes: { lineColor: '#929090' }, filter: false });
     radarChart.options({ circles: { maxValue: 10, levels: 7, labelFactor: 1.5 } });
     chartResize();
-
-    if(scores.length > 0){
-        radarChart.data(scores).update();
-    }
-    else{
-        radarChart.data(defaultData).update();
-    }
+    radarChart.data(scores).update();
 }

@@ -45,7 +45,7 @@ Template.questionCategory.helpers({
 
 Template.questionCategory.events({
     'click #nextBtn': function (event) {
-        debugger;
+        // debugger;
         // var selectedCards = Session.get('sessionSelectedCards');
         if (selectedCards.length > 0) {
             
@@ -81,7 +81,7 @@ Template.questionCategory.events({
     //skip button click
     'click #skipBtn': function (event) {
         //get the current question
-        debugger;
+        // debugger;
         if (currentQuestion) {
             if (nextQuestionAvailable(Router.current().params._id)) {
                 Router.go('/questionCategory/' + (++Router.current().params._id));
@@ -93,7 +93,7 @@ Template.questionCategory.events({
 
     'change .cardRadio': function (event) {
         event.preventDefault();
-        debugger;
+        // debugger;
         var valueUdpate = $(event.target).val();//value to be updated
         var valueChecked = false; //is the element checked
         var valueExists = false; // does the eleement value exists in the array of selected cards of the current game index?

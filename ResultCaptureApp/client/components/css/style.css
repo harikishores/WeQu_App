@@ -3009,7 +3009,7 @@ p.gameoverviewHead {
     display: none;
 }
 .axis_legend{
-    font-size: 13px !important;
+    /*font-size: 13px !important;*/
 }
 .profileOverview{
     position: initial !important;

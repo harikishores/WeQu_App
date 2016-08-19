@@ -328,7 +328,7 @@ RadarChart = function () {
                     .attr("y", function(d, i, j) { return calcY(null, options.circles.labelFactor, j); })
                     .selectAll('tspan')
                     .attr("x", function(d, i, j) { return calcX(null, options.circles.labelFactor, j); })
-                    .attr("y", function(d, i, j) { return calcY(null, options.circles.labelFactor, j); })
+                    .attr("y", function(d, i, j) { var l; if(j==0 || j==1 || j==4){l = 0;} else{l = 18;} return calcY(null, options.circles.labelFactor, j) - l; })
 
                 var radarLine = d3.svg.line.radial()
                    .interpolate( options.areas.rounded ? 
@@ -1036,38 +1036,9 @@ RadarChart = function () {
    return chart;
 }
 
-checkLegend = function(str){
-  if(str == 'Communication'){
-    return 'Communi -cation';
-  }
-  else{return str;}
-}
 labelFactorVal = function(width){
-  if(width <= 400){
-    return 1.7;
-  }
-  else if(width > 400 && width < 480){return 1.6;}
+  if(width <= 380){return 1.7;}
+  else if(width > 380 && width < 421){return 1.6;}
+  else if(width > 420 && width < 500){return 1.5;}
   else return 1.45;
 }
-defaultData = [{
-                "key": "A",
-                "values": [{
-                    "axis": "Personal Value",
-                    "value": 0
-                }, {
-                    "axis": "Problem Solving",
-                    "value": 0
-                }, {
-                    "axis": "Self Management",
-                    "value": 0
-                }, {
-                    "axis": "Team Work",
-                    "value": 0
-                }, {
-                    "axis": "Leadership",
-                    "value": 0
-                }, {
-                    "axis": "Communi -cation",
-                    "value": 0
-                }]
-            }];

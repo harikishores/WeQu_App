@@ -24,7 +24,7 @@ updateScore = function (categoryIndex, gameIndex) {
 }
 
 postFullScore = function () {
-    debugger;
+    // debugger;
     for (var k in CardData) {
         NewGame.GameScores.push({
             'CategoryId': CardData[k].CateogryId,
