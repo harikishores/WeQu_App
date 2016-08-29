@@ -1,15 +1,15 @@
 
 Template.UnplayedGameList.rendered = function () {
-    Session.setDefault('games', {});
-
+    Session.setDefault('allgames', {});
+    //this.rendered = true;
 }
 
 Template.UnplayedGameList.helpers({
-    games: function () {
+    newgames: function () {
         Meteor.call('getUnattendedGames', function (e, r) {
-            Session.set('games', r);
+            Session.set('allgames', r);
         });
-        return Session.get('games');
+        return Session.get('allgames');
     },
     profileImage: (imageId) => {
         if(imageId){
@@ -21,11 +21,11 @@ Template.UnplayedGameList.helpers({
 
 Template.UnplayedGameList.events({
     'click #backBtn': function (event) {
-        Router.go('dashboard');
+        Router.go('/dashboard');
     },
     'click #playBtn': function (events) {
         var index = $(event.target).attr('data-index');
-        var games = Session.get('games');
+        var games = Session.get('allgames');
         if (games.length > 0) {
             console.log(games[index]);
             Router.go('/GameLoading/' +

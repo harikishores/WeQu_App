@@ -1,3 +1,8 @@
+Template.home.created = function() {
+    if (Accounts._resetPasswordToken){
+        Router.go('/#/reset-password/'+Accounts._resetPasswordToken);
+    }
+}
 Template.home.events({
 	'click #startBtn':function(event){
         event.preventDefault();

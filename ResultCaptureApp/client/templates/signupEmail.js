@@ -1,7 +1,7 @@
 
 Template.signupEmail.events({
     'click #backBtn': function (event) {
-        history.back();
+        Router.go('/logindefault');
     },
     'submit form': function (event) {
         try {

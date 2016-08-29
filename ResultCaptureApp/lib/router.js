@@ -128,9 +128,12 @@ Router.route('/friendInviteEmail', {
 });
 
 Router.route('/UnplayedGameList', {
-    template: 'UnplayedGameList',
+    //template: 'UnplayedGameList',
     waitOn: () => {
-        return [Meteor.subscribe('images')];
+        return [Meteor.subscribe('games')];
+    },
+    action: function () {
+        this.render('UnplayedGameList');
     }
 });
 Router.route('/GameResult', {
@@ -164,3 +167,23 @@ Router.route('/GameLoading/:_email/:_firstName/:_lastName/:_playedBy/:_guestId',
         return [Meteor.subscribe('myUsers'), Meteor.subscribe('images')];
     }
 });
+
+Router.route('/#/reset-password/:token', {
+    template: 'ResetPassword',
+    name: 'reset-password',
+    onBeforeAction: function () {
+        console.log('before action called');
+        Accounts._resetPasswordToken = this.params.token;
+        this.next();
+    }
+});
+
+// AccountsTemplates.configureRoute('resetPwd', {
+//     template: 'ResetPassword',
+//     name: 'ResetPassword',
+//         onBeforeAction: function () {
+//         console.log('before action called');
+//         Accounts._resetPasswordToken = this.params.token;
+//         this.next();
+//     }
+// });

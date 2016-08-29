@@ -5,26 +5,26 @@ Template.loginDefault.events({
             if (err) {
                 alert("Facebook login failed");
             } else {
-                				if(Meteor.user().emails[0].verified !== true){
-					Router.go('/verifyEmail/' + Meteor.user().emails[0]);
-				}else{
-					Router.go('/dashboard');
-				}
+                if (Meteor.user().emails[0].verified !== true) {
+                    Router.go('/verifyEmail/' + Meteor.user().emails[0]);
+                } else {
+                    Router.go('/dashboard');
+                }
             }
         });
     },
     'click #google-login': function () {
         Meteor.loginWithGoogle({}, (err) => {
-			debugger;
+            debugger;
             if (err) {
                 alert("Google login failed");
             } else {
-				if(Meteor.user().emails[0].verified !== true){
-					Router.go('/verifyEmail/' + Meteor.user().emails[0]);
-				}else{
-					Router.go('/dashboard');
-				}
-                
+                if (Meteor.user().emails[0].verified !== true) {
+                    Router.go('/verifyEmail/' + Meteor.user().emails[0]);
+                } else {
+                    Router.go('/dashboard');
+                }
+
             }
         });
     },
@@ -33,20 +33,20 @@ Template.loginDefault.events({
             if (err) {
                 alert("LinkedIn login failed");
             } else {
-				var u = Meteor.user();
-				if(u !== undefined){
-					if(u.emails[0].verified !== true){
-						Meteor.users.update({ _id: u._id }, {
-							$set:
-							{
-								'emails.0.address':u.services.linkedin.emailAddress
-							}
-						});
-						Router.go('/verifyEmail/' + u.services.linkedin.emailAddress);
-					} else {
-						Router.go('/dashboard');
-					}
-				}
+                var u = Meteor.user();
+                if (u !== undefined) {
+                    if (u.emails[0].verified !== true) {
+                        Meteor.users.update({ _id: u._id }, {
+                            $set:
+                            {
+                                'emails.0.address': u.services.linkedin.emailAddress
+                            }
+                        });
+                        Router.go('/verifyEmail/' + u.services.linkedin.emailAddress);
+                    } else {
+                        Router.go('/dashboard');
+                    }
+                }
             }
         });
     },

@@ -17,7 +17,6 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 insecure                # Allow all DB writes from clients (for prototyping)
 iron:router
-accounts-ui
 accounts-password
 accounts-facebook
 service-configuration
@@ -42,3 +41,5 @@ cfs:gridfs
 cfs:filesystem
 d3js:d3
 pauli:accounts-linkedin
+accounts-ui
+useraccounts:iron-routing

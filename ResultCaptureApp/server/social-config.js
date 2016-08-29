@@ -33,7 +33,7 @@ Meteor.startup(function () {
         'download': () => {
             return true;
         },
-        'remove':()=>{
+        'remove': () => {
             return true;
         }
     });

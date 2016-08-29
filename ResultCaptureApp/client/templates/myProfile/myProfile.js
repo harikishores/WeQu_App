@@ -1,4 +1,5 @@
 Template.myProfile.rendered = () => {
+    
     Session.setDefault('isEdit', false);
     var user = Meteor.user();
     if (user) {
@@ -62,7 +63,7 @@ Template.myProfile.events({
         }
     },
     'click #backBtn': (event) => {
-        history.back();
+        Router.go('/dashboard');
     },
     'click #submitBtn': (event, tmpl) => {
 

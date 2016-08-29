@@ -205,7 +205,7 @@ var setChartData = function (CategoryScore) {
 
 Template.dashboard.events({
 	'click #invitationBtn': function (event) {
-		Router.go('UnplayedGameList');
+		Router.go('/UnplayedGameList');
 	},
 
 	'change .slide-toggle': (event) => {
