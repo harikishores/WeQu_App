@@ -3,7 +3,7 @@ Meteor.startup(function () {
   if (smtpSettings.find().count() == 0) {
     smtpSettings.insert({
       username: 'contact@wequ.co',
-      password: 'WeQuality',
+      password: 'Feedback12',
       server: 'smtp.gmail.com',
       from: 'contact@wequ.co',
       port: 465,
@@ -39,6 +39,7 @@ Accounts.emailTemplates.verifyEmail.subject = function () {
 Meteor.methods({
   'sendVerificationLink': function () {
     let userId = Meteor.userId();
+    console.log(userId);
     if (userId) {
       return Accounts.sendVerificationEmail(userId);
     }

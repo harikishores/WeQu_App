@@ -1,10 +1,9 @@
 
- Template.ResetPassword.onCreated(function () {
+Template.ResetPassword.onCreated(function () {
     if (Accounts._resetPasswordToken) {
         Session.set('resetPassword', Accounts._resetPasswordToken);
     }
-
- });
+});
 
 
 Template.ResetPassword.helpers({
@@ -21,15 +20,21 @@ Template.ResetPassword.events({
             password = resetPasswordForm.find('#resetPasswordPassword').val(),
             passwordConfirm = resetPasswordForm.find('#resetPasswordPasswordConfirm').val();
 
-        if (isNotEmpty(password) && areValidPasswords(password, passwordConfirm)) {
-            Accounts.resetPassword(Session.get('resetPassword'), password, function (err) {
-                if (err) {
-                    console.log('We are sorry but something went wrong.');
-                } else {
-                    console.log('Your password has been changed. Welcome back!');
-                    Session.set('resetPassword', null);
-                }
-            });
+        if (password === passwordConfirm) {
+            if (password.length > 4) {
+                Accounts.resetPassword(Session.get('resetPassword'), password, function (err) {
+                    if (err) {
+                        alert(err.reason);
+                    } else {
+                        alert('Your password has been changed. Kindly relogin again. Welcome back!');
+                        Router.go('/');
+                    }
+                });
+            } else {
+                alert('Please provide a password with at least 5 characters!');
+            }
+        }else{
+             alert('Passwords do not match. Please try again!!');
         }
         return false;
     }

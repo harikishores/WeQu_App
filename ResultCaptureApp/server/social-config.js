@@ -37,4 +37,13 @@ Meteor.startup(function () {
             return true;
         }
     });
+
+    Accounts.emailTemplates.resetPassword.text = function (user, url) {
+        var token = url.substring(url.lastIndexOf('/') + 1, url.length);
+        var newUrl = Meteor.absoluteUrl('reset-password/' + token);
+        var str = 'Hello, \n';
+        str += 'Click on the following link to reset your password \n';
+        str += newUrl;
+        return str;
+    };
 });

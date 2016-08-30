@@ -19,7 +19,12 @@ Router.onBeforeAction(function () {
             this.next();
     }
 }, {
-        except: ['home', 'verifyEmail', 'login', 'signupDefault', 'signupEmail', 'loginDefault', 'loginEmail', 'signupAdditional', 'forgotPassword']
+        except: ['home', 
+        'verifyEmail', 'login', 
+        'signupDefault', 'signupEmail', 
+        'loginDefault', 'loginEmail', 
+        'signupAdditional', 'forgotPassword',
+        'password.reset']
     });
 
 
@@ -168,15 +173,23 @@ Router.route('/GameLoading/:_email/:_firstName/:_lastName/:_playedBy/:_guestId',
     }
 });
 
-Router.route('/#/reset-password/:token', {
-    template: 'ResetPassword',
-    name: 'reset-password',
-    onBeforeAction: function () {
-        console.log('before action called');
+// Router.route('/#/reset-password/:token', {
+//     template: 'ResetPassword',
+//     name: 'ResetPassword',
+//     onBeforeAction: function () {
+//         Accounts._resetPasswordToken = this.params.token;
+//         this.next();
+//     }
+// });
+
+Router.route('password.reset', {
+     path: '/reset-password/:token',
+     onBeforeAction: function() {
         Accounts._resetPasswordToken = this.params.token;
         this.next();
-    }
-});
+     },
+     template: 'ResetPassword'
+  });
 
 // AccountsTemplates.configureRoute('resetPwd', {
 //     template: 'ResetPassword',
