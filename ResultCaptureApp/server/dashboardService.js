@@ -60,9 +60,9 @@ Meteor.methods({
         userboard.totalScore = 0;
         userboard.totalGames = 0;
         userboard.CardScores = [];
-        userboard.CategoryScore=[];
-        userboard.Questions=[];
-        
+        userboard.CategoryScore = [];
+        userboard.Questions = [];
+
         var userHostGames = Games.find({
             'HostId': this.userId
         }).fetch();
@@ -76,31 +76,35 @@ Meteor.methods({
         if (userHostGames.length > 0) {
             userboard.totalGames = userHostGames.length;
             for (var k in userHostGames) {
-                var scores = userHostGames[k].Host.GameScores;
-                var data = userHostGames[k].Host.GameData;
-                for (var m in scores) {
-                    userboard.totalScore += scores[m].Score;
-                    udpateCategoryScore(scores[m]);
-                }
+                try {
+                    var scores = userHostGames[k].Host.GameScores;
+                    var data = userHostGames[k].Host.GameData;
+                    for (var m in scores) {
+                        userboard.totalScore += scores[m].Score;
+                        udpateCategoryScore(scores[m]);
+                    }
 
-                for (var n in data) {
-                    var point = 0;
-                    //fetch the point
-                    for (var o in GameData) {
-                        if (GameData[o].Id === data[n].CategoryId) {
-                            point = GameData[o].Points;
-                            for (var a in data[n].SelectedCards) {
-                                updateCardScore({
-                                    Point: point,
-                                    CardId: data[n].SelectedCards[a]
-                                });
+                    for (var n in data) {
+                        var point = 0;
+                        //fetch the point
+                        for (var o in GameData) {
+                            if (GameData[o].Id === data[n].CategoryId) {
+                                point = GameData[o].Points;
+                                for (var a in data[n].SelectedCards) {
+                                    updateCardScore({
+                                        Point: point,
+                                        CardId: data[n].SelectedCards[a]
+                                    });
+                                }
+                                break;
                             }
-                            break;
                         }
                     }
+                    //add the questions and comments
+                    userboard.Questions.push(userHostGames[k].Host.Questions);
+                } catch (e) {
+                    continue;
                 }
-                //add the questions and comments
-                userboard.Questions.push(userHostGames[k].Host.Questions);
             }
         }
 
@@ -110,31 +114,35 @@ Meteor.methods({
         if (userInvitedGames.length > 0) {
             userboard.totalGames = userInvitedGames.length;
             for (var k in userInvitedGames) {
-                var scores = userInvitedGames[k].Invited.GameScores;
-                var data = userInvitedGames[k].Invited.GameData;
-                for (var m in scores) {
-                    userboard.totalScore += scores[m].Score;
-                    udpateCategoryScore(scores[m]);
-                }
+                try {
+                    var scores = userInvitedGames[k].Invited.GameScores;
+                    var data = userInvitedGames[k].Invited.GameData;
+                    for (var m in scores) {
+                        userboard.totalScore += scores[m].Score;
+                        udpateCategoryScore(scores[m]);
+                    }
 
-                for (var n in data) {
-                    var point = 0;
-                    //fetch the point
-                    for (var o in GameData) {
-                        if (GameData[o].Id === data[n].CategoryId) {
-                            point = GameData[o].Points;
-                            for (var a in data[n].SelectedCards) {
-                                updateCardScore({
-                                    Point: point,
-                                    CardId: data[n].SelectedCards[a]
-                                });
+                    for (var n in data) {
+                        var point = 0;
+                        //fetch the point
+                        for (var o in GameData) {
+                            if (GameData[o].Id === data[n].CategoryId) {
+                                point = GameData[o].Points;
+                                for (var a in data[n].SelectedCards) {
+                                    updateCardScore({
+                                        Point: point,
+                                        CardId: data[n].SelectedCards[a]
+                                    });
+                                }
+                                break;
                             }
-                            break;
                         }
                     }
+                    //add the questions and comments
+                    userboard.Questions.push(userInvitedGames[k].Invited.Questions);
+                } catch (e) {
+                    continue;
                 }
-                //add the questions and comments
-                userboard.Questions.push(userInvitedGames[k].Invited.Questions);
             }
         }
         return userboard;

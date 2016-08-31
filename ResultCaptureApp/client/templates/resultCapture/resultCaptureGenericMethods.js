@@ -65,6 +65,7 @@ nextQuestionAvailable = function (presentQuestionId) {
 
 setSession = {
     updateSelectedCards: function (cardId, isAdd) {
+        debugger;
         var selCards = Session.get('sessionSelectedCards');
         if (selCards) {
             if (isAdd) {
@@ -73,13 +74,14 @@ setSession = {
                     gameId: Session.get('currentGame').Id
                 });
             } else {
-                var index = $.grep(selCards, function (e) { return e.cardId === cardId; });
+                var index = $.grep(selCards, function (e) { return e.cardId !== cardId; });
                 if (index.length !== 0) {
-                    selCards.splice(index, 1);
+                    selCards = index;
                 }
             }
 
             Session.set('sessionSelectedCards', selCards);
+            console.log(selCards);
         }
     }
 };

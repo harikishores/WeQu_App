@@ -6,6 +6,7 @@ Template.dashboard.rendered = function () {
 
 	Meteor.call('getDashboardData', function (e, r) {
 		if (!e && r) {
+			debugger;
 			Session.set('userboard', r);
 			setChartData(r.CategoryScore);
 			Session.set('totalScore', r.totalScore);
