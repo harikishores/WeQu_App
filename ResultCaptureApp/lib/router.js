@@ -113,7 +113,7 @@ Router.route('/resultCapture/mini', {
 
 Router.route('/FriendGameList', {
     subscriptions: function () {
-        return [Meteor.subscribe('connections'), Meteor.subscribe('myUsers')];
+        return [Meteor.subscribe('connections'), Meteor.subscribe('myUsers'),Meteor.subscribe('images')];
     },
     action: function () {
         this.render('FriendListInvite');
@@ -129,7 +129,10 @@ Router.route('/GameVersion/:_email/:_firstName/:_lastName/:_playedBy/:_guestId',
 });
 
 Router.route('/friendInviteEmail', {
-    template: 'friendInviteEmail'
+    template: 'friendInviteEmail',
+    subscriptions:()=>{
+        return Meteor.subscribe('images');
+    }
 });
 
 Router.route('/UnplayedGameList', {
@@ -144,7 +147,7 @@ Router.route('/UnplayedGameList', {
 Router.route('/GameResult', {
     template: 'gameResult',
     subscriptions: function () {
-        return [Meteor.subscribe('games'), Meteor.subscribe('myUsers')];
+        return [Meteor.subscribe('games'), Meteor.subscribe('myUsers'),Meteor.subscribe('images')];
     }
 });
 Router.route('/verifyEmail/:_email', {
