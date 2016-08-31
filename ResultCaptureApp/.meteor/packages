@@ -39,7 +39,6 @@ cfs:filesystem
 d3js:d3
 pauli:accounts-linkedin
 accounts-ui
-fastclick
 pcel:loading
 mobile-status-bar
 launch-screen
