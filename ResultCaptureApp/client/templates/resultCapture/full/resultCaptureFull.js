@@ -29,7 +29,7 @@ Template.resultCaptureFull.rendered = function () {
     gameIndex = 0;
 
     Session.setDefault('sessionSelectedCards', []);
-    //Session.set('sessionSelectedCards', []);
+    Session.set('sessionSelectedCards', []);
     //Sected Card Count
     Session.setDefault('currentCategory', CardData);
     //Track Game

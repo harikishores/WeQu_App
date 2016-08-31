@@ -6,7 +6,8 @@ Meteor.startup(function () {
     ServiceConfiguration.configurations.insert({
         service: 'facebook',
         appId: '686427678196672',
-        secret: '3654d5d288f7aa1c0bcf9ae7372ffc95'
+        secret: '3654d5d288f7aa1c0bcf9ae7372ffc95',
+        loginStyle:'redirect'
     });
 
     Accounts.loginServiceConfiguration.remove({
@@ -15,7 +16,8 @@ Meteor.startup(function () {
     Accounts.loginServiceConfiguration.insert({
         service: "google",
         clientId: "616860015684-eafp65np9pip0t82smn1uu57m82bblpg.apps.googleusercontent.com",
-        secret: "RfiSRo4WXW5gSu04hpo9naxn"
+        secret: "RfiSRo4WXW5gSu04hpo9naxn",
+        loginStyle:'redirect'
     });
 
     Accounts.loginServiceConfiguration.remove({
@@ -25,7 +27,7 @@ Meteor.startup(function () {
         service: "linkedin",
         clientId: "758ew0beoeqe01",
         secret: "qwAMdc8wlJ3KxgY1",
-        loginStyle:'popup'
+        loginStyle:'redirect'
     });
     Images.allow({
         'insert': () => {
