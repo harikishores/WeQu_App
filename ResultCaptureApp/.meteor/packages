@@ -25,7 +25,6 @@ hedcet:touch-swipe
 chart:chart
 email
 meteorhacks:fast-render
-pcel:loading
 standard-minifier-css
 standard-minifier-js
 materialize:materialize
@@ -34,10 +33,13 @@ modweb:arrive
 accounts-google
 themeteorchef:jquery-validation
 npm-bcrypt
-timw:native-loading
 cfs:standard-packages
 cfs:gridfs
 cfs:filesystem
 d3js:d3
 pauli:accounts-linkedin
 accounts-ui
+fastclick
+pcel:loading
+mobile-status-bar
+launch-screen

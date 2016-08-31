@@ -980,7 +980,7 @@ formFieldWrap input:not([type]),
 .profileOverview {
     position: fixed;
     padding-top: 113px;
-    overflow: auto;
+    overflow-x: hidden;
     width: 100%;
     padding-bottom: 100px;
 }
@@ -1768,6 +1768,7 @@ p.gameoverviewHead {
 
 .checkwrap {
     margin-top: 20px;
+    padding: 0 10px;
 }
 
 .cardSelector [type="radio"]+label,
@@ -3019,4 +3020,16 @@ p.gameoverviewHead {
 }
 .normalText{
     text-transform: none;
+}
+.datefield input[type="date"] {
+    text-indent: 5px;
+}
+input[type="date"]:before {
+    content: attr(placeholder) !important;
+    color: #aaa;
+    margin-right: 0.5em;
+}
+input[type="date"]:focus:before,
+input[type="date"]:valid:before {
+    content: "" !important;
 }

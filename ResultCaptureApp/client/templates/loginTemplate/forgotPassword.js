@@ -7,6 +7,7 @@ Template.forgotPassword.helpers({
 
 Template.forgotPassword.events({
     'click #backBtn': (event) => {
+        event.preventDefault();
         Router.go('/loginEmail');
     },
 

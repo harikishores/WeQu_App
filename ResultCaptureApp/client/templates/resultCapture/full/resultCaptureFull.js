@@ -29,7 +29,7 @@ Template.resultCaptureFull.rendered = function () {
     gameIndex = 0;
 
     Session.setDefault('sessionSelectedCards', []);
-    Session.set('sessionSelectedCards', []);
+    //Session.set('sessionSelectedCards', []);
     //Sected Card Count
     Session.setDefault('currentCategory', CardData);
     //Track Game
@@ -92,11 +92,11 @@ Template.resultCaptureFull.events({
 
     'change .cardRadio': function (event) {
         event.preventDefault();
-        if (!$(event.target).is(".myActiveCard")) {
+        if (!($(event.target).is(".myActiveCard"))) {
             //check is 6 cards selected from the category
             if ($(event.target).is(':checked') && GameData[gameIndex].SelectedCards.length === 6) {
-                alert('Only 6 cards can be selected under a single category, Press next to continue.');
                 $(event.target).prop('checked', false);
+                alert('Only 6 cards can be selected under a single category, Press next to continue.');
                 return;
             }
             //check 6 cards ends
@@ -105,15 +105,14 @@ Template.resultCaptureFull.events({
             var valueChecked = false; //is the element checked
             var valueExists = false; // does the eleement value exists in the array of selected cards of the current game index?
             var valueIndex = GameData[gameIndex].SelectedCards.indexOf(valueUdpate); //-1 indicates not in any index.
-            if ($(event.target).is(':checked')) { valueChecked = true; }
 
-            if (valueIndex !== -1) {
-                valueExists = true;
-            }
+            if ($(event.target).is(':checked')) { valueChecked = true; } //set value checked
+
+            if (valueIndex !== -1) { valueExists = true; } //set value exists
 
             if (valueChecked && !valueExists && Session.get('sessionSelectedCards').length < 24) { //if value is checked and does not exists in the array of selected Cards.
                 GameData[gameIndex].SelectedCards.push(valueUdpate);
-                var catId = $(event.target).attr('data-Cateogry')
+                var catId = $(event.target).attr('data-Cateogry');
                 for (var k in CardData) {
                     if (CardData[k].CateogryId === catId) {
                         CardData[k].Score += GameData[gameIndex].Points;
@@ -124,7 +123,8 @@ Template.resultCaptureFull.events({
                 $('#' + cid + '_div').addClass('selectedCard');
             }
 
-            if (!valueChecked && valueExists) { //if the value is not checked but exists in the array of selected cards.
+            if (!valueChecked && valueExists) { 
+                //if the value is not checked but exists in the array of selected cards.
                 GameData[gameIndex].SelectedCards.splice(valueIndex, 1);
                 var catId = $(event.target).attr('data-Cateogry')
                 for (var k in CardData) {
@@ -186,7 +186,7 @@ Template.resultCaptureFull.helpers({
                 if (index.length !== 0) {
                     //is the card selected in the same category?
                     if (index[0].gameId !== currentGame.Id) {
-                        $('#' +cardId + '_div').removeClass('selectedCard');
+                        $('#' + cardId + '_div').removeClass('selectedCard');
                         return 'myActiveCard';
                     }
                 }

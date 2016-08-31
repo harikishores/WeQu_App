@@ -24,7 +24,8 @@ Meteor.startup(function () {
     Accounts.loginServiceConfiguration.insert({
         service: "linkedin",
         clientId: "758ew0beoeqe01",
-        secret: "qwAMdc8wlJ3KxgY1"
+        secret: "qwAMdc8wlJ3KxgY1",
+        loginStyle:'popup'
     });
     Images.allow({
         'insert': () => {

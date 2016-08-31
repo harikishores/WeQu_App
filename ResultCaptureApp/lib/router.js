@@ -19,12 +19,12 @@ Router.onBeforeAction(function () {
             this.next();
     }
 }, {
-        except: ['home', 
-        'verifyEmail', 'login', 
-        'signupDefault', 'signupEmail', 
-        'loginDefault', 'loginEmail', 
-        'signupAdditional', 'forgotPassword',
-        'password.reset']
+        except: ['home',
+            'verifyEmail', 'login',
+            'signupDefault', 'signupEmail',
+            'loginDefault', 'loginEmail',
+            'signupAdditional', 'forgotPassword',
+            'password.reset']
     });
 
 
@@ -37,7 +37,7 @@ Router.configure({
 
 Router.route('/login', {
     template: 'login',
-    fastRender: true
+    // fastRender: true
 });
 
 
@@ -51,28 +51,28 @@ Router.route('/signupEmail', {
 
 Router.route('/loginDefault', {
     template: 'loginDefault',
-    waitOn: function () {
+    subscriptions: function () {
         return Meteor.subscribe('myUsers')
     }
 });
 
 Router.route('/loginEmail', {
     template: 'loginEmail',
-    waitOn: function () {
+    subscriptions: function () {
         return Meteor.subscribe('myUsers')
     }
 });
 
 Router.route('/signupAdditional', {
     template: 'signupAdditional',
-    waitOn: function () {
+    subscriptions: function () {
         return Meteor.subscribe('myUsers')
     }
 });
 
 Router.route('/dashboard', {
     template: 'dashboard',
-    waitOn: function () {
+    subscriptions: function () {
         return Meteor.subscribe('games')
     }
 });
@@ -112,7 +112,7 @@ Router.route('/resultCapture/mini', {
 });
 
 Router.route('/FriendGameList', {
-    waitOn: function () {
+    subscriptions: function () {
         return [Meteor.subscribe('connections'), Meteor.subscribe('myUsers')];
     },
     action: function () {
@@ -134,7 +134,7 @@ Router.route('/friendInviteEmail', {
 
 Router.route('/UnplayedGameList', {
     //template: 'UnplayedGameList',
-    waitOn: () => {
+    subscriptions: () => {
         return [Meteor.subscribe('games')];
     },
     action: function () {
@@ -143,7 +143,7 @@ Router.route('/UnplayedGameList', {
 });
 Router.route('/GameResult', {
     template: 'gameResult',
-    waitOn: function () {
+    subscriptions: function () {
         return [Meteor.subscribe('games'), Meteor.subscribe('myUsers')];
     }
 });
@@ -157,7 +157,7 @@ Router.route('/forgotPassword', {
 
 Router.route('/myProfile', {
     template: 'myProfile',
-    waitOn: () => {
+    subscriptions: () => {
         return [Meteor.subscribe('myUsers'), Meteor.subscribe('images')];
     }
 });
@@ -168,7 +168,7 @@ Router.route('/changePassword', {
 
 Router.route('/GameLoading/:_email/:_firstName/:_lastName/:_playedBy/:_guestId', {
     template: 'GameLoading',
-    waitOn: () => {
+    subscriptions: () => {
         return [Meteor.subscribe('myUsers'), Meteor.subscribe('images')];
     }
 });
@@ -183,13 +183,13 @@ Router.route('/GameLoading/:_email/:_firstName/:_lastName/:_playedBy/:_guestId',
 // });
 
 Router.route('password.reset', {
-     path: '/reset-password/:token',
-     onBeforeAction: function() {
+    path: '/reset-password/:token',
+    onBeforeAction: function () {
         Accounts._resetPasswordToken = this.params.token;
         this.next();
-     },
-     template: 'ResetPassword'
-  });
+    },
+    template: 'ResetPassword'
+});
 
 // AccountsTemplates.configureRoute('resetPwd', {
 //     template: 'ResetPassword',

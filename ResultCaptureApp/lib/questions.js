@@ -1,7 +1,7 @@
 Questions = [
     {
         "QuestionId": "1",
-        "Head": "What positive essense of yourself did you discover from {{playername}}?",
+        "Head": "What positive essense of yourself did you discover?",
         "Tag":"MY POSITIVE ESSANCES",
         "Commentable": true,
         "CommentHead": "Can you briefly explain the positive essenses found?",
@@ -9,7 +9,7 @@ Questions = [
     },
     {
         "QuestionId": "2",
-        "Head": "What new aspects of yourself did you learn from {{playername}}?",
+        "Head": "What new aspects of yourself did you learn?",
         "Tag":"MY NEW ASPECTS",
         "Commentable": true,
         "CommentHead": "Can you briefly explain the new aspects learned?",

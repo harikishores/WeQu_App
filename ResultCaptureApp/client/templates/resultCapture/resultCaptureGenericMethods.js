@@ -36,17 +36,17 @@ postFullScore = function () {
             if (!e && r) {
                 Router.go('GameResult');
             } else {
-                alert('failed operation');
-                console.log(e);
+                alert('Game Session Expired, Please try again');
+                Router.go('/Dashboard');
             }
         })
     } else {
         Meteor.call('finishGuestGame', NewGame, function (e, r) {
             if (!e && r) {
-                Router.go('GameResult');
+                Router.go('/GameResult');
             } else {
-                alert('failed operation');
-                console.log(e);
+                alert('Game Session Expired, Please try again');
+                Router.go('/Dashboard');
             }
         })
     }

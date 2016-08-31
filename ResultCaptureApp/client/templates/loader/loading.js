@@ -16,5 +16,6 @@ Template.loading.destroyed = function () {
 };
 
 var message = '<p class="loading-message">Loading...</p>';
-// var spinner = '<div class="sk-spinner sk-spinner-rotating-plane"></div>';
-var spinner = '';
+var spinner = '<div class="sk-spinner sk-spinner-rotating-plane"></div>';
+// var message = '';
+// var spinner = '';
