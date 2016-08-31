@@ -138,7 +138,7 @@ Router.route('/friendInviteEmail', {
 Router.route('/UnplayedGameList', {
     //template: 'UnplayedGameList',
     subscriptions: () => {
-        return [Meteor.subscribe('games')];
+        return [Meteor.subscribe('games'),Meteor.subscribe('images')];
     },
     action: function () {
         this.render('UnplayedGameList');
