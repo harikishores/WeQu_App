@@ -23,7 +23,9 @@ Template.gameResult.helpers({
         return NewGame.InvitedUserName;
     },
     profilePicture: () => {
-        return '/cfs/files/images/' + Meteor.user().profile.imageId+ '/images?store=thumbs';
+        // return '/cfs/files/images/' + Meteor.user().profile.imageId+ '/images?store=thumbs';
+        var images = Images.find({ '_id': Meteor.user().profile.imageId });
+        return images;
     },
     gameQuestions: () => {
         var data = [];

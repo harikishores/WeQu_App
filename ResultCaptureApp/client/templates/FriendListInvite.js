@@ -23,12 +23,20 @@ Template.FriendListInvite.helpers({
 	},
 	profilePicture: (connectionId) => {
 		var u = Meteor.users.findOne({ '_id': connectionId });
+		// if (u && u.profile) {
+		// 	if (u.profile.imageId) return '/cfs/files/images/' + u.profile.imageId + '/images?store=thumbs';
+		// }
 		if (u && u.profile) {
-			if(u.profile.imageId) return '/cfs/files/images/' + u.profile.imageId + '/images?store=thumbs';
+			var images = Images.find({ '_id': u.profile.imageId });
+			return images;
 		}
 	},
-	currentUserId:(connectionId)=>{
-		if(connectionId !== Meteor.userId()) return true;
+	currentUserProfilePic: () => {
+		var images = Images.find({ '_id': Meteor.user().profile.imageId });
+        return images;
+	},
+	currentUserId: (connectionId) => {
+		if (connectionId !== Meteor.userId()) return true;
 		return false;
 	}
 });

@@ -8,7 +8,8 @@
                 <div class="row nomargin fixedLogo">
                     <div class="col s12">
                         <div class="listtitle fontSize25 textWhite">
-                            <span class="listtitletext cardTypeGameText text-center">Well done, <span class="playerName">{{playerName}}</span>. Here is an overview of your play. </span>
+                            <span class="listtitletext cardTypeGameText text-center">Well done, <span class="playerName">{{playerName}}</span>.
+                            Here is an overview of your play. </span>
                         </div>
                     </div>
                 </div>
@@ -27,14 +28,14 @@
 
             <!--cardlist-->
             <div class="blackbg gameWrap">
-                
+
                 <div class="ProgressTab">
-                    
+
                     <div class="profileHead">
                         <p class="gameoverviewHead">WEQU SCORE</p>
                         <p class="gameoverviewHead">{{playerName}}</p>
                     </div>
-                    
+
                     <div class="profileImage">
                         <div class="row">
                             <div class="col s3">
@@ -42,7 +43,10 @@
                                 </span>
                             </div>
                             <div class="col s12 nomargin nopadding ">
-                                <img src="{{profilePicture}}" class="frndImgLarge frndImg1">
+                                <!--<img src="{{profilePicture}}" class="frndImgLarge frndImg1">-->
+                                {{#each profilePicture}}
+                                    <img id="myImg" class="frndImgLarge frndImg1" src="{{this.url}}"> 
+                                {{/each}}
                             </div>
                             <div class="col s3">
                                 <span class="blankcard" style="">
@@ -50,60 +54,60 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="profileMatchScore">
                         {{gameScore}}
                     </div>
-                    
-                    
+
+
                     <!--<div class="profileMatchDesc">
                         Venenatis vitae, justo. Nullum dictum eu ped fellis e molis pretium. Venenatis vitae, justo. Nullum dictum eu ped fellis e molis pretium. Venenatis vitae, justo.
                     </div>-->
-                    
+
                 </div>
-                
-                
+
+
                 <div class="overviewPositiveEssance">
                     <div class="scoreCardsHolder backgroundimage">
                         {{#each gameQuestions}}
-                            <p>{{Tag}}</p>
-                            
-                            <div class="row cardsHolder">
-                                {{#each Cards}}
-                                    <div class="col s4">
-                                        <div class="roundedCard {{GroupName}} {{ClassName}}">
-                                        </div>
-                                    </div>
-                                {{/each}}
-                            </div>
+                        <p>{{Tag}}</p>
 
-                            <div class="row">
-                                <div class="col s12">
-                                    <p class="text-center textWhite width100 carddescription">{{Comment}}</p>
+                        <div class="row cardsHolder">
+                            {{#each Cards}}
+                            <div class="col s4">
+                                <div class="roundedCard {{GroupName}} {{ClassName}}">
                                 </div>
                             </div>
+                            {{/each}}
+                        </div>
+
+                        <div class="row">
+                            <div class="col s12">
+                                <p class="text-center textWhite width100 carddescription">{{Comment}}</p>
+                            </div>
+                        </div>
                         {{/each}}
                     </div>
                 </div>
-                
-                
+
+
                 <div class="overviewScoreScreen">
                     <div class="profileHead">
                         <p class="gameoverviewHead">My WEQU GRAPH</p>
                     </div>
-                    
+
                     <div class="scoreGraphHolder">
-						<!-- <canvas id="canvas"></canvas> -->
+                        <!-- <canvas id="canvas"></canvas> -->
                         <div id="radarChart"></div>
-					</div>
+                    </div>
                 </div>
-                
-                
+
+
                 <div class="row">
                     <div class="col s12">
                         <div class="input-field col s12">
                             <!--<a class="waves-effect waves-light btn-large width100 btnWhite btnradius10" ">SHARE THIS RESULT</a>-->
-                            
+
                             <a id="updateBtn" class="waves-effect waves-light btn-large width100 btnWhite btnradius10">UPDATE MY PROFILE</a>
                         </div>
                     </div>
