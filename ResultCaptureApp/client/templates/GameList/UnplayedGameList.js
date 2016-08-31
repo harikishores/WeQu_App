@@ -12,10 +12,12 @@ Template.UnplayedGameList.helpers({
         return Session.get('allgames');
     },
     profileImage: (imageId) => {
-        if(imageId){
-            return '/cfs/files/images/' + imageId + '/images?store=thumbs';   
+        if (imageId) {
+            // return '/cfs/files/images/' + imageId + '/images?store=thumbs';
+            var images = Images.find({ '_id': imageId });
+            return images;
         }
-        else{return '';}
+        // else{return '';}
     }
 });
 

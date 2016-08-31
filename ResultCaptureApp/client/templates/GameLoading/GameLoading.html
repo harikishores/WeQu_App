@@ -4,7 +4,7 @@
             <div class="gamePlayerHolder">
                 <div class="gamePlayerInner gmPlInnerTop player1">
                     <div class="gamePlTopImg">
-                        {{#each profilePicture 'host'}}
+                        {{#each profileImage 'host'}}
                         <div style="background-image: url('{{this.url}}');" class="playerimg"></div>
                         {{/each}}
                         <span>{{players.host}}</span>
@@ -13,7 +13,7 @@
                 </div>
                 <div class="gamePlayerInner gmPlInnerTop player2">
                     <div class="gamePlTopImg">
-                        {{#each profilePicture 'guest'}}
+                        {{#each profileImage 'guest'}}
                         <div style="background-image: url('{{this.url}}');" class="playerimg"></div>
                         {{/each}}
                         <span>{{players.invited}}</span>
