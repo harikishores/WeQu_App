@@ -126,6 +126,7 @@ Template.resultCaptureFull.events({
             if (!valueChecked && valueExists) { 
                 //if the value is not checked but exists in the array of selected cards.
                 GameData[gameIndex].SelectedCards.splice(valueIndex, 1);
+                // $.grep(selCards, function (e) { return e.cardId === cardId; });
                 var catId = $(event.target).attr('data-Cateogry')
                 for (var k in CardData) {
                     if (CardData[k].CateogryId === catId) {
@@ -137,7 +138,7 @@ Template.resultCaptureFull.events({
                 $('#' + cid + '_div').removeClass('selectedCard');
             }
         }
-
+        
         // for (var k in CardData) {
         //     for (var l in CardData[k].Cards) {
         //         var elem = $('#' + CardData[k].Cards[l].CardId);
@@ -179,6 +180,7 @@ Template.resultCaptureFull.helpers({
 
     IsCardSelectedInCategory: function (cardId) {
         try {
+            debugger;
             var selCards = Session.get('sessionSelectedCards');
             var currentGame = Session.get('currentGame');
             if (selCards.length > 0) {
@@ -223,8 +225,6 @@ Template.resultCaptureFull.helpers({
         try {
             return ((Session.get('sessionSelectedCards').length / 24) * 100);
         } catch (e) {
-            console.clear();
-            console.log(e);
             return 0;
         }
     }
