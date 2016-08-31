@@ -82,7 +82,9 @@ Template.GameLoading.helpers({
     },
     profileImage: (type) => {
         if (type == 'host') {
-            return '/cfs/files/images/' + Meteor.user().profile.imageId + '/images?store=thumbs';
+            // return '/cfs/files/images/' + Meteor.user().profile.imageId + '/images?store=thumbs';
+            var images = Images.find({ '_id': Meteor.user().profile.imageId });
+            return images;
         }
 
         if (type == 'guest') {
@@ -92,7 +94,9 @@ Template.GameLoading.helpers({
             if (id) {
                 var u = Meteor.users.findOne({ '_id': id });
                 if (u) {
-                    return '/cfs/files/images/' + u.profile.imageId + '/images?store=thumbs';
+                    // return '/cfs/files/images/' + u.profile.imageId + '/images?store=thumbs';
+                    var images = Images.find({ '_id': u.profile.imageId });
+                    return images;
                 }
             }
         }
