@@ -138,7 +138,7 @@ Template.dashboard.helpers({
 			}
 		}
 		if (score < 0) score = 0;
-		var res = ((score / (d.totalGames * 2)) * 100);
+		var res = ((score / d.totalScore) * 100);
 		if (isNaN(res))
 			res = 0;
 		return Math.round(res);
