@@ -22,7 +22,7 @@ App.icons({
 
 App.launchScreens({
   // iOS
-  'iphone': 'resources/splash/splash-320x480.png',
+  //'iphone': 'resources/splash/splash-320x480.png',
   'iphone_2x': 'resources/splash/splash-320x480@2x.png',
   'iphone5': 'resources/splash/splash-320x568@2x.png',
   'iphone6': 'resources/splash/splash-320x568@2x.png',
@@ -30,20 +30,32 @@ App.launchScreens({
   'ipad_portrait_2x': 'resources/splash/splash-768x1024@2x.png',
   'ipad_landscape': 'resources/splash/splash-1024x768.png',
   'ipad_landscape_2x': 'resources/splash/splash-1024x768@2x.png',
+  'ipad_retina_2x_portrait': 'resources/splash/splash-1536x2048.png',
+  'ipad_retina_2x_landscape': 'resources/splash/splash-2048x1536.png',
+  'ipad_retina_portrait': 'resources/splash/splash-640x960.png',
+  'ipad_retina_landscape': 'resources/splash/splash-960x640.png',
+  'iphone5_retina_portrait': 'resources/splash/splash-640x1136.png',
+  'iphone5_retina_landscape': 'resources/splash/splash-1136x640.png',
+  'iphone6_retina_portrait': 'resources/splash/splash-750x1334.png',
+  'iphone6_retina_landscape': 'resources/splash/splash-1334x750.png',
+  'iphone6_plus_portrait': 'resources/splash/splash-1242x2208.png',
+  'iphone6_plus_landscape': 'resources/splash/splash-2208x1242.png',
 
   // Android
-  'android_ldpi_portrait': 'resources/splash/splash-200x320.png',
-  'android_ldpi_landscape': 'resources/splash/splash-320x200.png',
+  //'android_ldpi_portrait': 'resources/splash/splash-200x320.png',
+  //'android_ldpi_landscape': 'resources/splash/splash-320x200.png',
   'android_mdpi_portrait': 'resources/splash/splash-320x480.png',
   'android_mdpi_landscape': 'resources/splash/splash-480x320.png',
   'android_hdpi_portrait': 'resources/splash/splash-480x800.png',
   'android_hdpi_landscape': 'resources/splash/splash-800x480.png',
   'android_xhdpi_portrait': 'resources/splash/splash-720x1280.png',
-  'android_xhdpi_landscape': 'resources/splash/splash-1280x720.png'
+  'android_xhdpi_landscape': 'resources/splash/splash-1280x720.png',
+  'android_xxhdpi_portrait': 'resources/splash/splash-960px1600.png',
+  'android_xxhdpi_landscape': 'resources/splash/splash-1600x960.png',
+  'android_xxxhdpi_portrait': 'resources/splash/splash-1280px1920.png',
+  'android_xxxhdpi_landscape': 'resources/splash/splash-1920x1280.png'
 });
 
 App.setPreference('StatusBarOverlaysWebView', 'true');
-App.setPreference('StatusBarBackgroundColor', '#000000');
+App.setPreference('StatusBarBackgroundColor', '#fffff');
 App.setPreference('AutoHideSplashScreen', 'true');
-App.setPreference("BackupWebStorage", "local");
-App.setPreference('ShowSplashScreenSpinner', 'true');
