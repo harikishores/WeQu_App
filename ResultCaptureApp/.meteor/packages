@@ -42,3 +42,5 @@ accounts-ui
 pcel:loading
 mobile-status-bar
 launch-screen
+sacha:spin
+benjaminrh:jquery-blockui

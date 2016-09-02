@@ -57,6 +57,7 @@ var udpateCategoryScore = function (scoreData) {
 }
 Meteor.methods({
     'getDashboardData': function () {
+        debugger;
         userboard.totalScore = 0;
         userboard.totalGames = 0;
         userboard.CardScores = [];
@@ -74,6 +75,11 @@ Meteor.methods({
 
         //adding data where current user was the host
         if (userHostGames.length > 0) {
+            var completedGames = [];
+            for (var k in userHostGames) {
+                if (userHostGames[k].HostGameComplete) completedGames.push(userHostGames[k]);
+            }
+            userHostGames = completedGames;
             userboard.totalGames = userHostGames.length;
             for (var k in userHostGames) {
                 try {
@@ -112,6 +118,11 @@ Meteor.methods({
 
         //adding data where current user was the host
         if (userInvitedGames.length > 0) {
+            var completedGames = [];
+            for (var k in userInvitedGames) {
+                if (userInvitedGames[k].InvitedGameComplete) completedGames.push(userInvitedGames[k]);
+            }
+            userInvitedGames = completedGames;
             userboard.totalGames = userInvitedGames.length;
             for (var k in userInvitedGames) {
                 try {

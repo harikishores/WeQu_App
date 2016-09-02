@@ -19,6 +19,7 @@ Template.FriendListInvite.helpers({
 			}
 		}
 		Session.set('connections', cons);
+		console.log(cons);
 		return cons;
 	},
 	profilePicture: (connectionId) => {
@@ -31,9 +32,13 @@ Template.FriendListInvite.helpers({
 			return images;
 		}
 	},
-	currentUserProfilePic: () => {
-		var images = Images.find({ '_id': Meteor.user().profile.imageId });
-        return images;
+	currentUserProfilePic: (UserId) => {
+		var u = Meteor.users.findOne({ '_id': UserId });
+		if(u && u.profile){
+			var images = Images.find({ '_id': u.profile.imageId });
+			return images;
+		}
+
 	},
 	currentUserId: (connectionId) => {
 		if (connectionId !== Meteor.userId()) return true;

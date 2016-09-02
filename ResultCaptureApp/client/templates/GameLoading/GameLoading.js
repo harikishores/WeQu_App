@@ -26,6 +26,7 @@ var resetData = function () {
 Template.GameLoading.rendered = function () {
     // reset the data for the game
     resetData();
+    console.log(Router.current().params);
     if (Router.current().params._playedBy.includes('host')) {
         var mode = Router.current().params._playedBy.split('_')[1];
         var b = Meteor.call('setGame', {
@@ -39,7 +40,7 @@ Template.GameLoading.rendered = function () {
                 NewGame.GameId = r;
                 NewGame.InvitedUserName = Router.current().params._firstName;
                 NewGame, GameMode = mode;
-                if (mode === 'full')
+                if (mode.toLowerCase() === 'full')
                     Router.go('/resultCapture/full');
                 else
                     Router.go('/resultCapture/mini');
@@ -59,7 +60,7 @@ Template.GameLoading.rendered = function () {
             NewGame.GameId = gameId;
             NewGame.GameMode = mode;
 
-            if (mode === 'full')
+            if (mode.toLowerCase() === 'full')
                 Router.go('/resultCapture/full');
             else
                 Router.go('/resultCapture/mini');
@@ -88,6 +89,8 @@ Template.GameLoading.helpers({
         }
 
         if (type == 'guest') {
+
+            debugger;
             var id = undefined;
             id = Router.current().params._guestId;
 

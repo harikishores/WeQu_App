@@ -27,35 +27,39 @@
 			<!--friendlist-->
 			<div class="blackbg friendlistWrap">
 				<div class="friendlist">
-					{{#each newgames}}
-					<!--friendlistItem-->
-					<div class="friendlistItem active">
-						<div class="row nomargin">
-							<div class="col s3 nopaddingRight">
-								<div class="frndImgWrap">
-								{{#each profileImage HostImageId}}
-									<img style="width:100%;height:100%" src="{{this.url}}" class="frndImgLarge" alt="">
-								{{/each}}
+					{{#if Template.subscriptionsReady}}
+						{{#each newgames}}
+						<!--friendlistItem-->
+						<div class="friendlistItem active">
+							<div class="row nomargin">
+								<div class="col s3 nopaddingRight">
+									<div class="frndImgWrap">
+									{{#each profileImage HostImageId}}
+										<img style="width:100%;height:100%" src="{{this.url}}" class="frndImgLarge" alt="">
+									{{/each}}
+									</div>
 								</div>
-							</div>
-							<div class="col s4">
-								<div class="frndName fontSize14 textWhite">
-									{{HostFirstName}} {{HostLastName}}
+								<div class="col s4">
+									<div class="frndName fontSize14 textWhite">
+										{{HostFirstName}} {{HostLastName}}
+									</div>
+									<div class="noOfGames fontSize14 textWhite">
+										{{Date}}
+									</div>
 								</div>
-								<div class="noOfGames fontSize14 textWhite">
-									{{Date}}
+								<div class="col s1">
+									<!--<span class="notificationIcon"><img src="images/calloutsmallicon.png"/></span>-->
 								</div>
-							</div>
-							<div class="col s1">
-								<!--<span class="notificationIcon"><img src="images/calloutsmallicon.png"/></span>-->
-							</div>
-							<div class="col s4">
-								<a id="playBtn" data-index="{{@index}}" class="waves-effect btn btnradius10 selectbutton"> Play</a>
+								<div class="col s4">
+									<a id="playBtn" data-index="{{@index}}" class="waves-effect btn btnradius10 selectbutton"> Play</a>
+								</div>
 							</div>
 						</div>
-					</div>
-					<!--friendlistItem-->
-					{{/each}}
+						<!--friendlistItem-->
+						{{/each}}
+						{{else}}
+							{{> spinner}}
+       				{{/if}}
 				</div>
 			</div>
 			<!--friendlist-->

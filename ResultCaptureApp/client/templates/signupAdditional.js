@@ -1,4 +1,15 @@
 var updateUserData = (newUser, profileImageId) => {
+    $.blockUI({
+        css: {
+            border: 'none',
+            padding: '15px',
+            backgroundColor: '#000',
+            '-webkit-border-radius': '10px',
+            '-moz-border-radius': '10px',
+            opacity: .5,
+            color: '#fff'
+        }
+    });
     Meteor.users.update({ _id: Meteor.userId() }, {
         $set:
         {
@@ -13,6 +24,7 @@ var updateUserData = (newUser, profileImageId) => {
             "profile.imageId": profileImageId
         }
     });
+    $.unblockUI();
     Router.go('/dashboard');
 }
 

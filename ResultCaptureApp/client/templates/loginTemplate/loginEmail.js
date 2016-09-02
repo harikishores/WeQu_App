@@ -30,15 +30,29 @@ Template.loginEmail.events({
         try {
             var email = $('[name=email]').val();
             var password = $('[name=password]').val();
+            $.blockUI({
+                css: {
+                    border: 'none',
+                    padding: '15px',
+                    backgroundColor: '#000',
+                    '-webkit-border-radius': '10px',
+                    '-moz-border-radius': '10px',
+                    opacity: .5,
+                    color: '#fff'
+                }
+            });
             Meteor.call('getUserStatus', email, password, (e, r) => {
                 if (!e) {
                     if (r === undefined) {
+                        $.unblockUI();
                         sweetAlert("Oops...", 'User nor found', "error");
                     } else {
                         Meteor.loginWithPassword(email, password, (e) => {
                             if (e) {
+                                $.unblockUI();
                                 sweetAlert("Oops...", e.reason, "error");
                             } else {
+                                $.unblockUI();
                                 if (!r.user.emails[0].verified) {
                                     Router.go('/verifyEmail/' + email);
                                 }

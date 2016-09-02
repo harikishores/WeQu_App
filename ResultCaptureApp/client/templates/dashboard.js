@@ -3,8 +3,20 @@ Template.dashboard.rendered = function () {
 	Session.setDefault('totalScore', 0);
 	Session.setDefault('userboard', {});
 	Session.setDefault('myPostiveEssences', {});
+	$.blockUI({
+		css: {
+			border: 'none',
+			padding: '14px',
+			backgroundColor: '#000',
+			'-webkit-border-radius': '9px',
+			'-moz-border-radius': '9px',
+			opacity: 0.5,
+			color: '#fff'
+		}
+	});
 
 	Meteor.call('getDashboardData', function (e, r) {
+		$.unblockUI();
 		if (!e && r) {
 			debugger;
 			Session.set('userboard', r);
@@ -130,18 +142,20 @@ Template.dashboard.helpers({
 		var d = Session.get('userboard');
 		var score = 0;
 		if (d) {
+			debugger;
 			for (var k in d.CardScores) {
 				if (d.CardScores[k].CardId === CardId) {
 					score = d.CardScores[k].Score;
 					break;
 				}
 			}
+
+			if (score < 0) score = 0;
+			var res = ((score / d.totalScore) * 100);
+			if (isNaN(res))
+				res = 0;
+			return Math.round(res);
 		}
-		if (score < 0) score = 0;
-		var res = ((score / d.totalScore) * 100);
-		if (isNaN(res))
-			res = 0;
-		return Math.round(res);
 	},
 	GetPositiveEssence: function () {
 		var d = Session.get('userboard');
@@ -157,7 +171,7 @@ var setChartData = function (CategoryScore) {
 		var d = $.grep(CategoryScore, function (e) {
 			return e.CategoryId == CardData[k].CateogryId;
 		});
-		if (d.length !== 0) {			
+		if (d.length !== 0) {
 			if (d[0].Score < 0)
 				d[0].Score = 0;
 			var obj = {

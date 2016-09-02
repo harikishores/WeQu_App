@@ -1,8 +1,10 @@
 
 Template.gameResult.rendered = function () {
-    // debugger;
+    debugger;
+    if (NewGame.GameId === "")
+        Router.go('/dashboard');
     Session.setDefault('gameScore', 0);
-    var game = Games.findOne({ 'GameId': NewGame._id });
+    var game = Games.findOne({ '_id': NewGame.GameId });
     if (game) {
         // debugger;
         setChartData(NewGame.GameScores);
@@ -72,17 +74,16 @@ Template.gameResult.events({
 var setChartData = function (CategoryScore) {
     var chartValues = [];
     var scores = [];
-    var GametotalScore = 0;
-    // var check = 0;
-
+    var totalScore = 0;
+    for (var m in CategoryScore) {
+        totalScore += CategoryScore[m].Score;
+    }
+    Session.set('gameScore', totalScore);
+    debugger;
     for (var k in CardData) {
         var d = $.grep(CategoryScore, function (e) {
             return e.CategoryId == CardData[k].CateogryId;
         });
-        var totalScore = 0;
-        for (var m in CategoryScore) {
-            totalScore += CategoryScore[m].Score;
-        }
         if (d.length !== 0) {
             if (d[0].Score < 0)
                 d[0].Score = 0;
@@ -91,11 +92,8 @@ var setChartData = function (CategoryScore) {
                 "value": Math.ceil((d[0].Score / totalScore) * 100)
             };
             chartValues.push(obj);
-            GametotalScore += d[0].Score;
-            // check = 1;
         }
     }
-    Session.set('gameScore', GametotalScore);
     // if(check == 1){
     var scoreObj = {
         "key": CardData[k].CateogryId,

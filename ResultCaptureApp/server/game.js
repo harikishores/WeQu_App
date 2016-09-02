@@ -115,6 +115,7 @@ Meteor.methods({
         }
     },
     'finishHostGame': function (gameData) {
+        debugger;
         if (gameData !== undefined) {
             var game = Games.update({
                 '_id': gameData.GameId
@@ -135,6 +136,7 @@ Meteor.methods({
         return undefined;
     },
     'finishGuestGame': function (gameData) {
+        debugger;
         if (gameData !== undefined) {
             var game = Games.update({
                 '_id': gameData.GameId

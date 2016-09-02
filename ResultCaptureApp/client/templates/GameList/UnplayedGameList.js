@@ -7,7 +7,6 @@ Template.UnplayedGameList.rendered = function () {
 Template.UnplayedGameList.helpers({
     newgames: function () {
         Meteor.call('getUnattendedGames', function (e, r) {
-			console.log(r);
             Session.set('allgames', r);
         });
         return Session.get('allgames');

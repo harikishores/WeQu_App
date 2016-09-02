@@ -10,6 +10,7 @@ autoupdate@1.2.9
 babel-compiler@6.6.4
 babel-runtime@0.1.8
 base64@1.0.8
+benjaminrh:jquery-blockui@2.61.0
 binary-heap@1.0.8
 blaze@2.1.7
 blaze-html-templates@1.0.4
@@ -114,6 +115,7 @@ reactive-var@1.0.9
 reload@1.1.8
 retry@1.0.7
 routepolicy@1.0.10
+sacha:spin@2.3.1
 service-configuration@1.0.9
 session@1.1.5
 sha@1.0.7

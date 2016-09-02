@@ -24,7 +24,8 @@ updateScore = function (categoryIndex, gameIndex) {
 }
 
 postFullScore = function () {
-    // debugger;
+    debugger;
+    NewGame.GameScores = [];//clear scores if required
     for (var k in CardData) {
         NewGame.GameScores.push({
             'CategoryId': CardData[k].CateogryId,
@@ -33,18 +34,44 @@ postFullScore = function () {
     }
     if (NewGame.PlayedBy === 'host') {
         Meteor.call('finishHostGame', NewGame, function (e, r) {
+            $.blockUI({
+                css: {
+                    border: 'none',
+                    padding: '15px',
+                    backgroundColor: '#000',
+                    '-webkit-border-radius': '10px',
+                    '-moz-border-radius': '10px',
+                    opacity: .5,
+                    color: '#fff'
+                }
+            });
             if (!e && r) {
+                $.unblockUI();
                 Router.go('GameResult');
             } else {
+                $.unblockUI();
                 alert('Game Session Expired, Please try again');
                 Router.go('/Dashboard');
             }
         })
     } else {
         Meteor.call('finishGuestGame', NewGame, function (e, r) {
+            $.blockUI({
+                css: {
+                    border: 'none',
+                    padding: '15px',
+                    backgroundColor: '#000',
+                    '-webkit-border-radius': '10px',
+                    '-moz-border-radius': '10px',
+                    opacity: .5,
+                    color: '#fff'
+                }
+            });
             if (!e && r) {
+                $.unblockUI();
                 Router.go('/GameResult');
             } else {
+                $.unblockUI();
                 alert('Game Session Expired, Please try again');
                 Router.go('/Dashboard');
             }

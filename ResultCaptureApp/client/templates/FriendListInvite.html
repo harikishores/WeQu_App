@@ -18,38 +18,42 @@
 			<!--friendlist-->
 			<div class="blackbg friendlistWrap noTopPadding">
 				<div class="friendlist">
-					{{#each connections}}
-					<!--friendlistItem-->
-					<div class="friendlistItem active">
-						<div class="row nomargin">
-							<div class="col s3 nopaddingRight">
-								{{#if currentUserId ConnectionId}}
-								<!--<img src="{{profilePicture ConnectionId}}" class="frndImg"/>-->
-									{{#each profilePicture ConnectionId}}
+					{{#if Template.subscriptionsReady}}
+						{{#each connections}}
+						<!--friendlistItem-->
+						<div class="friendlistItem active">
+							<div class="row nomargin">
+								<div class="col s3 nopaddingRight">
+									{{#if currentUserId ConnectionId}}
+									<!--<img src="{{profilePicture ConnectionId}}" class="frndImg"/>-->
+										{{#each profilePicture ConnectionId}}
+											<img class="frndImg" id="myImg" src="{{this.url}}"> 
+										{{/each}} 
+									{{else}}
+									<!--<img src="{{profilePicture UserId}}" class="frndImg" /> -->
+										{{#each currentUserProfilePic UserId}}
 										<img class="frndImg" id="myImg" src="{{this.url}}"> 
-									{{/each}} 
-								{{else}}
-								<!--<img src="{{profilePicture UserId}}" class="frndImg" /> -->
-									{{#each currentUserProfilePic}}
-									<img class="frndImg" id="myImg" src="{{this.url}}"> 
-									{{/each}} 
-								{{/if}}
-							</div>
-							<div class="col s4">
-								<div class="frndName fontSize14 textWhite">
-									{{ConnectionFirstName}} {{ConnectionLastName}}
+										{{/each}} 
+									{{/if}}
 								</div>
-								<div class="noOfGames fontSize14 textWhite">
-									{{GamesPlayed}} plays
+								<div class="col s4">
+									<div class="frndName fontSize14 textWhite">
+										{{ConnectionFirstName}} {{ConnectionLastName}}
+									</div>
+									<div class="noOfGames fontSize14 textWhite">
+										{{GamesPlayed}} plays
+									</div>
 								</div>
-							</div>
-							<div class="col s4">
-								<a id="selectBtn" data-index="{{@index}}" class="waves-effect btn btnradius10 selectbutton"> Select</a>
+								<div class="col s4">
+									<a id="selectBtn" data-index="{{@index}}" class="waves-effect btn btnradius10 selectbutton"> Select</a>
+								</div>
 							</div>
 						</div>
-					</div>
-					<!--friendlistItem-->
-					{{/each}}
+						<!--friendlistItem-->
+						{{/each}}
+					{{else}}
+						{{> spinner}}
+					{{/if}}
 				</div>
 			</div>
 			<!--friendlist-->
