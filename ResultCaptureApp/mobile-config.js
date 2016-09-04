@@ -8,22 +8,33 @@ App.info({
 });
 App.icons({
   // iOS
-  'Icon-29': 'resources/icons/icon-29x29.png',
-  'Icon-29@2x': 'resources/icons/icon-29x29@2x.png',
-  'Icon-29@3x': 'resources/icons/icon-29x29@3x.png',
-  'Icon-40': 'resources/icons/icon-40x40.png',
-  'Icon-40@2x': 'resources/icons/icon-40x40@2x.png',
-  'Icon-40@3x': 'resources/icons/icon-40x40@3x.png',
-  'Icon-57': 'resources/icons/icon-57x57.png',
-  'Icon-57@2x': 'resources/icons/icon-57x57@2x.png',
+  // 'Icon-29': 'resources/icons/icon-29x29.png',
+  // 'Icon-29@2x': 'resources/icons/icon-29x29@2x.png',
+  // 'Icon-29@3x': 'resources/icons/icon-29x29@3x.png',
+  // 'Icon-40': 'resources/icons/icon-40x40.png',
+  // 'Icon-40@2x': 'resources/icons/icon-40x40@2x.png',
+  // 'Icon-40@3x': 'resources/icons/icon-40x40@3x.png',
+  // 'Icon-57': 'resources/icons/icon-57x57.png',
+  // 'Icon-57@2x': 'resources/icons/icon-57x57@2x.png',
+  // 'iphone': 'resources/icons/icon-60x60.png',
+  // 'iphone_2x': 'resources/icons/icon-60x60@2x.png',
+  // 'Icon-72': 'resources/icons/icon-72x72.png',
+  // 'Icon-72@2x': 'resources/icons/icon-72x72@2x.png',
+  // 'ipad': 'resources/icons/icon-76x76.png',
+  // 'ipad_2x': 'resources/icons/icon-76x76@2x.png',
+  // 'Icon-84': 'resources/icons/icon-84x84.png',
+  // 'Icon-84@2x': 'resources/icons/icon-84x84@2x.png',
+  // iOS
   'iphone': 'resources/icons/icon-60x60.png',
   'iphone_2x': 'resources/icons/icon-60x60@2x.png',
-  'Icon-72': 'resources/icons/icon-72x72.png',
-  'Icon-72@2x': 'resources/icons/icon-72x72@2x.png',
   'ipad': 'resources/icons/icon-76x76.png',
   'ipad_2x': 'resources/icons/icon-76x76@2x.png',
-  'Icon-84': 'resources/icons/icon-84x84.png',
-  'Icon-84@2x': 'resources/icons/icon-84x84@2x.png',
+  'ipad_pro': 'resources/icons/icon-84x84@2x.png',
+
+  // iOS Settings
+  'ios_settings': 'resources/icons/icon-29x29.png',
+  'ios_settings_2x': 'resources/icons/icon-57x57.png',
+  'ios_settings_3x': 'resources/icons/icon-84x84.png',
 
   // Android
   'android_ldpi': 'resources/icons/icon-36x36.png',
@@ -69,5 +80,6 @@ App.launchScreens({
 });
 
 App.setPreference('StatusBarOverlaysWebView', 'true');
-App.setPreference('StatusBarBackgroundColor', '#fffff');
+App.setPreference('StatusBarBackgroundColor', '#ffffff');
 App.setPreference('AutoHideSplashScreen', 'true');
+App.setPreference('AndroidExtraFilesystems', 'files,files-external');

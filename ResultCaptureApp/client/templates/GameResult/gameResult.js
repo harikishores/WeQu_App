@@ -67,6 +67,12 @@ Template.gameResult.helpers({
 
 Template.gameResult.events({
     'click #updateBtn': (event) => {
+        // if(navigator.userAgent.toLowerCase().indexOf("android") > -1 && Meteor.isCordova){
+        //     var token = "";
+        //     //write code to fetch token from file
+        //     var dcTokenRaw = CryptoJS.AES.decrypt(token, 'FX4DqkZCb4KI6BWF');
+        //     token = dcTokenRaw.toString(CryptoJS.enc.Utf8)
+        // }
         Router.go('/dashboard');
     }
 });

@@ -1,8 +1,61 @@
+var gamebusCheck = () => {
+	//var token = "";
+	//write code to fetch token from file
+	// var cipher = CryptoJS.enc.Base64.parse('5vCGQXtdj7GZtwwhwVOquSyR/qvs95ojBsmOf9DX6T31Y2yTIvjXYHf6gd8icDaY');
+	// var inv = CryptoJS.enc.Base64.parse('00000000000000000000000000000000');
+
+	// var key = CryptoJS.enc.Base64.parse("FX4DqkZCb4KI6BWF");
+	// var aesDecryptor = CryptoJS.algo.AES.createDecryptor(key, { iv: inv });
+
+	// var decrypted = aesDecryptor.process(cipher);
+	// var plaintext = decrypted.toString();
+	// var tokenDC = '5vCGQXtdj7GZtwwhwVOquSyR/qvs95ojBsmOf9DX6T31Y2yTIvjXYHf6gd8icDaY';
+	// var dcTokenRaw = CryptoJS.AES.decrypt(tokenDC, 'FX4DqkZCb4KI6BWF');
+	// var BASE64_ENCODED_KEY = CryptoJS.enc.Base64.parse('FX4DqkZCb4KI6BWF');
+	// var encrypted = {};
+	// encrypted.ciphertext = CryptoJS.enc.Base64.parse(tokenDC);
+	// var decrypted = CryptoJS.AES.decrypt(
+	// 	tokenDC,
+	// 	'FX4DqkZCb4KI6BWF',
+	// 	{
+	// 		iv: CryptoJS.enc.Hex.parse('00000000000000000000000000000000'),
+	// 		mode: CryptoJS.mode.CBC,
+	// 		padding: CryptoJS.pad.Pkcs7
+	// 	}
+	// );
+	// var decrypted = CryptoJS.AES.decrypt(encrypted,
+	// 	CryptoJS.enc.Base64.parse(BASE64_ENCODED_KEY),
+	// 	{
+	// 		iv: CryptoJS.enc.Hex.parse('00000000000000000000000000000000')
+	// 	});;
+	//alert(plaintext);
+	// Meteor.http.call("GET", "http://api.ddw.nl/locations",
+	// 	{
+	// 		headers:
+	// 		{
+	// 			"X-Api-key": " Xjkhk*LKdf9294ehKJHSAKD))@#hddsadak#QDSQErWTx",
+	// 			"content-type": "application/json"
+	// 		}
+	// 	},
+	// 	function (error, result) {
+    //         if (!error) {
+	// 			Session.set('sample',result);
+    //         } else {
+	// 			alert(error);
+	// 		}
+	// 	})
+
+
+}
 
 Template.dashboard.rendered = function () {
+	// alert(navigator.userAgent.toLowerCase().indexOf("android") > -1);
+	// alert('isCordova : ' + Meteor.isCordova);
+	//gamebusCheck();
 	Session.setDefault('totalScore', 0);
 	Session.setDefault('userboard', {});
 	Session.setDefault('myPostiveEssences', {});
+	Session.setDefault('sample', '');
 	$.blockUI({
 		css: {
 			border: 'none',
@@ -18,7 +71,6 @@ Template.dashboard.rendered = function () {
 	Meteor.call('getDashboardData', function (e, r) {
 		$.unblockUI();
 		if (!e && r) {
-			debugger;
 			Session.set('userboard', r);
 			setChartData(r.CategoryScore);
 			Session.set('totalScore', r.totalScore);
@@ -109,6 +161,9 @@ Template.dashboard.helpers({
 		Session.set('games', g);
 		return g;
 	},
+	getsample: () => {
+		return Session.get('sample');
+	},
 	checkCardIndexLayout: (index) => {
 		var positive_essences = Session.get('myPostiveEssences');
 		if (positive_essences.length > 0) {
@@ -142,7 +197,6 @@ Template.dashboard.helpers({
 		var d = Session.get('userboard');
 		var score = 0;
 		if (d) {
-			debugger;
 			for (var k in d.CardScores) {
 				if (d.CardScores[k].CardId === CardId) {
 					score = d.CardScores[k].Score;
