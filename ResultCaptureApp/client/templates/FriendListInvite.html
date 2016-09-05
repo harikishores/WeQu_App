@@ -27,12 +27,12 @@
 									{{#if currentUserId ConnectionId}}
 									<!--<img src="{{profilePicture ConnectionId}}" class="frndImg"/>-->
 										{{#each profilePicture ConnectionId}}
-											<img class="frndImg" id="myImg" src="{{this.url}}"> 
+											<img class="frndImg loading" id="myImg" src="{{this.url}}"> 
 										{{/each}} 
 									{{else}}
 									<!--<img src="{{profilePicture UserId}}" class="frndImg" /> -->
 										{{#each currentUserProfilePic UserId}}
-										<img class="frndImg" id="myImg" src="{{this.url}}"> 
+										<img class="frndImg loading" id="myImg" src="{{this.url}}"> 
 										{{/each}} 
 									{{/if}}
 								</div>

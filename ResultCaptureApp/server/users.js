@@ -28,6 +28,14 @@ Meteor.methods({
     'uploadImage': (file) => {
         file.save('/profilePictures/' + this.userId + ".jpg");
     },
+    // 'userExists': (query, type) => {
+    //     if (type === 'id') {
+    //         return Accounts.user.findOne({ '_id': query });
+    //     } else if (type === 'email') {
+    //         return Accounts.findUserByEmail(query);
+    //     }
+    //     return undefined;
+    // },
     'UserhasPassword': function (email, password) {
         var user = Accounts.findUserByEmail(email);
         if (user) {
@@ -104,7 +112,7 @@ Meteor.startup(function () {
         });
         var u = Accounts.findUserByEmail('selfplayedguest@wequ.com');
         if (u !== undefined) {
-            Meteor.users.update(u._id, {$set: {"emails.0.verified" :true}});
+            Meteor.users.update(u._id, { $set: { "emails.0.verified": true } });
         }
     }
 });

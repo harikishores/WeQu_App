@@ -1,5 +1,25 @@
 
 Template.GameVersion.rendered = function () {
+    $.blockUI({
+        css: {
+            border: 'none',
+            padding: '15px',
+            backgroundColor: '#000',
+            '-webkit-border-radius': '10px',
+            '-moz-border-radius': '10px',
+            opacity: .5,
+            color: '#fff'
+        }
+    });
+
+    Meteor.call('userExists', Router.current().params._email, (e, r) => {
+        if(!e){
+            if(r !== undefined){
+                Router.current().params._guestId = r._id;
+            }
+        }
+        $.unblockUI();
+    });
 }
 
 
@@ -19,7 +39,7 @@ Template.GameVersion.events({
             var url = '/GameLoading/' +
                 Router.current().params._email + "/" +
                 Router.current().params._firstName + "/" +
-                Router.current().params._lastName + "/host_mini/" + undefined;
+                Router.current().params._lastName + "/host_mini/" + Router.current().params._guestId;
             Router.go(url)
         });
 
@@ -44,8 +64,8 @@ Template.GameVersion.events({
             NewGame.GameMode = "Full";
             var url = '/GameLoading/' +
                 Router.current().params._email + "/" +
-                Router.current().params._firstName  + "/" +
-                Router.current().params._lastName + "/host_full/" + undefined;
+                Router.current().params._firstName + "/" +
+                Router.current().params._lastName + "/host_full/" + Router.current().params._guestId;
             Router.go(url)
         });
     },

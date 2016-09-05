@@ -80,7 +80,7 @@ Meteor.methods({
                 if (userHostGames[k].HostGameComplete) completedGames.push(userHostGames[k]);
             }
             userHostGames = completedGames;
-            userboard.totalGames = userHostGames.length;
+            userboard.totalGames += userHostGames.length;
             for (var k in userHostGames) {
                 try {
                     var scores = userHostGames[k].Host.GameScores;
@@ -123,7 +123,7 @@ Meteor.methods({
                 if (userInvitedGames[k].InvitedGameComplete) completedGames.push(userInvitedGames[k]);
             }
             userInvitedGames = completedGames;
-            userboard.totalGames = userInvitedGames.length;
+            userboard.totalGames += userInvitedGames.length;
             for (var k in userInvitedGames) {
                 try {
                     var scores = userInvitedGames[k].Invited.GameScores;

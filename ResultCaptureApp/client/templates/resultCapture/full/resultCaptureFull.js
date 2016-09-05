@@ -180,7 +180,6 @@ Template.resultCaptureFull.helpers({
 
     IsCardSelectedInCategory: function (cardId) {
         try {
-            debugger;
             var selCards = Session.get('sessionSelectedCards');
             var currentGame = Session.get('currentGame');
             if (selCards.length > 0) {

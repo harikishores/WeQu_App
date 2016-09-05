@@ -1,12 +1,10 @@
 
 Template.gameResult.rendered = function () {
-    debugger;
     if (NewGame.GameId === "")
         Router.go('/dashboard');
     Session.setDefault('gameScore', 0);
     var game = Games.findOne({ '_id': NewGame.GameId });
     if (game) {
-        // debugger;
         setChartData(NewGame.GameScores);
     }
 }
@@ -36,7 +34,6 @@ Template.gameResult.helpers({
                 return e.QuestionId == NewGame.Questions[k].QuestionId
             });
             if (d) {
-                // debugger;
                 var tag = d[0].Tag;
                 var selCards = [];
                 var comment = NewGame.Questions[k].Comment;
@@ -59,7 +56,6 @@ Template.gameResult.helpers({
 
             }
         }
-        // debugger;
         return data;
     }
 
@@ -85,7 +81,6 @@ var setChartData = function (CategoryScore) {
         totalScore += CategoryScore[m].Score;
     }
     Session.set('gameScore', totalScore);
-    debugger;
     for (var k in CardData) {
         var d = $.grep(CategoryScore, function (e) {
             return e.CategoryId == CardData[k].CateogryId;

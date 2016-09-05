@@ -1,11 +1,9 @@
 //updateScore on the go
 updateScore = function (categoryIndex, gameIndex) {
-    // debugger;
     var groupName = CardData[categoryIndex].Cards[0].GroupName;
     if (groupName) {
         $("input[name='" + groupName + "']:checked").each(function (index, elem) {
             //pushing selected cards to the app data namely GameData
-            // debugger;
             if ($(elem).is(':checked')) {
                 if ($.inArray($(elem).val(), GameData[gameIndex].SelectedCards) == -1)
                     GameData[gameIndex].SelectedCards.push($(elem).val());
@@ -24,7 +22,6 @@ updateScore = function (categoryIndex, gameIndex) {
 }
 
 postFullScore = function () {
-    debugger;
     NewGame.GameScores = [];//clear scores if required
     for (var k in CardData) {
         NewGame.GameScores.push({
@@ -92,7 +89,6 @@ nextQuestionAvailable = function (presentQuestionId) {
 
 setSession = {
     updateSelectedCards: function (cardId, isAdd) {
-        debugger;
         var selCards = Session.get('sessionSelectedCards');
         if (selCards) {
             if (isAdd) {

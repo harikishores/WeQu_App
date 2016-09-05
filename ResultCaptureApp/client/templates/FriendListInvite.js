@@ -19,7 +19,6 @@ Template.FriendListInvite.helpers({
 			}
 		}
 		Session.set('connections', cons);
-		console.log(cons);
 		return cons;
 	},
 	profilePicture: (connectionId) => {

@@ -89,7 +89,6 @@ Template.GameLoading.helpers({
         }
 
         if (type == 'guest') {
-
             debugger;
             var id = undefined;
             id = Router.current().params._guestId;
