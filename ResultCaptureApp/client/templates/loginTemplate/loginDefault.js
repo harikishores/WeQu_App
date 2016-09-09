@@ -1,7 +1,7 @@
 
 Template.loginDefault.events({
     'click #facebook-login': function (event) {
-        Meteor.loginWithFacebook({ requestPermissions: ['user_friends', 'public_profile', 'email'],loginStyle: 'redirect' }, (err) => {
+        Meteor.loginWithFacebook({ requestPermissions: ['user_friends', 'public_profile', 'email']}, (err) => {
             if (err) {
                 alert("Facebook login failed");
             } else {
@@ -14,7 +14,7 @@ Template.loginDefault.events({
         });
     },
     'click #google-login': function () {
-        Meteor.loginWithGoogle({loginStyle: 'redirect'}, (err) => {
+        Meteor.loginWithGoogle({}, (err) => {
             debugger;
             if (err) {
                 alert("Google login failed");
@@ -29,7 +29,7 @@ Template.loginDefault.events({
         });
     },
     'click #linkedIn-login': function () {
-        Meteor.loginWithLinkedin({loginStyle: 'redirect'}, (err) => {
+        Meteor.loginWithLinkedin({}, (err) => {
             if (err) {
                 alert("LinkedIn login failed");
             } else {
