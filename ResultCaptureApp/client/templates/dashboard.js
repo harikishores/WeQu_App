@@ -1,57 +1,45 @@
 var gamebusCheck = () => {
-	//var token = "";
-	//write code to fetch token from file
-	// var cipher = CryptoJS.enc.Base64.parse('5vCGQXtdj7GZtwwhwVOquSyR/qvs95ojBsmOf9DX6T31Y2yTIvjXYHf6gd8icDaY');
-	// var inv = CryptoJS.enc.Base64.parse('00000000000000000000000000000000');
-
-	// var key = CryptoJS.enc.Base64.parse("FX4DqkZCb4KI6BWF");
-	// var aesDecryptor = CryptoJS.algo.AES.createDecryptor(key, { iv: inv });
-
-	// var decrypted = aesDecryptor.process(cipher);
-	// var plaintext = decrypted.toString();
-	// var tokenDC = '5vCGQXtdj7GZtwwhwVOquSyR/qvs95ojBsmOf9DX6T31Y2yTIvjXYHf6gd8icDaY';
-	// var dcTokenRaw = CryptoJS.AES.decrypt(tokenDC, 'FX4DqkZCb4KI6BWF');
-	// var BASE64_ENCODED_KEY = CryptoJS.enc.Base64.parse('FX4DqkZCb4KI6BWF');
-	// var encrypted = {};
-	// encrypted.ciphertext = CryptoJS.enc.Base64.parse(tokenDC);
-	// var decrypted = CryptoJS.AES.decrypt(
-	// 	tokenDC,
-	// 	'FX4DqkZCb4KI6BWF',
-	// 	{
-	// 		iv: CryptoJS.enc.Hex.parse('00000000000000000000000000000000'),
-	// 		mode: CryptoJS.mode.CBC,
-	// 		padding: CryptoJS.pad.Pkcs7
-	// 	}
-	// );
-	// var decrypted = CryptoJS.AES.decrypt(encrypted,
-	// 	CryptoJS.enc.Base64.parse(BASE64_ENCODED_KEY),
-	// 	{
-	// 		iv: CryptoJS.enc.Hex.parse('00000000000000000000000000000000')
-	// 	});;
-	//alert(plaintext);
-	// Meteor.http.call("GET", "http://api.ddw.nl/locations",
-	// 	{
-	// 		headers:
-	// 		{
-	// 			"X-Api-key": " Xjkhk*LKdf9294ehKJHSAKD))@#hddsadak#QDSQErWTx",
-	// 			"content-type": "application/json"
-	// 		}
-	// 	},
-	// 	function (error, result) {
-    //         if (!error) {
-	// 			Session.set('sample',result);
-    //         } else {
-	// 			alert(error);
-	// 		}
-	// 	})
-
-
+	var d = {
+		"gameDescriptorId": 98304,
+		"properties": [
+			{
+				"id": 76,
+				"value": "6",
+				"type": "INT"
+			},
+			{
+				"id": 81,
+				"value": "6",
+				"type": "INT"
+			},
+			{
+				"id": 86,
+				"value": "4",
+				"type": "INT"
+			},
+			{
+				"id": 91,
+				"value": "-2",
+				"type": "INT"
+			},
+			{
+				"id": 96,
+				"value": "0",
+				"type": "INT"
+			},
+			{
+				"id": 101,
+				"value": "-2",
+				"type": "INT"
+			}
+		]
+	};
 }
 
 Template.dashboard.rendered = function () {
 	// alert(navigator.userAgent.toLowerCase().indexOf("android") > -1);
 	// alert('isCordova : ' + Meteor.isCordova);
-	//gamebusCheck();
+	gamebusCheck();
 	Session.setDefault('totalScore', 0);
 	Session.setDefault('userboard', {});
 	Session.setDefault('myPostiveEssences', {});
@@ -240,7 +228,6 @@ var setChartData = function (CategoryScore) {
         "values": chartValues
     };
     scores.push(scoreObj);
-    console.log(scores);
 
 	var chartResize = function () {
 		var width = document.getElementById('radarChart').offsetWidth;

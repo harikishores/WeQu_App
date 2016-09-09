@@ -29,9 +29,10 @@ Template.loginDefault.events({
         });
     },
     'click #linkedIn-login': function () {
-        Meteor.loginWithLinkedin({loginStyle: 'redirect'}, (err) => {
+        Meteor.loginWithLinkedin({}, (err) => {
+            debugger;
             if (err) {
-                alert("LinkedIn login failed");
+                alert(err.message);
             } else {
                 var u = Meteor.user();
                 if (u !== undefined) {
