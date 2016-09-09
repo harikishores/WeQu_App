@@ -12,6 +12,7 @@ Accounts.onCreateUser(function (options, user) {
     if (!options || !user)
         return;
     else {
+        console.log(user);
         user.emails = [{
             'address': extractEmail(user),
             'verified': false

@@ -57,7 +57,6 @@ var udpateCategoryScore = function (scoreData) {
 }
 Meteor.methods({
     'getDashboardData': function () {
-        debugger;
         userboard.totalScore = 0;
         userboard.totalGames = 0;
         userboard.CardScores = [];

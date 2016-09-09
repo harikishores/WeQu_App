@@ -63,16 +63,75 @@ Template.gameResult.helpers({
 
 Template.gameResult.events({
     'click #updateBtn': (event) => {
-        // if(navigator.userAgent.toLowerCase().indexOf("android") > -1 && Meteor.isCordova){
-        //     var token = "";
-        //     //write code to fetch token from file
-        //     var dcTokenRaw = CryptoJS.AES.decrypt(token, 'FX4DqkZCb4KI6BWF');
-        //     token = dcTokenRaw.toString(CryptoJS.enc.Utf8)
-        // }
-        Router.go('/dashboard');
+        try {
+            if (navigator.userAgent.toLowerCase().indexOf("android") > -1 && Meteor.isCordova) {
+                var tokenDC = fetchTokenFromDevice();//fetch token from android device
+                var key = "FX4DqkZCb4KI6BWF"; //key for decrypting
+                if (tokenDC !== "") {
+                    $.blockUI({
+                        css: {
+                            border: 'none',
+                            padding: '14px',
+                            backgroundColor: '#000',
+                            '-webkit-border-radius': '9px',
+                            '-moz-border-radius': '9px',
+                            opacity: 0.5,
+                            color: '#fff'
+                        }
+                    });
+                    //setting json for gamebus 
+                    var d = {
+                        "gameDescriptorId": 98304,
+                        "properties": []
+                    };
+                    NewGame.GameScores.forEach(function (element) {
+                        var e = $.grep(CardData, (k) => {
+                            return k.CateogryId == element.CategoryId;
+                        });
+                        if (e.length > 0) {
+                            d.properties.push({
+                                'id': e[0].GameBusId,
+                                'value': element.Score,
+                                'type': 'INT'
+                            });
+                        }
+                    }, this);
+                    Meteor.call('decryptToken', tokenDC, key, (e, token) => {
+                        if (!e && token !== "") {
+                            HTTP.call("POST", "https://gamebus.synersec.eu/activity/new", {
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'Authorization': 'Bearer ' + token
+                                },
+                                data: d
+                            }, (error, result) => {
+                                $.unblockUI();
+                                Router.go('/dashboard');
+                            });
+                        } else {
+                            $.unblockUI();
+                            Router.go('/dashboard');
+                        }
+                    });
+                }
+            }
+            Router.go('/dashboard');
+        } catch (e) {
+            $.unblockUI();
+            Router.go('/dashboard');
+        }
     }
 });
 
+//this is where we fetch the data from the mobile device
+var fetchTokenFromDevice = () => {
+    try {
+        var token = '5vCGQXtdj7GZtwwhwVOquSyR/qvs95ojBsmOf9DX6T31Y2yTIvjXYHf6gd8icDaY';
+        return token;
+    } catch (e) {
+        return "";
+    }
+};
 var setChartData = function (CategoryScore) {
     var chartValues = [];
     var scores = [];
