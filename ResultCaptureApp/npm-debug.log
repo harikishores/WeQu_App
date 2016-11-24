@@ -1,0 +1,196 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'mupx' ]
+2 info using npm@2.15.9
+3 info using node@v4.5.0
+4 verbose install initial load of /usr/local/lib/package.json
+5 verbose readDependencies loading dependencies from /usr/local/lib/package.json
+6 silly cache add args [ 'mupx', null ]
+7 verbose cache add spec mupx
+8 silly cache add parsed spec Result {
+8 silly cache add   raw: 'mupx',
+8 silly cache add   scope: null,
+8 silly cache add   name: 'mupx',
+8 silly cache add   rawSpec: '',
+8 silly cache add   spec: 'latest',
+8 silly cache add   type: 'tag' }
+9 silly addNamed mupx@latest
+10 verbose addNamed "latest" is being treated as a dist-tag for mupx
+11 info addNameTag [ 'mupx', 'latest' ]
+12 silly mapToRegistry name mupx
+13 silly mapToRegistry using default registry
+14 silly mapToRegistry registry https://registry.npmjs.org/
+15 silly mapToRegistry data Result {
+15 silly mapToRegistry   raw: 'mupx',
+15 silly mapToRegistry   scope: null,
+15 silly mapToRegistry   name: 'mupx',
+15 silly mapToRegistry   rawSpec: '',
+15 silly mapToRegistry   spec: 'latest',
+15 silly mapToRegistry   type: 'tag' }
+16 silly mapToRegistry uri https://registry.npmjs.org/mupx
+17 verbose addNameTag registry:https://registry.npmjs.org/mupx not in flight; fetching
+18 verbose request uri https://registry.npmjs.org/mupx
+19 verbose request no auth needed
+20 info attempt registry request try #1 at 10:30:31 AM
+21 verbose request id 8d149655671aadd5
+22 http request GET https://registry.npmjs.org/mupx
+23 http 200 https://registry.npmjs.org/mupx
+24 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+24 verbose headers   etag: '"9I1YXUIXOAP68DVGRPF8R83SC"',
+24 verbose headers   'content-type': 'application/json',
+24 verbose headers   'content-encoding': 'gzip',
+24 verbose headers   'cache-control': 'max-age=300',
+24 verbose headers   'content-length': '8186',
+24 verbose headers   'accept-ranges': 'bytes',
+24 verbose headers   date: 'Tue, 13 Sep 2016 05:00:33 GMT',
+24 verbose headers   via: '1.1 varnish',
+24 verbose headers   age: '161',
+24 verbose headers   connection: 'keep-alive',
+24 verbose headers   'x-served-by': 'cache-sin6922-SIN',
+24 verbose headers   'x-cache': 'HIT',
+24 verbose headers   'x-cache-hits': '1',
+24 verbose headers   'x-timer': 'S1473742833.139176,VS0,VE0',
+24 verbose headers   vary: 'Accept-Encoding' }
+25 silly get cb [ 200,
+25 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+25 silly get     etag: '"9I1YXUIXOAP68DVGRPF8R83SC"',
+25 silly get     'content-type': 'application/json',
+25 silly get     'content-encoding': 'gzip',
+25 silly get     'cache-control': 'max-age=300',
+25 silly get     'content-length': '8186',
+25 silly get     'accept-ranges': 'bytes',
+25 silly get     date: 'Tue, 13 Sep 2016 05:00:33 GMT',
+25 silly get     via: '1.1 varnish',
+25 silly get     age: '161',
+25 silly get     connection: 'keep-alive',
+25 silly get     'x-served-by': 'cache-sin6922-SIN',
+25 silly get     'x-cache': 'HIT',
+25 silly get     'x-cache-hits': '1',
+25 silly get     'x-timer': 'S1473742833.139176,VS0,VE0',
+25 silly get     vary: 'Accept-Encoding' } ]
+26 verbose get saving mupx to /Users/geomacmini/.npm/registry.npmjs.org/mupx/.cache.json
+27 verbose correctMkdir /Users/geomacmini/.npm correctMkdir not in flight; initializing
+28 verbose makeDirectory /Users/geomacmini/.npm creation not in flight; initializing
+29 silly makeDirectory /Users/geomacmini/.npm uid: 501 gid: 20
+30 silly addNameTag next cb for mupx with tag latest
+31 silly addNamed mupx@1.5.3
+32 verbose addNamed "1.5.3" is a plain semver version for mupx
+33 silly mapToRegistry name mupx
+34 silly mapToRegistry using default registry
+35 silly mapToRegistry registry https://registry.npmjs.org/
+36 silly mapToRegistry data Result {
+36 silly mapToRegistry   raw: 'mupx',
+36 silly mapToRegistry   scope: null,
+36 silly mapToRegistry   name: 'mupx',
+36 silly mapToRegistry   rawSpec: '',
+36 silly mapToRegistry   spec: 'latest',
+36 silly mapToRegistry   type: 'tag' }
+37 silly mapToRegistry uri https://registry.npmjs.org/mupx
+38 verbose addRemoteTarball https://registry.npmjs.org/mupx/-/mupx-1.5.3.tgz not in flight; adding
+39 verbose addRemoteTarball [ 'https://registry.npmjs.org/mupx/-/mupx-1.5.3.tgz',
+39 verbose addRemoteTarball   'f2f37b0d276212c457f50e64c4b6184d3c2e3198' ]
+40 info retry fetch attempt 1 at 10:30:33 AM
+41 info attempt registry request try #1 at 10:30:33 AM
+42 http fetch GET https://registry.npmjs.org/mupx/-/mupx-1.5.3.tgz
+43 http fetch 200 https://registry.npmjs.org/mupx/-/mupx-1.5.3.tgz
+44 silly fetchAndShaCheck shasum f2f37b0d276212c457f50e64c4b6184d3c2e3198
+45 verbose addTmpTarball /var/folders/7y/740_p89s3gngz68wvbh459780000gn/T/npm-1099-7c6290fa/registry.npmjs.org/mupx/-/mupx-1.5.3.tgz not in flight; adding
+46 verbose addTmpTarball already have metadata; skipping unpack for mupx@1.5.3
+47 verbose correctMkdir /Users/geomacmini/.npm correctMkdir not in flight; initializing
+48 silly cache afterAdd mupx@1.5.3
+49 verbose afterAdd /Users/geomacmini/.npm/mupx/1.5.3/package/package.json not in flight; writing
+50 verbose correctMkdir /Users/geomacmini/.npm correctMkdir not in flight; initializing
+51 verbose afterAdd /Users/geomacmini/.npm/mupx/1.5.3/package/package.json written
+52 silly install resolved [ { name: 'mupx',
+52 silly install resolved     version: '1.5.3',
+52 silly install resolved     description: 'Production Quality Meteor Deployments',
+52 silly install resolved     dependencies:
+52 silly install resolved      { async: '^0.9.0',
+52 silly install resolved        cjson: '0.3.x',
+52 silly install resolved        colors: '0.6.x',
+52 silly install resolved        nodemiral: '^1.1.1',
+52 silly install resolved        rimraf: '2.x.x',
+52 silly install resolved        underscore: '1.7.0',
+52 silly install resolved        uuid: '1.4.x',
+52 silly install resolved        archiver: '0.14.x',
+52 silly install resolved        'update-notifier': '0.4.x',
+52 silly install resolved        minimist: '1.1.1' },
+52 silly install resolved     bin: { mupx: './bin/mup' },
+52 silly install resolved     author:
+52 silly install resolved      { name: 'Arunoda Susiripala',
+52 silly install resolved        email: 'arunoda.susiripala@gmail.com' },
+52 silly install resolved     repository: { type: 'git', url: 'git://github.com/arunoda/meteor-up.git' },
+52 silly install resolved     license: 'MIT',
+52 silly install resolved     gitHead: 'e5c45821fcd3e69eb588a13c92a3785eaa1b1a47',
+52 silly install resolved     bugs: { url: 'https://github.com/arunoda/meteor-up/issues' },
+52 silly install resolved     homepage: 'https://github.com/arunoda/meteor-up',
+52 silly install resolved     _id: 'mupx@1.5.3',
+52 silly install resolved     scripts: {},
+52 silly install resolved     _shasum: 'f2f37b0d276212c457f50e64c4b6184d3c2e3198',
+52 silly install resolved     _from: 'mupx@latest',
+52 silly install resolved     _npmVersion: '2.14.3',
+52 silly install resolved     _nodeVersion: '4.1.0',
+52 silly install resolved     _npmUser: { name: 'arunoda', email: 'arunoda.susiripala@gmail.com' },
+52 silly install resolved     dist:
+52 silly install resolved      { shasum: 'f2f37b0d276212c457f50e64c4b6184d3c2e3198',
+52 silly install resolved        tarball: 'https://registry.npmjs.org/mupx/-/mupx-1.5.3.tgz' },
+52 silly install resolved     maintainers: [ [Object] ],
+52 silly install resolved     directories: {},
+52 silly install resolved     _resolved: 'https://registry.npmjs.org/mupx/-/mupx-1.5.3.tgz' } ]
+53 info install mupx@1.5.3 into /usr/local/lib
+54 info installOne mupx@1.5.3
+55 verbose installOne of mupx to /usr/local/lib not in flight; installing
+56 verbose correctMkdir /Users/geomacmini/.npm/_locks correctMkdir not in flight; initializing
+57 verbose makeDirectory /Users/geomacmini/.npm/_locks creation not in flight; initializing
+58 silly makeDirectory /Users/geomacmini/.npm/_locks uid: 501 gid: 20
+59 verbose lock using /Users/geomacmini/.npm/_locks/mupx-84ac75d4c3f80c3a.lock for /usr/local/lib/node_modules/mupx
+60 silly install write writing mupx 1.5.3 to /usr/local/lib/node_modules/mupx
+61 verbose unbuild lib/node_modules/mupx
+62 silly gentlyRm /usr/local/lib/node_modules/mupx is being purged from base /usr/local
+63 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/mupx
+64 verbose tar unpack /Users/geomacmini/.npm/mupx/1.5.3/package.tgz
+65 verbose tar unpacking to /usr/local/lib/node_modules/mupx
+66 silly gentlyRm /usr/local/lib/node_modules/mupx is being purged
+67 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/mupx
+68 silly gunzTarPerm modes [ '755', '644' ]
+69 error tar.unpack untar error /Users/geomacmini/.npm/mupx/1.5.3/package.tgz
+70 verbose unlock done using /Users/geomacmini/.npm/_locks/mupx-84ac75d4c3f80c3a.lock for /usr/local/lib/node_modules/mupx
+71 verbose fstream_path /usr/local/lib/node_modules/mupx
+72 verbose fstream_type Directory
+73 verbose fstream_class DirWriter
+74 verbose stack Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/mupx'
+74 verbose stack     at Error (native)
+75 verbose fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:35:25
+75 verbose fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:47:53
+75 verbose fstream_stack FSReqWrap.oncomplete (fs.js:82:15)
+76 verbose cwd /Users/geomacmini/Desktop/Soham Projects/wequ/project/ResultCapture/ResultCaptureApp
+77 error Darwin 15.0.0
+78 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "-g" "mupx"
+79 error node v4.5.0
+80 error npm  v2.15.9
+81 error path /usr/local/lib/node_modules/mupx
+82 error code EACCES
+83 error errno -13
+84 error syscall mkdir
+85 error Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/mupx'
+85 error     at Error (native)
+85 error  { [Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/mupx']
+85 error   errno: -13,
+85 error   code: 'EACCES',
+85 error   syscall: 'mkdir',
+85 error   path: '/usr/local/lib/node_modules/mupx',
+85 error   fstream_type: 'Directory',
+85 error   fstream_path: '/usr/local/lib/node_modules/mupx',
+85 error   fstream_class: 'DirWriter',
+85 error   fstream_stack:
+85 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:35:25',
+85 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:47:53',
+85 error      'FSReqWrap.oncomplete (fs.js:82:15)' ] }
+86 error Please try running this command again as root/Administrator.
+87 verbose exit [ -13, true ]
+88 verbose unbuild lib/node_modules/mupx
+89 silly gentlyRm /usr/local/lib/node_modules/mupx is being purged from base /usr/local
+90 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/mupx

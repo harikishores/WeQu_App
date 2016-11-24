@@ -5,6 +5,8 @@ Template.questionComment.rendered = function () {
     if (!this.rendered) {
         this.rendered = true;
     }
+    // console.log('textarea');
+    // $('#commentText').focus();
 };
 
 Template.questionComment.helpers({

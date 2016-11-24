@@ -2,10 +2,10 @@ Meteor.startup(function () {
   // process.env.MAIL_URL = 'smtp://guptasohaam:fnlitmqvujffzbwv@smtp.gmail.com:587/'
   if (smtpSettings.find().count() == 0) {
     smtpSettings.insert({
-      username: 'contact@wequ.co',
+      username: 'no-reply@wequ.co',
       password: 'Feedback12',
       server: 'smtp.gmail.com',
-      from: 'contact@wequ.co',
+      from: 'no-reply@wequ.co',
       port: 465,
       Mails: [
         {
